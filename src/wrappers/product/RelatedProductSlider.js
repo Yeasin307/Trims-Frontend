@@ -5,26 +5,26 @@ import SectionTitle from "../../components/section-title/SectionTitle";
 import ProductGrid from "./ProductGrid";
 
 const RelatedProductSlider = ({ spaceBottomClass, category }) => {
-
-  const settings = {
-    loop: false,
-    slidesPerView: 4,
-    grabCursor: true,
-    breakpoints: {
-      1024: {
-        slidesPerView: 4
-      },
-      768: {
-        slidesPerView: 3
-      },
-      640: {
-        slidesPerView: 2
-      },
-      320: {
-        slidesPerView: 1
-      }
-    }
-  };
+  // {...settings}
+  // const settings = {
+  //   loop: false,
+  //   slidesPerView: 4,
+  //   grabCursor: true,
+  //   breakpoints: {
+  //     1024: {
+  //       slidesPerView: 4
+  //     },
+  //     768: {
+  //       slidesPerView: 3
+  //     },
+  //     640: {
+  //       slidesPerView: 2
+  //     },
+  //     320: {
+  //       slidesPerView: 1
+  //     }
+  //   }
+  // };
 
   return (
     <div
@@ -38,7 +38,7 @@ const RelatedProductSlider = ({ spaceBottomClass, category }) => {
           spaceClass="mb-50"
         />
         <div className="row">
-          <Swiper {...settings}>
+          <Swiper>
             <ProductGrid
               category={category}
               limit={6}

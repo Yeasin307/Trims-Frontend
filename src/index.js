@@ -6,9 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { save, load } from "redux-localstorage-simple";
 import { Provider } from "react-redux";
-// import { fetchProducts } from "./redux/actions/productActions";
 import rootReducer from "./redux/reducers/rootReducer";
-// import products from "./data/products.json";
 import App from "./App";
 import "./assets/scss/style.scss";
 import * as serviceWorker from "./serviceWorker";
@@ -20,9 +18,6 @@ const store = createStore(
   load(),
   composeWithDevTools(applyMiddleware(thunk, save()))
 );
-
-// fetch products from json file
-// store.dispatch(fetchProducts(products));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -5,19 +5,12 @@ import { connect } from "react-redux";
 import { setCurrency } from "../../../redux/actions/currencyActions";
 
 const MobileLangCurrChange = ({
-  currency,
-  setCurrency,
   currentLanguageCode,
   dispatch
 }) => {
   const changeLanguageTrigger = e => {
     const languageCode = e.target.value;
     dispatch(changeLanguage(languageCode));
-  };
-
-  const setCurrencyTrigger = e => {
-    const currencyName = e.target.value;
-    setCurrency(currencyName);
   };
 
   const closeMobileMenu = () => {
@@ -41,20 +34,6 @@ const MobileLangCurrChange = ({
           <option value="en">English</option>
           <option value="fn">French</option>
           <option value="de">Germany</option>
-        </select>
-      </div>
-      <div className="lang-curr-style">
-        <span className="title mb-2">Choose Currency</span>
-        <select
-          value={currency.currencyName}
-          onChange={e => {
-            setCurrencyTrigger(e);
-            closeMobileMenu();
-          }}
-        >
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
         </select>
       </div>
     </div>

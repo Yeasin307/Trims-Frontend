@@ -27,7 +27,7 @@ const Contact = ({ location }) => {
         <Breadcrumb />
         <div className="contact-area pt-100 pb-100">
           <div className="container">
-            <div className="contact-map mb-10" id="location">
+            <div className="contact-map mb-10">
               <LocationMap latitude="23.7625" longitude="90.3785" />
             </div>
             <div className="custom-row-2">

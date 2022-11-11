@@ -67,13 +67,8 @@ const FooterOne = ({
                     <Link to={process.env.PUBLIC_URL + "/about"}>About us</Link>
                   </li>
                   <li>
-                    <Link to={process.env.PUBLIC_URL + "/contact#location"}>
-                      Our location
-                    </Link>
-                  </li>
-                  <li>
                     <Link to={process.env.PUBLIC_URL + "/contact"}>
-                      Contact
+                      Contact us
                     </Link>
                   </li>
                 </ul>

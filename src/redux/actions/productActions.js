@@ -19,7 +19,7 @@ export const getProductByCategory = (id) => async (dispatch) => {
     }
     else {
 
-      const res = await axios.get(`${process.env.REACT_APP_API}/products`);
+      const res = await axios.get(`${process.env.REACT_APP_API}/products/active`);
 
       dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: res?.data });
     }

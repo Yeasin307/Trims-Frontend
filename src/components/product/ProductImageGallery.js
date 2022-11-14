@@ -77,7 +77,7 @@ const ProductImageGallery = ({ product }) => {
                   <div key={key}>
                     <LightgalleryItem
                       group="any"
-                      src={process.env.REACT_APP_API + "/static/productImages/" + single.image}
+                      src={process.env.REACT_APP_API + "/static/productimages/" + single.image}
                     >
                       <button>
                         <i className="pe-7s-expand1"></i>
@@ -85,7 +85,7 @@ const ProductImageGallery = ({ product }) => {
                     </LightgalleryItem>
                     <div className="single-image">
                       <img
-                        src={process.env.REACT_APP_API + "/static/productImages/" + single.image}
+                        src={process.env.REACT_APP_API + "/static/productimages/" + single.image}
                         className="img-fluid"
                         alt=""
                       />
@@ -104,7 +104,7 @@ const ProductImageGallery = ({ product }) => {
                 <div key={key}>
                   <div className="single-image">
                     <img
-                      src={process.env.REACT_APP_API + "/static/productImages/" + single.image}
+                      src={process.env.REACT_APP_API + "/static/productimages/" + single.image}
                       className="img-fluid"
                       alt=""
                     />

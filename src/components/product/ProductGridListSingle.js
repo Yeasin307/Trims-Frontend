@@ -40,13 +40,13 @@ const ProductGridListSingle = ({
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
               <img
                 className="default-img"
-                src={process.env.REACT_APP_API + "/static/productImages/" + product.productDetails[0].image}
+                src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[0].image}
                 alt=""
               />
               {product.productDetails.length > 1 ? (
                 <img
                   className="hover-img"
-                  src={process.env.REACT_APP_API + "/static/productImages/" + product.productDetails[1].image}
+                  src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[1].image}
                   alt=""
                 />
               ) : (
@@ -165,13 +165,13 @@ const ProductGridListSingle = ({
                   <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                     <img
                       className="default-img img-fluid"
-                      src={process.env.REACT_APP_API + "/static/productImages/" + product.productDetails[0].image}
+                      src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[0].image}
                       alt=""
                     />
                     {product.productDetails.length > 1 ? (
                       <img
                         className="hover-img img-fluid"
-                        src={process.env.REACT_APP_API + "/static/productImages/" + product.productDetails[1].image}
+                        src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[1].image}
                         alt=""
                       />
                     ) : (

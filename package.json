@@ -2,6 +2,7 @@
   "name": "flone-react",
   "version": "2.0.0",
   "private": true,
+  "homepage": "https://client.asdfashionbd.com",
   "dependencies": {
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "start": "env-cmd -f .env.local react-scripts start",
-    "build": "react-scripts build",
+    "build": "env-cmd -f .env.local react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

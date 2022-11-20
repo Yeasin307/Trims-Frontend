@@ -1,18 +1,26 @@
 import React from "react";
 import Swiper from "react-id-swiper";
-import heroSliderData from "../../data/hero-sliders/hero-slider-one.json";
 import HeroSliderOneSingle from "../../components/hero-slider/HeroSliderOneSingle.js";
+import { useSelector } from "react-redux";
 
 const HeroSliderOne = () => {
+  const { banner } = useSelector((state) => state.componentData);
+
   const params = {
     effect: "fade",
+    spaceBetween: 30,
     loop: true,
+    rebuildOnUpdate: true,
     speed: 1000,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
     },
     watchSlidesVisibility: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
@@ -33,8 +41,8 @@ const HeroSliderOne = () => {
     <div className="slider-area">
       <div className="slider-active nav-style-1">
         <Swiper {...params}>
-          {heroSliderData &&
-            heroSliderData.map((single, key) => {
+          {banner &&
+            banner.map((single, key) => {
               return (
                 <HeroSliderOneSingle
                   sliderClassName="swiper-slide"

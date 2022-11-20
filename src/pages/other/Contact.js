@@ -1,21 +1,53 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import LocationMap from "../../components/contact/LocationMap";
+import axios from "axios";
+import { useToasts } from 'react-toast-notifications'
 
 const Contact = ({ location }) => {
   const { pathname } = location;
+  const { addToast } = useToasts()
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const phoneRef = useRef();
+  const addressRef = useRef();
+  const subjectRef = useRef();
+  const messageRef = useRef();
+
+  const handleContactForm = e => {
+    const fullName = nameRef.current.value;
+    const email = emailRef.current.value;
+    const phone = phoneRef.current.value;
+    const address = addressRef.current.value;
+    const subject = subjectRef.current.value;
+    const message = messageRef.current.value;
+    const product = { fullName, email, phone, address, subject, message }
+
+    axios.post(`${process.env.REACT_APP_API}/leads/create`, product)
+      .then(data => {
+        if (data?.data === "Created lead successfully!") {
+          addToast("Thanks for contact with us!", {
+            appearance: 'success',
+            autoDismiss: true,
+            autoDismissTimeout: 10000
+          })
+          e.target.reset();
+        }
+      })
+    e.preventDefault();
+  }
 
   return (
     <Fragment>
       <MetaTags>
-        <title>Flone | Contact</title>
+        <title>Trims | Contact</title>
         <meta
           name="description"
-          content="Contact of flone react minimalist eCommerce template."
+          content="Contact of trims react minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -105,26 +137,52 @@ const Contact = ({ location }) => {
                   <div className="contact-title mb-30">
                     <h2>Get In Touch</h2>
                   </div>
-                  <form className="contact-form-style">
+                  <form onSubmit={handleContactForm} className="contact-form-style">
                     <div className="row">
                       <div className="col-lg-6">
-                        <input name="name" placeholder="Name*" type="text" />
+                        <input
+                          required
+                          placeholder="Name*"
+                          type="text"
+                          ref={nameRef}
+                        />
                       </div>
                       <div className="col-lg-6">
-                        <input name="email" placeholder="Email*" type="email" />
+                        <input
+                          required
+                          placeholder="Email*"
+                          type="email"
+                          ref={emailRef}
+                        />
+                      </div>
+                      <div className="col-lg-6">
+                        <input
+                          placeholder="Phone"
+                          type="tel"
+                          ref={phoneRef}
+                        />
+                      </div>
+                      <div className="col-lg-6">
+                        <input
+                          placeholder="Address"
+                          type="text"
+                          ref={addressRef}
+                        />
                       </div>
                       <div className="col-lg-12">
                         <input
-                          name="subject"
+                          required
                           placeholder="Subject*"
                           type="text"
+                          ref={subjectRef}
                         />
                       </div>
                       <div className="col-lg-12">
                         <textarea
-                          name="message"
+                          required
                           placeholder="Your Message*"
                           defaultValue={""}
+                          ref={messageRef}
                         />
                         <button className="submit" type="submit">
                           SEND

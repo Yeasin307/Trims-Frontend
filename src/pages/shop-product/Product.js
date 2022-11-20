@@ -18,7 +18,7 @@ const Product = ({ location, product }) => {
         <title>Trims | Product</title>
         <meta
           name="description"
-          content="Product page of flone react minimalist eCommerce template."
+          content="Product page of trims react minimalist eCommerce template."
         />
       </MetaTags>
 

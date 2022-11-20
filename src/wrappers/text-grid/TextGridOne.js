@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
-import textGridData from "../../data/text-grid/text-grid-one.json";
 import TextGridOneSingle from "../../components/text-grid/TextGridOneSingle.js";
+import { useSelector } from "react-redux";
 
 const TextGridOne = ({ spaceBottomClass }) => {
+  const { vision, mission, goal } = useSelector((state) => state.componentData);
+  const textGridData = [vision, mission, goal];
+
   return (
     <div
-      className={`about-mission-area ${
-        spaceBottomClass ? spaceBottomClass : ""
-      }`}
+      className={`about-mission-area ${spaceBottomClass ? spaceBottomClass : ""
+        }`}
     >
       <div className="container">
         <div className="row">

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import featuredIcon from "../../data/featured-icon.png";
+import featuredIcon from "../../data/logo.png";
 
 const FeatureIconSingle = () => {
   return (

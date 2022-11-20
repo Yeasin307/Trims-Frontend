@@ -11,9 +11,18 @@ import FunFactOne from "../../wrappers/fun-fact/FunFactOne";
 // import TeamMemberOne from "../../wrappers/team-member/TeamMemberOne";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
+import { useEffect } from "react";
+import { getComponent } from "../../redux/actions/componentActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const About = ({ location }) => {
+  const { client } = useSelector((state) => state.componentData);
   const { pathname } = location;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getComponent());
+  }, [dispatch])
 
   return (
     <Fragment>
@@ -21,7 +30,7 @@ const About = ({ location }) => {
         <title>Trims | About us</title>
         <meta
           name="description"
-          content="About page of flone react minimalist eCommerce template."
+          content="About page of trims react minimalist eCommerce template."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -53,12 +62,12 @@ const About = ({ location }) => {
         >
           <div className="container">
             {/* section title */}
-            <SectionTitleTwo
-              titleText="Our Clients"
-              subTitleText="Lorem ipsum dolor sit amet conse ctetu."
+            {client && <SectionTitleTwo
+              titleText={client?.title}
+              subTitleText={client?.description}
               positionClass="text-center"
               spaceClass="mb-60"
-            />
+            />}
           </div>
         </div>
 

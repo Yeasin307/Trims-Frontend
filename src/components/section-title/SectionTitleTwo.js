@@ -9,12 +9,11 @@ const SectionTitleTwo = ({
 }) => {
   return (
     <div
-      className={`section-title-2 ${positionClass ? positionClass : ""} ${
-        spaceClass ? spaceClass : ""
-      }`}
+      className={`section-title-2 ${positionClass ? positionClass : ""} ${spaceClass ? spaceClass : ""
+        }`}
     >
-      <h2>{titleText}</h2>
-      <p>{subTitleText}</p>
+      <div dangerouslySetInnerHTML={{ __html: `${titleText}` }} />
+      <div dangerouslySetInnerHTML={{ __html: `${subTitleText}` }} />
     </div>
   );
 };

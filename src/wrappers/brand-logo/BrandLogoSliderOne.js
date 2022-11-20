@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Swiper from "react-id-swiper";
+import { useSelector } from "react-redux";
 import BrandLogoOneSingle from "../../components/brand-logo/BrandLogoOneSingle";
-import brandLogoData from "../../data/brand-logos/brand-logo-one.json";
 
 const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
+  const { client } = useSelector((state) => state.componentData);
   const settings = {
     loop: true,
     autoplay: {
@@ -30,15 +31,14 @@ const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
 
   return (
     <div
-      className={`brand-logo-area ${
-        spaceBottomClass ? spaceBottomClass : ""
-      }  ${spaceTopClass ? spaceTopClass : ""}`}
+      className={`brand-logo-area ${spaceBottomClass ? spaceBottomClass : ""
+        }  ${spaceTopClass ? spaceTopClass : ""}`}
     >
       <div className="container">
         <div className="brand-logo-active">
           <Swiper {...settings}>
-            {brandLogoData &&
-              brandLogoData.map((single, key) => {
+            {client?.image &&
+              client?.image?.map((single, key) => {
                 return (
                   <BrandLogoOneSingle
                     data={single}

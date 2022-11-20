@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom";
 import { getProductByCategory } from "../../redux/actions/productActions";
 
 const ShopGridStandard = ({ location }) => {
+    const [isLoading, setIsLoading] = useState(true);
     const [layout, setLayout] = useState('grid three-column');
     const [sortType, setSortType] = useState('');
     const [sortValue, setSortValue] = useState('');
@@ -26,8 +27,18 @@ const ShopGridStandard = ({ location }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getProductByCategory(id));
+        setIsLoading(true);
+        dispatch(getProductByCategory(id))
+            .then(() => {
+                setIsLoading(false);
+            })
     }, [dispatch, id])
+
+    useEffect(() => {
+        let sortedProducts = getSortedProducts(products, sortType, sortValue);
+        setSortedProducts(sortedProducts);
+        setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
+    }, [offset, products, sortType, sortValue]);
 
     const pageLimit = 15;
     const { pathname } = location;
@@ -41,17 +52,11 @@ const ShopGridStandard = ({ location }) => {
         setSortValue(sortValue);
     }
 
-    useEffect(() => {
-        let sortedProducts = getSortedProducts(products, sortType, sortValue);
-        setSortedProducts(sortedProducts);
-        setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-    }, [offset, products, sortType, sortValue]);
-
     return (
         <Fragment>
             <MetaTags>
                 <title>Trims | Accessories</title>
-                <meta name="description" content="Shop page of flone react minimalist eCommerce template." />
+                <meta name="description" content="Shop page of trims react minimalist eCommerce template." />
             </MetaTags>
 
             <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
@@ -63,7 +68,8 @@ const ShopGridStandard = ({ location }) => {
 
                 <div className="shop-area pt-95 pb-100">
                     <div className="container">
-                        <div className="row">
+                        {isLoading && <p>Loading...</p>}
+                        {!isLoading && <div className="row">
                             <div className="col-lg-3 order-2 order-lg-1">
                                 {/* shop sidebar */}
                                 <ShopSidebar products={products} getSortParams={getSortParams} sideSpaceClass="mr-30" />
@@ -94,7 +100,7 @@ const ShopGridStandard = ({ location }) => {
                                     />
                                 </div>
                             </div>
-                        </div>
+                        </div>}
                     </div>
                 </div>
             </LayoutOne>

@@ -4,17 +4,16 @@ import React from "react";
 const BrandLogoOneSingle = ({ data, sliderClassName, spaceBottomClass }) => {
   return (
     <div
-      className={`single-brand-logo ${sliderClassName ? sliderClassName : ""} ${
-        spaceBottomClass ? spaceBottomClass : ""
-      }`}
+      className={`single-brand-logo ${sliderClassName ? sliderClassName : ""} ${spaceBottomClass ? spaceBottomClass : ""
+        }`}
     >
-      <img src={process.env.PUBLIC_URL + data.image} alt="" />
+      <img src={process.env.REACT_APP_API + "/static/components/" + data} alt="" />
     </div>
   );
 };
 
 BrandLogoOneSingle.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.string,
   sliderClassName: PropTypes.string,
   spaceBottomClass: PropTypes.string
 };

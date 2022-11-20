@@ -6,6 +6,7 @@ import compareReducer from "./compareReducer";
 import { combineReducers } from "redux";
 import { createMultilanguageReducer } from "redux-multilanguage";
 import accessoriesReducer from "./accessoriesReducer";
+import componentReducer from "./componentReducer";
 
 const rootReducer = combineReducers({
   multilanguage: createMultilanguageReducer({ currentLanguageCode: "en" }),
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   cartData: cartReducer,
   wishlistData: wishlistReducer,
   compareData: compareReducer,
-  accessoriesData: accessoriesReducer
+  accessoriesData: accessoriesReducer,
+  componentData: componentReducer
 });
 
 export default rootReducer;

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/section-title/SectionTitle";
 import ProductGrid from "./ProductGrid";
 import { useDispatch } from "react-redux";
@@ -11,10 +11,15 @@ const TabProduct = ({
   bgColorClass,
   category
 }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProductByCategory());
+    setIsLoading(true);
+    dispatch(getProductByCategory())
+      .then(() => {
+        setIsLoading(false);
+      })
   }, [dispatch])
 
   return (
@@ -25,12 +30,13 @@ const TabProduct = ({
       <div className="container">
         <SectionTitle titleText="FEATURED PRODUCTS!" positionClass="text-center" />
         <div className="row">
-          <ProductGrid
+          {isLoading && <p>Loading...</p>}
+          {!isLoading && <ProductGrid
             category={category}
             type=""
             limit={8}
             spaceBottomClass="mb-25"
-          />
+          />}
         </div>
       </div>
     </div>

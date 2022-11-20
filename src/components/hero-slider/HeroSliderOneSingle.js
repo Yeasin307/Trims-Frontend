@@ -12,8 +12,8 @@ const HeroSliderOneSingle = ({ data, sliderClassName }) => {
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-6 col-12 col-sm-6">
             <div className="slider-content slider-animated-1">
-              <h3 className="animated">{data.title}</h3>
-              <h1 className="animated">{data.subtitle}</h1>
+              <div className="animated" dangerouslySetInnerHTML={{ __html: `${data.subtitle}` }} />
+              <div className="animated" dangerouslySetInnerHTML={{ __html: `${data.title}` }} />
               {/* <div className="slider-btn btn-hover">
                 <Link
                   className="animated"
@@ -28,14 +28,14 @@ const HeroSliderOneSingle = ({ data, sliderClassName }) => {
             <div className="slider-single-img slider-animated-1">
               <img
                 className="animated img-fluid"
-                src={process.env.PUBLIC_URL + data.image}
+                src={process.env.REACT_APP_API + "/static/components/" + data.image}
                 alt=""
               />
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

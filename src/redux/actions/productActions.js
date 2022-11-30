@@ -10,9 +10,19 @@ export const getProductByCategory = (id) => async (dispatch) => {
 
       let products = []
 
-      for (const category of res?.data?.Child) {
-        const res = await axios.get(`${process.env.REACT_APP_API}/products/${category?.id}`);
+      if (res?.data?.Child?.length === 0) {
+
+        const res = await axios.get(`${process.env.REACT_APP_API}/products/${id}`);
         products = [...products, ...res?.data];
+
+      }
+      else {
+
+        for (const category of res?.data?.Child) {
+          const res = await axios.get(`${process.env.REACT_APP_API}/products/${category?.id}`);
+          products = [...products, ...res?.data];
+        }
+
       }
 
       dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: products });

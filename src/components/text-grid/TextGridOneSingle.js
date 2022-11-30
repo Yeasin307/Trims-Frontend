@@ -7,8 +7,8 @@ const TextGridOneSingle = ({ data, spaceBottomClass }) => {
       <div
         className={`single-mission ${spaceBottomClass ? spaceBottomClass : ""}`}
       >
-        {data.title && <div dangerouslySetInnerHTML={{ __html: `${data.title}` }} />}
-        {data.description && <div dangerouslySetInnerHTML={{ __html: `${data.description}` }} />}
+        {data?.title && <div dangerouslySetInnerHTML={{ __html: `${data?.title}` }} />}
+        {data?.description && <div dangerouslySetInnerHTML={{ __html: `${data?.description}` }} />}
       </div>
     </div>
   );

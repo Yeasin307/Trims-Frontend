@@ -30,7 +30,7 @@ const About = ({ location }) => {
         <title>Trims | About us</title>
         <meta
           name="description"
-          content="About page of trims react minimalist eCommerce template."
+          content="About page of trim tex bd."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>

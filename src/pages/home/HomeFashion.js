@@ -20,7 +20,7 @@ const HomeFashion = () => {
         <title>Trims | Home</title>
         <meta
           name="description"
-          content="Home of trims react minimalist eCommerce template."
+          content="Home page of trim tex bd."
         />
       </MetaTags>
       <LayoutOne

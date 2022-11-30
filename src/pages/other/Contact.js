@@ -47,7 +47,7 @@ const Contact = ({ location }) => {
         <title>Trims | Contact</title>
         <meta
           name="description"
-          content="Contact of trims react minimalist eCommerce template."
+          content="Contact page of trim tex bd."
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>

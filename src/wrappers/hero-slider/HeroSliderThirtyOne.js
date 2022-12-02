@@ -35,9 +35,8 @@ const HeroSliderThirtyOne = ({
   };
   return (
     <div
-      className={`slider-area ${spaceLeftClass ? spaceLeftClass : ""} ${
-        spaceRightClass ? spaceRightClass : ""
-      } ${spaceBottomClass ? spaceBottomClass : ""}`}
+      className={`slider-area ${spaceLeftClass ? spaceLeftClass : ""} ${spaceRightClass ? spaceRightClass : ""
+        } ${spaceBottomClass ? spaceBottomClass : ""}`}
     >
       <div className="slider-active nav-style-3 nav-style-3--blue">
         <Swiper {...params}>

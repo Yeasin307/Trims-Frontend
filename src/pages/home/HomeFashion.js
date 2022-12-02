@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
 import LayoutOne from "../../layouts/LayoutOne";
-import HeroSliderOne from "../../wrappers/hero-slider/HeroSliderOne";
+import HeroSliderSeventeen from "../../wrappers/hero-slider/HeroSliderSeventeen";
 import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
 import TabProduct from "../../wrappers/product/TabProduct";
 import { getComponent } from "../../redux/actions/componentActions";
@@ -29,7 +29,7 @@ const HomeFashion = () => {
         headerPaddingClass="header-padding-1"
       >
         {/* hero slider */}
-        <HeroSliderOne />
+        <HeroSliderSeventeen />
 
         {/* featured icon */}
         <FeatureIcon spaceTopClass="pt-40" />

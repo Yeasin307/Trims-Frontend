@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 const HeroSliderThirtyOneSingle = ({ data, sliderClass }) => {
   return (
     <div
-      className={`single-slider slider-height-1 slider-height-res15 d-flex align-items-center slider-height-res bg-img ${
-        sliderClass ? sliderClass : ""
-      }`}
+      className={`single-slider slider-height-1 slider-height-res15 d-flex align-items-center slider-height-res bg-img ${sliderClass ? sliderClass : ""
+        }`}
       style={{ backgroundImage: `url(${process.env.PUBLIC_URL + data.image})` }}
     >
       <div className="container">

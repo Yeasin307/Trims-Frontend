@@ -32,6 +32,14 @@ FooterMap.propTypes = {
   longitude: PropTypes.string
 };
 
+const LoadingContainer = (props) => (
+  <div className="flone-preloader">
+    <span></span>
+    <span></span>
+  </div>
+);
+
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyBDqzysVw3ix_7FepCo9f1Zxcr9VI-bKpI"
+  apiKey: "AIzaSyBDqzysVw3ix_7FepCo9f1Zxcr9VI-bKpI",
+  LoadingContainer: LoadingContainer
 })(FooterMap);

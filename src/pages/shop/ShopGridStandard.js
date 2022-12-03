@@ -68,7 +68,12 @@ const ShopGridStandard = ({ location }) => {
 
                 <div className="shop-area pt-95 pb-100">
                     <div className="container">
-                        {isLoading && <p>Loading...</p>}
+                        {isLoading &&
+                            <div className="flone-preloader">
+                                <span></span>
+                                <span></span>
+                            </div>
+                        }
                         {!isLoading && <div className="row">
                             <div className="col-lg-3 order-2 order-lg-1">
                                 {/* shop sidebar */}

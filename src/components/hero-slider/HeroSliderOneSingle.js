@@ -3,6 +3,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 
 const HeroSliderOneSingle = ({ data, sliderClassName }) => {
+
   return (
     <div
       className={`single-slider slider-height-1 bg-purple ${sliderClassName ? sliderClassName : ""

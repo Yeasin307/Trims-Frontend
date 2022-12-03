@@ -7,10 +7,10 @@ const HeroSliderOne = () => {
   const { banner } = useSelector((state) => state.componentData);
 
   const params = {
-    effect: "fade",
-    spaceBetween: 30,
-    loop: true,
     rebuildOnUpdate: true,
+    spaceBetween: 30,
+    effect: "fade",
+    loop: true,
     speed: 1000,
     autoplay: {
       delay: 5000,

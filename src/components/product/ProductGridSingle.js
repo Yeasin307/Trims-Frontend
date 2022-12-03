@@ -41,12 +41,14 @@ const ProductGridSingle = ({
               <img
                 className="default-img"
                 src={process.env.REACT_APP_API + "/static/productimages/" + product?.productDetails[0]?.image}
+                loading="lazy"
                 alt=""
               />
               {product?.productDetails?.length > 1 ? (
                 <img
                   className="hover-img"
                   src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[1].image}
+                  loading="lazy"
                   alt=""
                 />
               ) : (

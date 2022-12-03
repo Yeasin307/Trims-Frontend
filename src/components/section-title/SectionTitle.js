@@ -11,7 +11,7 @@ const SectionTitle = ({
 }) => {
   return (
     <div
-      className={`section-title ${positionClass ? positionClass : ""} ${spaceClass ? spaceClass : ""
+      className={`section-title mb-100 mt-50 ${positionClass ? positionClass : ""} ${spaceClass ? spaceClass : ""
         } ${borderClass ? borderClass : ""}`}
     >
       <h2>{titleText}</h2>

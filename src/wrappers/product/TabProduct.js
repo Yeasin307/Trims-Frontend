@@ -28,14 +28,19 @@ const TabProduct = ({
         } ${bgColorClass ? bgColorClass : ""}`}
     >
       <div className="container">
-        <SectionTitle titleText="FEATURED PRODUCTS!" positionClass="text-center" />
+        <SectionTitle titleText="FEATURED PRODUCTS" positionClass="text-center" />
         <div className="row">
-          {isLoading && <p>Loading...</p>}
+          {isLoading &&
+            <div className="flone-preloader">
+              <span></span>
+              <span></span>
+            </div>
+          }
           {!isLoading && <ProductGrid
             category={category}
             type=""
             limit={8}
-            spaceBottomClass="mb-25"
+            spaceBottomClass="mb-100"
           />}
         </div>
       </div>

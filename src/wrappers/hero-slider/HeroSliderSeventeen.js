@@ -1,18 +1,25 @@
 import React from "react";
 import Swiper from "react-id-swiper";
-import sliderData from "../../data/hero-sliders/hero-slider-seventeen.json";
 import HeroSliderSeventeenSingle from "../../components/hero-slider/HeroSliderSeventeenSingle.js";
+import { useSelector } from "react-redux";
 
 const HeroSliderSeventeen = () => {
+  const { banner } = useSelector((state) => state.componentData);
+
   const params = {
     effect: "fade",
-    loop: true,
+    shouldSwiperUpdate: true,
     speed: 1000,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false
     },
     watchSlidesVisibility: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev"
@@ -28,16 +35,17 @@ const HeroSliderSeventeen = () => {
       </button>
     )
   };
+
   return (
     <div className="slider-area">
       <div className="slider-active nav-style-1">
         <Swiper {...params}>
-          {sliderData &&
-            sliderData.map((single, key) => {
+          {banner &&
+            banner.map((single, key) => {
               return (
                 <HeroSliderSeventeenSingle
-                  data={single}
                   key={key}
+                  data={single}
                   sliderClass="swiper-slide"
                 />
               );

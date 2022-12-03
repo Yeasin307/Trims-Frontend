@@ -50,8 +50,8 @@ const HomeFashion = () => {
           <div className="container">
             {/* section title */}
             {client && <SectionTitleTwo
-              titleText={client?.title}
-              subTitleText={client?.description}
+              titleText={client?.title ? client?.title : ''}
+              subTitleText={client?.description ? client?.description : ''}
               positionClass="text-center"
               spaceClass="mb-60"
             />}

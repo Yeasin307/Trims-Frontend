@@ -2,9 +2,12 @@ import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { getDiscountPrice } from "../../helpers/product";
 // import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
+import loader from "../../data/loader.gif";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const ProductGridSingle = ({
   product,
@@ -38,19 +41,27 @@ const ProductGridSingle = ({
         >
           <div className="product-img">
             <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
-              <img
-                className="default-img"
-                src={process.env.REACT_APP_API + "/static/productimages/" + product?.productDetails[0]?.image}
-                loading="lazy"
-                alt=""
-              />
-              {product?.productDetails?.length > 1 ? (
-                <img
-                  className="hover-img"
-                  src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[1].image}
-                  loading="lazy"
+              <div className="default-img">
+                <LazyLoadImage
                   alt=""
-                />
+                  loading="lazy"
+                  // effect="blur"
+                  width={270}
+                  height={360}
+                  placeholderSrc={loader}
+                  src={process.env.REACT_APP_API + "/static/productimages/" + product?.productDetails[0]?.image} />
+              </div>
+              {product?.productDetails?.length > 1 ? (
+                <div className="hover-img">
+                  <LazyLoadImage
+                    alt=""
+                    loading="lazy"
+                    // effect="blur"
+                    width={270}
+                    height={360}
+                    placeholderSrc={loader}
+                    src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[1].image} />
+                </div>
               ) : (
                 ""
               )}

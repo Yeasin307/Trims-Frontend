@@ -2,12 +2,13 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const BrandLogoOneSingle = ({ data, sliderClassName, spaceBottomClass }) => {
+  console.log(data);
   return (
     <div
       className={`single-brand-logo ${sliderClassName ? sliderClassName : ""} ${spaceBottomClass ? spaceBottomClass : ""
         }`}
     >
-      <img src={process.env.REACT_APP_API + "/static/components/" + data} alt="" />
+      <img src={process.env.REACT_APP_API + "/static/components/" + data} alt="" loading="lazy" />
     </div>
   );
 };

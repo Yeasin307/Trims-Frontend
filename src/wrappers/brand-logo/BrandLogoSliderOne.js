@@ -6,6 +6,7 @@ import BrandLogoOneSingle from "../../components/brand-logo/BrandLogoOneSingle";
 
 const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
   const { client } = useSelector((state) => state.componentData);
+
   const settings = {
     loop: true,
     autoplay: {

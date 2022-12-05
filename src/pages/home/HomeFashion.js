@@ -3,7 +3,7 @@ import MetaTags from "react-meta-tags";
 import LayoutOne from "../../layouts/LayoutOne";
 import HeroSliderSeventeen from "../../wrappers/hero-slider/HeroSliderSeventeen";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
-import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
+// import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
 import TabProduct from "../../wrappers/product/TabProduct";
 import { getComponent } from "../../redux/actions/componentActions";
 import { useDispatch, useSelector } from "react-redux";

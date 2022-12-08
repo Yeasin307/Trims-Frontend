@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { changeLanguage } from "redux-multilanguage";
+import uk from "../../../data/uk.png";
+import germany from "../../../data/germany.png";
+import france from "../../../data/france.png";
 
 const LanguageCurrencyChanger = ({
   currency,
@@ -22,6 +25,8 @@ const LanguageCurrencyChanger = ({
     <div className="language-currency-wrap">
       <div className="same-language-currency language-style">
         <span>
+          <img src={currentLanguageCode === "en" ? uk : currentLanguageCode === "fn" ? france : germany} alt="" />
+          {" "}
           {currentLanguageCode === "en"
             ? "English"
             : currentLanguageCode === "fn"
@@ -35,17 +40,17 @@ const LanguageCurrencyChanger = ({
           <ul>
             <li>
               <button value="en" onClick={e => changeLanguageTrigger(e)}>
-                English
+                <img src={uk} alt="" />{" "}English
               </button>
             </li>
             <li>
               <button value="fn" onClick={e => changeLanguageTrigger(e)}>
-                French
+                <img src={france} alt="" />{" "}French
               </button>
             </li>
             <li>
               <button value="de" onClick={e => changeLanguageTrigger(e)}>
-                Germany
+                <img src={germany} alt="" />{" "}Germany
               </button>
             </li>
           </ul>

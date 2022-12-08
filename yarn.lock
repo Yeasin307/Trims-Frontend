@@ -5096,6 +5096,11 @@
   dependencies:
     "locate-path" "^3.0.0"
 
+"flag-icons@^6.6.6":
+  "integrity" "sha512-4lHDKxldnQ7q617pf9Dx9nAetT+9zcMpUexbRrc9kjLw9KJgZ83zA5Dky3Vv7ZDzUjAiZ46x/cy5P0HnEnqA2A=="
+  "resolved" "https://registry.npmjs.org/flag-icons/-/flag-icons-6.6.6.tgz"
+  "version" "6.6.6"
+
 "flat-cache@^2.0.1":
   "integrity" "sha512-LoQe6yDuUMDzQAEH8sgmh4Md6oZnc/7PjtwjNFSzveXqSHt6ka9fPBuso7IGf9Rz4uqnSnWiFH2B/zj24a5ReA=="
   "resolved" "https://registry.npmjs.org/flat-cache/-/flat-cache-2.0.1.tgz"

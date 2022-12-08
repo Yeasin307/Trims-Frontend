@@ -51,6 +51,11 @@ const ProductGridSingle = ({
                   placeholderSrc={loader}
                   src={process.env.REACT_APP_API + "/static/productimages/" + product?.productDetails[0]?.image} />
               </div>
+              {/* <img
+                alt=""
+                className="default-img"
+                src={process.env.REACT_APP_API + "/static/productimages/" + product?.productDetails[0]?.image}
+              /> */}
               {product?.productDetails?.length > 1 ? (
                 <div className="hover-img">
                   <LazyLoadImage
@@ -62,6 +67,11 @@ const ProductGridSingle = ({
                     placeholderSrc={loader}
                     src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[1].image} />
                 </div>
+                // <img
+                //   alt=""
+                //   className="hover-img"
+                //   src={process.env.REACT_APP_API + "/static/productimages/" + product.productDetails[1].image}
+                // />
               ) : (
                 ""
               )}

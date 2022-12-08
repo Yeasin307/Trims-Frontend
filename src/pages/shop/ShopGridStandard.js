@@ -11,18 +11,22 @@ import ShopSidebar from '../../wrappers/product/ShopSidebar';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
 import { useParams } from "react-router-dom";
+import { getIndividualCategories } from "../../helpers/product";
 import { getProductByCategory } from "../../redux/actions/productActions";
 
 const ShopGridStandard = ({ location }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [layout, setLayout] = useState('grid three-column');
-    const [sortType, setSortType] = useState('');
-    const [sortValue, setSortValue] = useState('');
+    const [sortType, setSortType] = useState('category');
+    // const [sortValue, setSortValue] = useState('');
+    const { products } = useSelector((state) => state.productData);
+    const uniqueCategories = getIndividualCategories(products);
+    const [categorySortValues, setCategorySortValues] = useState([...uniqueCategories]);
+    const [tagSortValues, setTagSortValues] = useState([]);
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
     const [sortedProducts, setSortedProducts] = useState([]);
-    const { products } = useSelector((state) => state.productData);
     const { id } = useParams();
     const dispatch = useDispatch();
 
@@ -35,10 +39,10 @@ const ShopGridStandard = ({ location }) => {
     }, [dispatch, id])
 
     useEffect(() => {
-        let sortedProducts = getSortedProducts(products, sortType, sortValue);
+        let sortedProducts = getSortedProducts(products, sortType, categorySortValues, tagSortValues);
         setSortedProducts(sortedProducts);
         setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-    }, [offset, products, sortType, sortValue]);
+    }, [categorySortValues, offset, products, sortType, tagSortValues]);
 
     const pageLimit = 15;
     const { pathname } = location;
@@ -47,9 +51,44 @@ const ShopGridStandard = ({ location }) => {
         setLayout(layout)
     }
 
-    const getSortParams = (sortType, sortValue) => {
-        setSortType(sortType);
-        setSortValue(sortValue);
+    const getSortParams = (sortType, sortValue, e) => {
+        if (sortType === "category") {
+            setSortType(sortType);
+            setTagSortValues([]);
+            if (!categorySortValues.includes(sortValue)) {
+
+                if (sortValue === "") {
+                    if (e.currentTarget.classList.contains('active')) {
+                        setCategorySortValues([]);
+                    }
+                    else {
+                        setCategorySortValues([...uniqueCategories]);
+                    }
+                }
+                else {
+                    setCategorySortValues([...categorySortValues, sortValue]);
+                }
+            }
+            else {
+                const index = categorySortValues.indexOf(sortValue);
+                if (index !== -1) {
+                    categorySortValues.splice(index, 1);
+                }
+            }
+        }
+        else if (sortType === "tag") {
+            setSortType(sortType);
+            setCategorySortValues([]);
+            if (!tagSortValues.includes(sortValue)) {
+                setTagSortValues([...tagSortValues, sortValue]);
+            }
+            else {
+                const index = tagSortValues.indexOf(sortValue);
+                if (index !== -1) {
+                    tagSortValues.splice(index, 1);
+                }
+            }
+        }
     }
 
     return (

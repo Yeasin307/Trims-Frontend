@@ -17,23 +17,24 @@ import { getProductByCategory } from "../../redux/actions/productActions";
 const ShopGridStandard = ({ location }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [layout, setLayout] = useState('grid three-column');
-    const [sortType, setSortType] = useState('category');
+    const [sortType, setSortType] = useState('');
     // const [sortValue, setSortValue] = useState('');
-    const { products } = useSelector((state) => state.productData);
-    const uniqueCategories = getIndividualCategories(products);
-    const [categorySortValues, setCategorySortValues] = useState([...uniqueCategories]);
+    const [categorySortValues, setCategorySortValues] = useState([]);
     const [tagSortValues, setTagSortValues] = useState([]);
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
     const [sortedProducts, setSortedProducts] = useState([]);
     const { id } = useParams();
+    const { products } = useSelector((state) => state.productData);
+    const uniqueCategories = getIndividualCategories(products);
     const dispatch = useDispatch();
 
     useEffect(() => {
         setIsLoading(true);
         dispatch(getProductByCategory(id))
             .then(() => {
+                setSortType('');
                 setIsLoading(false);
             })
     }, [dispatch, id])
@@ -42,7 +43,7 @@ const ShopGridStandard = ({ location }) => {
         let sortedProducts = getSortedProducts(products, sortType, categorySortValues, tagSortValues);
         setSortedProducts(sortedProducts);
         setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-    }, [categorySortValues, offset, products, sortType, tagSortValues]);
+    }, [offset, products, sortType, categorySortValues, tagSortValues]);
 
     const pageLimit = 15;
     const { pathname } = location;

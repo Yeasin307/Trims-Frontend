@@ -61,22 +61,17 @@ export const getProductCartQuantity = (cartItems, product, color, size) => {
 export const getSortedProducts = (products, sortType, categorySortValues, tagSortValues) => {
   if (products && sortType && categorySortValues && tagSortValues) {
     if (sortType === "category") {
-      if (categorySortValues.length === 0) {
-        return [];
-      }
-      else {
-        let sortedProducts = [];
-        categorySortValues.forEach(categorySortValue => {
-          const filteredProducts = products.filter(
-            product => product?.categoryName?.name === categorySortValue
-          );
-          sortedProducts = [...sortedProducts, ...filteredProducts]
-        })
-        return sortedProducts;
-        // return products.filter(
-        // product => product?.categoryName?.name === sortValue
-        // );
-      }
+      let sortedProducts = [];
+      categorySortValues.forEach(categorySortValue => {
+        const filteredProducts = products.filter(
+          product => product?.categoryName?.name === categorySortValue
+        );
+        sortedProducts = [...sortedProducts, ...filteredProducts]
+      })
+      return sortedProducts;
+      // return products.filter(
+      // product => product?.categoryName?.name === sortValue
+      // );
     }
     else if (sortType === "tag") {
       let sortedProducts = [];

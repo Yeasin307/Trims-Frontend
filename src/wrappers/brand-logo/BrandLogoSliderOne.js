@@ -7,8 +7,12 @@ import BrandLogoOneSingle from "../../components/brand-logo/BrandLogoOneSingle";
 const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
   const { client } = useSelector((state) => state.componentData);
 
-  const settings = {
+  const params = {
     loop: true,
+    shouldSwiperUpdate: true,
+    slidesPerView: 3,
+    spaceBetween: 30,
+    rebuildOnUpdate: true,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false
@@ -37,7 +41,7 @@ const BrandLogoSliderOne = ({ spaceBottomClass, spaceTopClass }) => {
     >
       <div className="container">
         <div className="brand-logo-active">
-          <Swiper {...settings}>
+          <Swiper {...params}>
             {client?.image &&
               client?.image?.map((single, key) => {
                 return (

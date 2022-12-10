@@ -13,7 +13,6 @@ const ShopCategories = ({ categories, getSortParams }) => {
             <li>
               <div className="sidebar-widget-list-left">
                 <button
-                  className="active"
                   onClick={e => {
                     getSortParams("category", "", e);
                     setActiveSort(e, 'all');
@@ -28,7 +27,6 @@ const ShopCategories = ({ categories, getSortParams }) => {
                 <li key={key}>
                   <div className="sidebar-widget-list-left">
                     <button
-                      className="active"
                       onClick={e => {
                         getSortParams("category", category);
                         setActiveSort(e);

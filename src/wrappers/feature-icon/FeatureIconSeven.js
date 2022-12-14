@@ -6,9 +6,8 @@ import FeatureIconSevenSingle from "../../components/feature-icon/FeatureIconSev
 const FeatureIconSeven = ({ spaceTopClass, spaceBottomClass }) => {
   return (
     <div
-      className={`support-area ${spaceTopClass ? spaceTopClass : ""} ${
-        spaceBottomClass ? spaceBottomClass : ""
-      }`}
+      className={`support-area ${spaceTopClass ? spaceTopClass : ""} ${spaceBottomClass ? spaceBottomClass : ""
+        }`}
     >
       <div className="container">
         <div className="row feature-icon-two-wrap">

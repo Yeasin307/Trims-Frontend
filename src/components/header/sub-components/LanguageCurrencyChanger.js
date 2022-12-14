@@ -4,6 +4,9 @@ import { changeLanguage } from "redux-multilanguage";
 import uk from "../../../data/uk.png";
 import germany from "../../../data/germany.png";
 import france from "../../../data/france.png";
+import CallIcon from '@mui/icons-material/Call';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 const LanguageCurrencyChanger = ({
   currency,
@@ -80,8 +83,26 @@ const LanguageCurrencyChanger = ({
           </ul>
         </div>
       </div> */}
-      <div className="same-language-currency">
-        <p>Call Us 3965410</p>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="same-language-currency">
+        <CallIcon fontSize="large" sx={{ color: 'blueViolet' }} />
+        <div style={{ marginLeft: '10px' }}>
+          <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Call Us</h5>
+          <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>+880-1911112222</h5>
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="same-language-currency">
+        <MailOutlineIcon fontSize="large" sx={{ color: 'blueViolet' }} />
+        <div style={{ marginLeft: '10px' }}>
+          <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Email Us</h5>
+          <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Info.trimtexbd@gmail.com</h5>
+        </div>
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="same-language-currency">
+        <LocationOnOutlinedIcon fontSize="large" sx={{ color: 'blueViolet' }} />
+        <div style={{ marginLeft: '10px' }}>
+          <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Our Location</h5>
+          <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Dhaka</h5>
+        </div>
       </div>
     </div>
   );

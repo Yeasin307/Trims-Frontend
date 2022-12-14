@@ -4,6 +4,10 @@
   "private": true,
   "homepage": "https://client.asdfashionbd.com",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.17",
     "animate.css": "^3.7.2",
     "axios": "^0.19.0",
     "bootstrap": "4.6.0",

@@ -59,9 +59,6 @@ const Contact = ({ location }) => {
         <Breadcrumb />
         <div className="contact-area pt-100 pb-100">
           <div className="container">
-            <div className="contact-map mb-10">
-              <LocationMap latitude="23.7625" longitude="90.3785" />
-            </div>
             <div className="custom-row-2">
               <div className="col-lg-4 col-md-5">
                 <div className="contact-info-wrap">
@@ -193,6 +190,9 @@ const Contact = ({ location }) => {
                   <p className="form-message" />
                 </div>
               </div>
+            </div>
+            <div className="contact-map mt-10">
+              <LocationMap latitude="23.7625" longitude="90.3785" />
             </div>
           </div>
         </div>

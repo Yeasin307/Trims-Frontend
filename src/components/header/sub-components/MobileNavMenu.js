@@ -17,26 +17,48 @@ const MobileNavMenu = ({ strings }) => {
     <nav className="offcanvas-navigation" id="offcanvas-navigation">
       <ul>
         <li className="menu-item-has-children">
-          <Link to={process.env.PUBLIC_URL + "/"}>{strings["home"]}</Link>
+          <Link to={process.env.PUBLIC_URL + "/home"}>{strings["home"]}</Link>
         </li>
 
         <li className="menu-item-has-children">
-          <Link to={process.env.PUBLIC_URL + "/home"}>
+          <Link to={process.env.PUBLIC_URL} style={{ pointerEvents: "none" }}>
             {strings["shop"]}
           </Link>
           <ul className="sub-menu">
-            <li>
+            {accessories?.map(data => (
+              <li key={data.id} className="menu-item-has-children">
+                <Link to={process.env.PUBLIC_URL + `/accessories/${data?.id}`}>
+                  {data.name}
+                </Link>
+                <ul className="sub-menu">
+                  {data?.child?.map(data => (
+                    <li key={data.id}>
+                      <Link to={process.env.PUBLIC_URL + `/accessories/${data?.id}`}>
+                        {data.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+
+            {/* <li>
               {accessories?.map(data => (
                 <Link key={data.id} to={process.env.PUBLIC_URL + `/accessories/${data?.id}`}>
                   {data.name}
                 </Link>
               ))}
-            </li>
+            </li> */}
           </ul>
         </li>
         <li>
           <Link to={process.env.PUBLIC_URL + "/about"}>
             {strings["about_us"]}
+          </Link>
+        </li>
+        <li>
+          <Link to={process.env.PUBLIC_URL + "/gallery"}>
+            {strings["gallery"]}
           </Link>
         </li>
         <li>

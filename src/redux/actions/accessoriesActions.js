@@ -7,9 +7,20 @@ export const getAllAccessories = () => async (dispatch) => {
     try {
         const res = await axios.get(`${process.env.REACT_APP_API}/categories/active`);
 
-        const accessories = await res?.data?.filter(data => data.Parent === null);
+        const activeAccessories = await res?.data?.filter(data => data.Parent === null);
 
-        dispatch({ type: GET_ACCESSORIES_SUCCESS, payload: accessories });
+        const accessoriesDetails = [];
+
+        for (const singleAccessories of activeAccessories) {
+            const data = {
+                id: singleAccessories?.id,
+                name: singleAccessories?.name,
+                child: singleAccessories?.Child
+            }
+            accessoriesDetails.push(data);
+        }
+
+        dispatch({ type: GET_ACCESSORIES_SUCCESS, payload: accessoriesDetails });
     }
     catch (error) {
         console.log(error.message);

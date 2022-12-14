@@ -18,6 +18,13 @@ const Product = lazy(() => import("./pages/shop-product/Product"));
 
 // other pages
 const About = lazy(() => import("./pages/other/About"));
+const Profile = lazy(() => import("./pages/other/Profile"));
+const Management = lazy(() => import("./pages/other/Management"));
+const Message = lazy(() => import("./pages/other/Message"));
+const Mission = lazy(() => import("./pages/other/Mission"));
+const Vision = lazy(() => import("./pages/other/Vision"));
+const Goal = lazy(() => import("./pages/other/Goal"));
+const Gallery = lazy(() => import("./pages/other/Gallery"));
 const Contact = lazy(() => import("./pages/other/Contact"));
 
 const NotFound = lazy(() => import("./pages/other/NotFound"));
@@ -81,6 +88,34 @@ const App = (props) => {
                 <Route
                   path={process.env.PUBLIC_URL + "/about"}
                   component={About}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/profile"}
+                  component={Profile}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/management"}
+                  component={Management}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/message"}
+                  component={Message}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/mission"}
+                  component={Mission}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/vision"}
+                  component={Vision}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/goal"}
+                  component={Goal}
+                />
+                <Route
+                  path={process.env.PUBLIC_URL + "/gallery"}
+                  component={Gallery}
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/contact"}

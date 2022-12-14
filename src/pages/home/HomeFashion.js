@@ -3,7 +3,8 @@ import MetaTags from "react-meta-tags";
 import LayoutOne from "../../layouts/LayoutOne";
 import HeroSliderSeventeen from "../../wrappers/hero-slider/HeroSliderSeventeen";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
-// import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
+import SectionTitleSeven from "../../components/section-title/SectionTitleSeven";
+import FeatureIconSeven from "../../wrappers/feature-icon/FeatureIconSeven";
 import TabProduct from "../../wrappers/product/TabProduct";
 import { getComponent } from "../../redux/actions/componentActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,15 +39,22 @@ const HomeFashion = () => {
         {/* section title with text */}
         <SectionTitleWithText spaceTopClass="pt-100" spaceBottomClass="pb-50" />
 
-        {/* featured icon */}
-        {/* <FeatureIcon spaceTopClass="pt-40" /> */}
-
         {/* tab product */}
-        <TabProduct spaceBottomClass="pb-60" category="" />
+        <TabProduct spaceBottomClass="pb-20" category="" />
 
-        <div
-          className={`team-area pb-70`}
-        >
+        {/* featured icon */}
+        <div className="container pb-50 pt-20">
+          <SectionTitleSeven
+            titleText="Our Key Strengths"
+            positionClass="text-center"
+            borderClass="bottom-border"
+            spaceClass="mb-30"
+          />
+          <FeatureIconSeven spaceTopClass="pt-40" />
+        </div>
+
+        {/* client section */}
+        <div className={`team-area pb-70`}>
           <div className="container">
             {/* section title */}
             {client && <SectionTitleTwo

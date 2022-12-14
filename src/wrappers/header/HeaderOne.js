@@ -57,11 +57,11 @@ const HeaderOne = ({
               {/* header logo */}
               <Logo imageUrl="/assets/img/logo/logo.png" logoClass="logo" />
             </div>
-            <div className="col-xl-8 col-lg-8 d-none d-lg-block">
+            <div className="col-xl-10 col-lg-10 d-none d-lg-block">
               {/* Nav menu */}
               <NavMenu />
             </div>
-            <div className="col-xl-2 col-lg-2 col-md-6 col-8">
+            <div className="col-md-6 col-8 d-lg-none">
               {/* Icon group */}
               <IconGroup />
             </div>

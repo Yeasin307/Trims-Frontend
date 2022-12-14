@@ -5,14 +5,13 @@ const SectionTitleSeven = ({
   titleText,
   subtitleText,
   positionClass,
-  spaceClass,
-  borderClass
+  borderClass,
+  spaceClass
 }) => {
   return (
     <div
-      className={`section-title-8 ${positionClass ? positionClass : ""} ${
-        spaceClass ? spaceClass : ""
-      } ${borderClass ? borderClass : ""}`}
+      className={`section-title-8 ${positionClass ? positionClass : ""} ${spaceClass ? spaceClass : ""
+        } ${borderClass ? borderClass : ""}`}
     >
       <h2>{titleText}</h2>
       <p>{subtitleText}</p>

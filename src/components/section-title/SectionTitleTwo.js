@@ -12,8 +12,8 @@ const SectionTitleTwo = ({
       className={`section-title-2 ${positionClass ? positionClass : ""} ${spaceClass ? spaceClass : ""
         }`}
     >
-      <div dangerouslySetInnerHTML={{ __html: `${titleText}` }} />
-      <div dangerouslySetInnerHTML={{ __html: `${subTitleText}` }} />
+      {titleText && <div dangerouslySetInnerHTML={{ __html: `${titleText}` }} />}
+      {subTitleText && <div dangerouslySetInnerHTML={{ __html: `${subTitleText}` }} />}
     </div>
   );
 };

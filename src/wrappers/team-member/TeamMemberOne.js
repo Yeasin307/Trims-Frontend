@@ -3,6 +3,7 @@ import React from "react";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 import teamMemberData from "../../data/team-members/team-member-one.json";
 import TeamMemberOneSingle from "../../components/team-member/TeamMemberOneSingle";
+import TeamMemberTwoSingle from "../../components/team-member/TeamMemberTwoSingle";
 
 const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
   return (
@@ -13,15 +14,30 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
       <div className="container">
         {/* section title */}
         <SectionTitleTwo
-          titleText="Team Members"
-          subTitleText="Lorem ipsum dolor sit amet conse ctetu."
+          titleText="<h2>Board & Management</h2>"
+          // subTitleText="<h4>Lorem ipsum dolor sit amet conse ctetu.</h4>"
           positionClass="text-center"
           spaceClass="mb-60"
         />
 
+        <div className="d-flex justify-content-center align-items-center container">
+          <div className="row">
+            {teamMemberData &&
+              teamMemberData.slice(0, 2).map((single, key) => {
+                return (
+                  <TeamMemberTwoSingle
+                    data={single}
+                    spaceBottomClass="mb-30"
+                    key={key}
+                  />
+                );
+              })}
+          </div>
+        </div>
+
         <div className="row">
           {teamMemberData &&
-            teamMemberData.map((single, key) => {
+            teamMemberData.slice(2, 6).map((single, key) => {
               return (
                 <TeamMemberOneSingle
                   data={single}
@@ -31,6 +47,7 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
               );
             })}
         </div>
+
       </div>
     </div>
   );

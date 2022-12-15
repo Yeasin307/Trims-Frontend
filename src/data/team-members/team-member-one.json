@@ -6,25 +6,25 @@
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
     "name": "Mr.Mike Banding",
-    "position": "Manager"
+    "position": "Chairman"
   },
   {
     "id": "2",
-    "image": "/assets/img/team/team-3.jpg",
-    "fbLink": "//www.facebook.com",
-    "twitterLink": "//www.twitter.com",
-    "instagramLink": "//www.instagram.com",
-    "name": "Mr.Peter Pan",
-    "position": "Developer"
-  },
-  {
-    "id": "3",
     "image": "/assets/img/team/team-2.jpg",
     "fbLink": "//www.facebook.com",
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
+    "name": "Mr.Peter Pan",
+    "position": "CEO"
+  },
+  {
+    "id": "3",
+    "image": "/assets/img/team/team-3.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
     "name": "Ms.Sophia",
-    "position": "Designer"
+    "position": "Operation Manager"
   },
   {
     "id": "4",
@@ -33,6 +33,24 @@
     "twitterLink": "//www.twitter.com",
     "instagramLink": "//www.instagram.com",
     "name": "Mr.John Lee",
-    "position": "Chairman"
+    "position": "Admin Manager"
+  },
+  {
+    "id": "5",
+    "image": "/assets/img/team/team-4.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr.John Lee",
+    "position": "Accounts Manager"
+  },
+  {
+    "id": "6",
+    "image": "/assets/img/team/team-4.jpg",
+    "fbLink": "//www.facebook.com",
+    "twitterLink": "//www.twitter.com",
+    "instagramLink": "//www.instagram.com",
+    "name": "Mr.John Lee",
+    "position": "HR Manager"
   }
 ]

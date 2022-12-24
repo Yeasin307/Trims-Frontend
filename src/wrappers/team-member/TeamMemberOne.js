@@ -1,11 +1,19 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect } from "react";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
-import teamMemberData from "../../data/team-members/team-member-one.json";
 import TeamMemberOneSingle from "../../components/team-member/TeamMemberOneSingle";
 import TeamMemberTwoSingle from "../../components/team-member/TeamMemberTwoSingle";
+import { getComponent } from "../../redux/actions/componentActions";
+import { useDispatch, useSelector } from "react-redux";
 
 const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
+  const dispatch = useDispatch();
+  const { management } = useSelector((state) => state.componentData);
+
+  useEffect(() => {
+    dispatch(getComponent());
+  }, [dispatch])
+
   return (
     <div
       className={`team-area ${spaceTopClass ? spaceTopClass : ""} ${spaceBottomClass ? spaceBottomClass : ""
@@ -22,8 +30,8 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
 
         <div className="d-flex justify-content-center align-items-center container">
           <div className="row">
-            {teamMemberData &&
-              teamMemberData.slice(0, 2).map((single, key) => {
+            {management &&
+              management.slice(0, 2).map((single, key) => {
                 return (
                   <TeamMemberTwoSingle
                     data={single}
@@ -36,8 +44,8 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
         </div>
 
         <div className="row">
-          {teamMemberData &&
-            teamMemberData.slice(2, 6).map((single, key) => {
+          {management &&
+            management.slice(2, 6).map((single, key) => {
               return (
                 <TeamMemberOneSingle
                   data={single}

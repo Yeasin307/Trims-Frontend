@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { useSelector } from "react-redux";
-import logo from "../../data/logo.png";
 
 const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
   const { about } = useSelector((state) => state.componentData);
@@ -19,7 +18,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
             <div className="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
               <img
                 className="img-fluid"
-                src={logo}
+                src={`https://server.asdfashionbd.com/static/components/${about.image}`}
                 alt=""
               />
             </div>

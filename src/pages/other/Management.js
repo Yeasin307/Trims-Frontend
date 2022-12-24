@@ -5,19 +5,9 @@ import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import TeamMemberOne from "../../wrappers/team-member/TeamMemberOne";
-import { useEffect } from "react";
-import { getComponent } from "../../redux/actions/componentActions";
-import { useDispatch, useSelector } from "react-redux";
 
 const About = ({ location }) => {
-    const { client } = useSelector((state) => state.componentData);
-    console.log(client);
     const { pathname } = location;
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getComponent());
-    }, [dispatch])
 
     return (
         <Fragment>

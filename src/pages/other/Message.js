@@ -7,11 +7,10 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import { useEffect } from "react";
 import { getComponent } from "../../redux/actions/componentActions";
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../../data/goal-2.png";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 
 const Message = ({ location }) => {
-    const { mission } = useSelector((state) => state.componentData);
+    const { message } = useSelector((state) => state.componentData);
     const { pathname } = location;
     const dispatch = useDispatch();
 
@@ -39,9 +38,9 @@ const Message = ({ location }) => {
                 <div className="container pt-100 pb-100">
 
                     {/* section title */}
-                    {mission && <SectionTitleTwo
-                        titleText={mission?.title ? mission?.title : ''}
-                        subTitleText={mission?.subtitle ? mission?.subtitle : ''}
+                    {message && <SectionTitleTwo
+                        titleText={message?.title ? message?.title : ''}
+                        subTitleText={message?.subtitle ? message?.subtitle : ''}
                         positionClass="text-center"
                         spaceClass="mb-60"
                     />}
@@ -50,13 +49,13 @@ const Message = ({ location }) => {
                         <div className="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
                             <img
                                 className="img-fluid"
-                                src={logo}
+                                src={`https://server.asdfashionbd.com/static/components/${message?.image}`}
                                 alt=""
                             />
                         </div>
                         <div
                             className="col-sm-12 col-md-6 text-justify"
-                            dangerouslySetInnerHTML={{ __html: `${mission?.description}` }}
+                            dangerouslySetInnerHTML={{ __html: `${message?.description ? message?.description : ''}` }}
                         />
                     </div>
                 </div>

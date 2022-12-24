@@ -4,6 +4,10 @@ import { FETCH_VISION_SUCCESS } from "../actions/componentActions";
 import { FETCH_MISSION_SUCCESS } from "../actions/componentActions";
 import { FETCH_GOAL_SUCCESS } from "../actions/componentActions";
 import { FETCH_CLIENT_SUCCESS } from "../actions/componentActions";
+import { FETCH_GALLERY_SUCCESS } from "../actions/componentActions";
+import { FETCH_PROFILE_SUCCESS } from "../actions/componentActions";
+import { FETCH_MESSAGE_SUCCESS } from "../actions/componentActions";
+import { FETCH_MANAGEMENT_SUCCESS } from "../actions/componentActions";
 
 const initState = {
     banner: [],
@@ -11,7 +15,11 @@ const initState = {
     vision: {},
     mission: {},
     goal: {},
-    client: {}
+    client: {},
+    gallery: [],
+    profile: {},
+    message: {},
+    management: []
 };
 
 const componentReducer = (state = initState, action) => {
@@ -49,6 +57,30 @@ const componentReducer = (state = initState, action) => {
         return {
             ...state,
             client: action.payload
+        };
+    }
+    else if (action.type === FETCH_GALLERY_SUCCESS) {
+        return {
+            ...state,
+            gallery: action.payload
+        };
+    }
+    else if (action.type === FETCH_PROFILE_SUCCESS) {
+        return {
+            ...state,
+            profile: action.payload
+        };
+    }
+    else if (action.type === FETCH_MESSAGE_SUCCESS) {
+        return {
+            ...state,
+            message: action.payload
+        };
+    }
+    else if (action.type === FETCH_MANAGEMENT_SUCCESS) {
+        return {
+            ...state,
+            management: action.payload
         };
     }
 

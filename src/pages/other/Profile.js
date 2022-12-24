@@ -9,11 +9,9 @@ import FunFactOne from "../../wrappers/fun-fact/FunFactOne";
 import { useEffect } from "react";
 import { getComponent } from "../../redux/actions/componentActions";
 import { useDispatch, useSelector } from "react-redux";
-import file from "../../data/vision-1.png";
 
 const About = ({ location }) => {
-    const { client } = useSelector((state) => state.componentData);
-    console.log(client);
+    const { profile } = useSelector((state) => state.componentData);
     const { pathname } = location;
     const dispatch = useDispatch();
 
@@ -50,8 +48,8 @@ const About = ({ location }) => {
                                         <div className="mc-form">
                                             <div className="clear-3">
                                                 <a
-                                                    href={file}
-                                                    download="trim-tex-bd"
+                                                    href={`https://server.asdfashionbd.com/static/components/${profile.file}`}
+                                                    download="trimtex-bd"
                                                 >
                                                     <button className="button">
                                                         Download Full Profile

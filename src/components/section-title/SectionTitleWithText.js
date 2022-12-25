@@ -18,7 +18,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
             <div className="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
               <img
                 className="img-fluid"
-                src={`https://server.asdfashionbd.com/static/components/${about.image}`}
+                src={process.env.REACT_APP_API + "/static/components/" + about.image}
                 alt=""
               />
             </div>

@@ -200,7 +200,8 @@
           transform: rotateX(90deg);
           transform-origin: center top 0;
 
-          background: #fff none repeat scroll 0 0;
+          background: $theme-color none repeat scroll 0 0;
+
           box-shadow: 0 0 7px 0.5px rgba(0, 0, 0, 0.15);
 
           li {
@@ -211,7 +212,7 @@
 
             a {
               font-size: 13px;
-              font-weight: 400;
+              font-weight: 600;
               line-height: 32px;
 
               display: block;
@@ -221,10 +222,10 @@
               text-align: left;
               text-transform: capitalize;
 
-              color: #333;
+              color: #ffffff;
 
               &:hover {
-                color: $theme-color;
+                color: #ffffff;
               }
 
               &::before {
@@ -241,7 +242,7 @@
 
                 opacity: 0;
                 border-radius: 50%;
-                background: $theme-color none repeat scroll 0 0;
+                background: #ffffff none repeat scroll 0 0;
               }
             }
 
@@ -269,7 +270,7 @@
               transform: rotateY(90deg);
               transform-origin: center bottom 0;
 
-              background: #fff none repeat scroll 0 0;
+              background: $theme-color none repeat scroll 0 0;
               box-shadow: 0 0 7px 0.5px rgba(0, 0, 0, 0.15);
 
               @media #{$lg-layout} {
@@ -286,7 +287,7 @@
 
                 a {
                   font-size: 13px;
-                  font-weight: 400;
+                  font-weight: 600;
                   line-height: 32px;
 
                   display: block;
@@ -296,10 +297,10 @@
                   text-align: left;
                   text-transform: capitalize;
 
-                  color: #333;
+                  color: #ffffff;
 
                   &:hover {
-                    color: $theme-color;
+                    color: #ffffff;
                   }
 
                   &::before {
@@ -316,7 +317,7 @@
 
                     opacity: 0;
                     border-radius: 50%;
-                    background: $theme-color none repeat scroll 0 0;
+                    background: #ffffff none repeat scroll 0 0;
                   }
                 }
 
@@ -355,7 +356,7 @@
           transform-origin: center top 0;
           text-align: left;
 
-          background-color: #fff;
+          background-color: $theme-color;
           box-shadow: 0 1px 7px -2px rgba(0, 0, 0, 0.3);
 
           @media #{$lg-layout} {
@@ -384,18 +385,29 @@
 
                   text-transform: uppercase;
 
-                  // color: #242424;
-                  color: $theme-color;
+                  color: yellow;
 
                   &::before {
-                    display: none;
+                    position: absolute;
+                    z-index: 999;
+                    top: 13px;
+                    left: 0;
+
+                    width: 7px;
+                    height: 7px;
+
+                    content: "";
+                    transition: all 0.3s ease-in-out 0s;
+
+                    opacity: 0;
+                    border-radius: 50%;
+                    background: yellow none repeat scroll 0 0;
                   }
                 }
 
                 &:hover a {
-                  padding-left: 0;
-                  font-size: 15px;
-                  color: green;
+                  padding-left: 12px;
+                  color: yellow;
                 }
               }
 
@@ -407,7 +419,7 @@
 
                 a {
                   font-size: 13px;
-                  font-weight: 400;
+                  font-weight: 600;
                   line-height: 32px;
 
                   display: block;
@@ -417,10 +429,10 @@
                   text-align: left;
                   text-transform: capitalize;
 
-                  color: #333;
+                  color: #ffffff;
 
                   &:hover {
-                    color: $theme-color;
+                    color: #ffffff;
                   }
 
                   &::before {
@@ -437,7 +449,7 @@
 
                     opacity: 0;
                     border-radius: 50%;
-                    background: $theme-color none repeat scroll 0 0;
+                    background: #ffffff none repeat scroll 0 0;
                   }
                 }
 
@@ -494,8 +506,8 @@
         }
 
         >a {
-          font-size: 15px;
-          font-weight: 500;
+          font-size: 16px;
+          font-weight: 700;
           line-height: 94px;
 
           display: inline-block;

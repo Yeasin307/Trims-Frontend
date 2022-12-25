@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
+import useProgressiveImage from '../../hooks/useProgressiveImage';
+import loader from '../../data/loader-3.gif';
 
 const TeamMemberOneSingle = ({ data, spaceBottomClass }) => {
+  const loaded = useProgressiveImage(process.env.REACT_APP_API + "/static/components/" + data.image);
+
   return (
     <div className="col-lg-3 col-md-6 col-sm-6">
       <div
@@ -9,10 +13,10 @@ const TeamMemberOneSingle = ({ data, spaceBottomClass }) => {
       >
         <div className="team-img">
           <img
-            src={`https://server.asdfashionbd.com/static/components/${data.image}`}
+            src={loaded || loader}
             alt=""
             loading="lazy"
-          // className="img-fluid"
+            className="img-fluid"
           />
         </div>
         <div className="team-content text-center">

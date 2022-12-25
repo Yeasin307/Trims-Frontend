@@ -59,25 +59,8 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
                   </ul>
                 </li>
               ))}
-
-              {/* <li>
-                <ul>
-                  {accessories?.map(data => (
-                    <li key={data.id}>
-                      <Link to={process.env.PUBLIC_URL + `/accessories/${data?.id}`}>
-                        {data.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li> */}
             </ul>
           </li>
-          {/* <li>
-            <Link to={process.env.PUBLIC_URL + "/about"}>
-              {strings["about_us"]}
-            </Link>
-          </li> */}
           <li>
             <Link to={process.env.PUBLIC_URL} style={{ pointerEvents: "none" }}>
               {strings["about_us"]}

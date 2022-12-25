@@ -49,7 +49,7 @@ const Message = ({ location }) => {
                         <div className="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
                             <img
                                 className="img-fluid"
-                                src={`https://server.asdfashionbd.com/static/components/${message?.image}`}
+                                src={process.env.REACT_APP_API + "/static/components/" + message.image}
                                 alt=""
                             />
                         </div>

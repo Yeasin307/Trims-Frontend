@@ -4,14 +4,12 @@ import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import { Image } from 'antd';
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import { useEffect } from "react";
 import { getComponent } from "../../redux/actions/componentActions";
 import { useDispatch, useSelector } from "react-redux";
+import ListImageItem from "../../components/gallery/ListImageItem";
 
 const Gallery = ({ location }) => {
     const { gallery } = useSelector((state) => state.componentData);
@@ -44,19 +42,14 @@ const Gallery = ({ location }) => {
                     sx={{ minWidth: 400, overflowClipBox: 'scroll' }}
                 >
                     <ImageList cols={3} gap={36} sx={{ py: 5 }}>
-                        {gallery.map((item) => (
-                            <ImageListItem key={item.id}>
-                                <Image
-                                    src={`https://server.asdfashionbd.com/static/components/${item.image}`}
-                                    alt={<div dangerouslySetInnerHTML={{ __html: item.title }} />}
-                                    loading="lazy"
+                        {gallery && gallery.map((item) => {
+                            return (
+                                <ListImageItem
+                                    item={item}
+                                    key={item.id}
                                 />
-                                <ImageListItemBar
-                                    title={<div dangerouslySetInnerHTML={{ __html: item.title }} />}
-                                    sx={{ backgroundColor: 'blueviolet' }}
-                                />
-                            </ImageListItem>
-                        ))}
+                            );
+                        })}
                     </ImageList>
                 </Box>
 

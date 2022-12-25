@@ -48,7 +48,7 @@ const About = ({ location }) => {
                                         <div className="mc-form">
                                             <div className="clear-3">
                                                 <a
-                                                    href={`https://server.asdfashionbd.com/static/components/${profile.file}`}
+                                                    href={process.env.REACT_APP_API + "/static/components/" + profile.file}
                                                     download="trimtex-bd"
                                                 >
                                                     <button className="button">

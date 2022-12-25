@@ -23,24 +23,21 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
         {/* section title */}
         <SectionTitleTwo
           titleText="<h2>Board & Management</h2>"
-          // subTitleText="<h4>Lorem ipsum dolor sit amet conse ctetu.</h4>"
           positionClass="text-center"
           spaceClass="mb-60"
         />
 
-        <div className="d-flex justify-content-center align-items-center container">
-          <div className="row">
-            {management &&
-              management.slice(0, 2).map((single, key) => {
-                return (
-                  <TeamMemberTwoSingle
-                    data={single}
-                    spaceBottomClass="mb-30"
-                    key={key}
-                  />
-                );
-              })}
-          </div>
+        <div className="row justify-content-center">
+          {management &&
+            management.slice(0, 2).map((single, key) => {
+              return (
+                <TeamMemberTwoSingle
+                  data={single}
+                  spaceBottomClass="mb-30"
+                  key={key}
+                />
+              );
+            })}
         </div>
 
         <div className="row">

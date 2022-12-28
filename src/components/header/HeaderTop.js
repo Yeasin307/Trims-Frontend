@@ -46,7 +46,7 @@ const HeaderTop = ({
           <MailOutlineIcon fontSize="large" sx={{ color: 'blueViolet' }} />
           <div style={{ marginLeft: '10px' }}>
             <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Email Us</h5>
-            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Info.trimtexbd@gmail.com</h5>
+            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Info@trimtex-bd.com</h5>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ const HeaderTop = ({
           <LocationOnOutlinedIcon fontSize="large" sx={{ color: 'blueViolet' }} />
           <div style={{ marginLeft: '10px' }}>
             <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Our Location</h5>
-            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Dhaka</h5>
+            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Mirpur-12, Dhaka</h5>
           </div>
         </div>
 

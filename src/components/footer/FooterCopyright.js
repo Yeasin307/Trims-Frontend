@@ -16,13 +16,14 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       <p>
         &copy; {new Date().getFullYear()}{" "}
         <a
-          href="https://hasthemes.com"
+          href={process.env.PUBLIC_URL + "/"}
           rel="noopener noreferrer"
           target="_blank"
         >
-          Trims
+          Trim Tex
         </a>
-        .<br /> All Rights Reserved
+        <br />
+        All Rights Reserved
       </p>
     </div>
   );

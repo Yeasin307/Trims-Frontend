@@ -77,13 +77,13 @@ const Contact = ({ location }) => {
                     </div>
                     <div className="contact-info-dec">
                       <p>
-                        <a href="mailto:yourname@email.com">
-                          yourname@email.com
+                        <a href="mailto:info@trimtex-bd.com">
+                          info@trimtex-bd.com
                         </a>
                       </p>
                       <p>
-                        <a href="https://yourwebsitename.com">
-                          yourwebsitename.com
+                        <a href="mailto:info@trimtex-bd.com">
+                          info@trimtex-bd.com
                         </a>
                       </p>
                     </div>
@@ -93,8 +93,9 @@ const Contact = ({ location }) => {
                       <i className="fa fa-map-marker" />
                     </div>
                     <div className="contact-info-dec">
-                      <p>Address goes here, </p>
-                      <p>street, Crossroad 123.</p>
+                      <p>House-15, Road-05</p>
+                      <p>Block-Dha, Section-12</p>
+                      <p>Mirpur, Pallabi, Dhaka</p>
                     </div>
                   </div>
                   <div className="contact-social text-center">

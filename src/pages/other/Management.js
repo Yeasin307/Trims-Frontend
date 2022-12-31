@@ -6,7 +6,7 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import TeamMemberOne from "../../wrappers/team-member/TeamMemberOne";
 
-const About = ({ location }) => {
+const Management = ({ location }) => {
     const { pathname } = location;
 
     return (
@@ -15,7 +15,7 @@ const About = ({ location }) => {
                 <title>Trims | About us</title>
                 <meta
                     name="description"
-                    content="About page of trim tex bd."
+                    content="about page of trim tex bd"
                 />
             </MetaTags>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -34,8 +34,8 @@ const About = ({ location }) => {
     );
 };
 
-About.propTypes = {
+Management.propTypes = {
     location: PropTypes.object
 };
 
-export default About;
+export default Management;

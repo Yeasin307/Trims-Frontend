@@ -1,3 +1,4 @@
+// container
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,7 +9,7 @@ const BrandLogoOneSingle = ({ data, sliderClassName, spaceBottomClass }) => {
       className={`single-brand-logo ${sliderClassName ? sliderClassName : ""} ${spaceBottomClass ? spaceBottomClass : ""
         }`}
     >
-      <img src={process.env.REACT_APP_API + "/static/components/" + data} alt="" />
+      <img src={process.env.REACT_APP_SERVER_API + "/static/components/" + data} alt="" />
     </div>
   );
 };

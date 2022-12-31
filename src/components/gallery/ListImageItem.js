@@ -1,3 +1,4 @@
+// container
 import React from 'react';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -6,7 +7,7 @@ import useProgressiveImage from '../../hooks/useProgressiveImage';
 import loader from '../../data/loader-2.gif';
 
 const ListImageItem = ({ item }) => {
-    const loaded = useProgressiveImage(process.env.REACT_APP_API + "/static/components/" + item.image);
+    const loaded = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/components/" + item.image);
 
     return (
         <ImageListItem>

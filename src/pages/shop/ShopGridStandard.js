@@ -3,100 +3,47 @@ import React, { Fragment, useState, useEffect } from 'react';
 import MetaTags from 'react-meta-tags';
 import Paginator from 'react-hooks-paginator';
 import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSortedProducts } from '../../helpers/product';
 import LayoutOne from '../../layouts/LayoutOne';
 import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
-import ShopSidebar from '../../wrappers/product/ShopSidebar';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProducts from '../../wrappers/product/ShopProducts';
-import { useParams } from "react-router-dom";
-import { getIndividualCategories } from "../../helpers/product";
-import { getProductByCategory } from "../../redux/actions/productActions";
+import { getProductsByCategory } from "../../redux/actions/productsActions";
 
 const ShopGridStandard = ({ location }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [layout, setLayout] = useState('grid three-column');
-    const [sortType, setSortType] = useState('');
-    // const [sortValue, setSortValue] = useState('');
-    const [categorySortValues, setCategorySortValues] = useState([]);
-    const [tagSortValues, setTagSortValues] = useState([]);
     const [offset, setOffset] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
-    const [sortedProducts, setSortedProducts] = useState([]);
+    const { products } = useSelector((state) => state.productsData);
     const { id } = useParams();
-    const { products } = useSelector((state) => state.productData);
-    const uniqueCategories = getIndividualCategories(products);
     const dispatch = useDispatch();
+    const { pathname } = location;
+    const pageLimit = 6;
 
     useEffect(() => {
         setIsLoading(true);
-        dispatch(getProductByCategory(id))
+        dispatch(getProductsByCategory(id))
             .then(() => {
-                setSortType('');
                 setIsLoading(false);
             })
     }, [dispatch, id])
 
     useEffect(() => {
-        let sortedProducts = getSortedProducts(products, sortType, categorySortValues, tagSortValues);
-        setSortedProducts(sortedProducts);
-        setCurrentData(sortedProducts.slice(offset, offset + pageLimit));
-    }, [offset, products, sortType, categorySortValues, tagSortValues]);
-
-    const pageLimit = 15;
-    const { pathname } = location;
+        setCurrentData(products.slice(offset, offset + pageLimit));
+    }, [offset, products]);
 
     const getLayout = (layout) => {
         setLayout(layout)
-    }
-
-    const getSortParams = (sortType, sortValue, e) => {
-        if (sortType === "category") {
-            setSortType(sortType);
-            setTagSortValues([]);
-            if (!categorySortValues.includes(sortValue)) {
-
-                if (sortValue === "") {
-                    if (e.currentTarget.classList.contains('active')) {
-                        setCategorySortValues([]);
-                    }
-                    else {
-                        setCategorySortValues([...uniqueCategories]);
-                    }
-                }
-                else {
-                    setCategorySortValues([...categorySortValues, sortValue]);
-                }
-            }
-            else {
-                const index = categorySortValues.indexOf(sortValue);
-                if (index !== -1) {
-                    categorySortValues.splice(index, 1);
-                }
-            }
-        }
-        else if (sortType === "tag") {
-            setSortType(sortType);
-            setCategorySortValues([]);
-            if (!tagSortValues.includes(sortValue)) {
-                setTagSortValues([...tagSortValues, sortValue]);
-            }
-            else {
-                const index = tagSortValues.indexOf(sortValue);
-                if (index !== -1) {
-                    tagSortValues.splice(index, 1);
-                }
-            }
-        }
     }
 
     return (
         <Fragment>
             <MetaTags>
                 <title>Trims | Accessories</title>
-                <meta name="description" content="Accessories page of trim tex bd." />
+                <meta name="description" content="accessories page of trim tex bd" />
             </MetaTags>
 
             <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
@@ -115,11 +62,8 @@ const ShopGridStandard = ({ location }) => {
                             </div>
                         }
                         {!isLoading && <div className="row">
-                            <div className="col-lg-3 order-2 order-lg-1">
-                                {/* shop sidebar */}
-                                <ShopSidebar products={products} getSortParams={getSortParams} sideSpaceClass="mr-30" />
-                            </div>
-                            <div className="col-lg-9 order-1 order-lg-2">
+
+                            <div className="col-lg-12">
                                 {/* shop topbar default */}
                                 <ShopTopbar
                                     getLayout={getLayout}
@@ -133,7 +77,7 @@ const ShopGridStandard = ({ location }) => {
                                 {/* shop product pagination */}
                                 <div className="pro-pagination-style text-center mt-30">
                                     <Paginator
-                                        totalRecords={sortedProducts.length}
+                                        totalRecords={products.length}
                                         pageLimit={pageLimit}
                                         pageNeighbours={2}
                                         setOffset={setOffset}

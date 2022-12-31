@@ -1,15 +1,15 @@
 import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
+import { useDispatch, useSelector } from "react-redux";
 import LayoutOne from "../../layouts/LayoutOne";
 import HeroSliderSeventeen from "../../wrappers/hero-slider/HeroSliderSeventeen";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
 import SectionTitleSeven from "../../components/section-title/SectionTitleSeven";
 import FeatureIconSeven from "../../wrappers/feature-icon/FeatureIconSeven";
 import TabProduct from "../../wrappers/product/TabProduct";
-import { getComponent } from "../../redux/actions/componentActions";
-import { useDispatch, useSelector } from "react-redux";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
+import { getComponent } from "../../redux/actions/componentActions";
 
 const HomeFashion = () => {
   const { client } = useSelector((state) => state.componentData);
@@ -25,7 +25,7 @@ const HomeFashion = () => {
         <title>Trims | Home</title>
         <meta
           name="description"
-          content="Home page of trim tex bd."
+          content="home page of trim tex bd"
         />
       </MetaTags>
       <LayoutOne
@@ -40,7 +40,7 @@ const HomeFashion = () => {
         <SectionTitleWithText spaceTopClass="pt-100" spaceBottomClass="pb-50" />
 
         {/* tab product */}
-        <TabProduct spaceBottomClass="pb-20" category="" />
+        <TabProduct spaceBottomClass="pb-20" />
 
         {/* featured icon */}
         <div className="container pb-50 pt-20">
@@ -56,7 +56,6 @@ const HomeFashion = () => {
         {/* client section */}
         <div className={`team-area pb-70`}>
           <div className="container">
-            {/* section title */}
             {client && <SectionTitleTwo
               titleText={client?.title ? client?.title : ''}
               subTitleText={client?.description ? client?.description : ''}

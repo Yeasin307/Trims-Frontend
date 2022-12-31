@@ -1,3 +1,4 @@
+// container
 import React from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import { PropTypes } from "prop-types";
@@ -32,7 +33,7 @@ FooterMap.propTypes = {
   longitude: PropTypes.string
 };
 
-const LoadingContainer = (props) => (
+const LoadingContainer = () => (
   <div className="flone-preloader">
     <span></span>
     <span></span>

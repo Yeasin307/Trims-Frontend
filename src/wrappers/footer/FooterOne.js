@@ -1,9 +1,9 @@
+// container
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
 import FooterCopyright from "../../components/footer/FooterCopyright";
-import FooterNewsletter from "../../components/footer/FooterNewsletter";
 
 const FooterOne = ({
   backgroundColorClass,
@@ -134,12 +134,7 @@ const FooterOne = ({
             className={`${sideMenu ? "col-xl-3 col-sm-8" : "col-lg-4 col-sm-6"
               }`}
           >
-            {/* footer newsletter */}
-            <FooterNewsletter
-              spaceBottomClass="mb-30"
-              spaceLeftClass="ml-70"
-              sideMenu={sideMenu}
-            />
+            {/* footer address */}
           </div>
         </div>
       </div>

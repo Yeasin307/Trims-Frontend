@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import React, { Fragment, useRef } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+import axios from "axios";
+import { useToasts } from "react-toast-notifications";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import LocationMap from "../../components/contact/LocationMap";
-import axios from "axios";
-import { useToasts } from 'react-toast-notifications'
 
 const Contact = ({ location }) => {
   const { pathname } = location;
@@ -27,7 +27,7 @@ const Contact = ({ location }) => {
     const message = messageRef.current.value;
     const product = { fullName, email, phone, address, subject, message }
 
-    axios.post(`${process.env.REACT_APP_API}/leads/create`, product)
+    axios.post(`${process.env.REACT_APP_SERVER_API}/leads/create`, product)
       .then(data => {
         if (data?.data === "Created lead successfully!") {
           addToast("Thanks for contact with us!", {
@@ -47,7 +47,7 @@ const Contact = ({ location }) => {
         <title>Trims | Contact</title>
         <meta
           name="description"
-          content="Contact page of trim tex bd."
+          content="contact page of trim tex bd"
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>

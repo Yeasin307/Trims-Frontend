@@ -1,3 +1,4 @@
+// container
 import PropTypes from "prop-types";
 import React from "react";
 import { changeLanguage } from "redux-multilanguage";
@@ -6,8 +7,6 @@ import germany from "../../../data/germany.png";
 import france from "../../../data/france.png";
 
 const LanguageCurrencyChanger = ({
-  currency,
-  setCurrency,
   currentLanguageCode,
   dispatch
 }) => {
@@ -15,11 +14,6 @@ const LanguageCurrencyChanger = ({
     const languageCode = e.target.value;
     dispatch(changeLanguage(languageCode));
   };
-
-  // const setCurrencyTrigger = e => {
-  //   const currencyName = e.target.value;
-  //   setCurrency(currencyName);
-  // };
 
   return (
     <div className="language-currency-wrap">
@@ -61,8 +55,6 @@ const LanguageCurrencyChanger = ({
 };
 
 LanguageCurrencyChanger.propTypes = {
-  setCurrency: PropTypes.func,
-  currency: PropTypes.object,
   currentLanguageCode: PropTypes.string,
   dispatch: PropTypes.func
 };

@@ -1,16 +1,14 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+import { useDispatch, useSelector } from "react-redux";
+import { getComponent } from "../../redux/actions/componentActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
-import FunFactOne from "../../wrappers/fun-fact/FunFactOne";
-import { useEffect } from "react";
-import { getComponent } from "../../redux/actions/componentActions";
-import { useDispatch, useSelector } from "react-redux";
 
-const About = ({ location }) => {
+const Profile = ({ location }) => {
     const { profile } = useSelector((state) => state.componentData);
     const { pathname } = location;
     const dispatch = useDispatch();
@@ -25,7 +23,7 @@ const About = ({ location }) => {
                 <title>Trims | About us</title>
                 <meta
                     name="description"
-                    content="About page of trim tex bd."
+                    content="about page of trim tex bd"
                 />
             </MetaTags>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -33,6 +31,7 @@ const About = ({ location }) => {
                 About us
             </BreadcrumbsItem>
             <LayoutOne headerTop="visible">
+
                 {/* breadcrumb */}
                 <Breadcrumb />
 
@@ -48,7 +47,7 @@ const About = ({ location }) => {
                                         <div className="mc-form">
                                             <div className="clear-3">
                                                 <a
-                                                    href={process.env.REACT_APP_API + "/static/components/" + profile.file}
+                                                    href={process.env.REACT_APP_SERVER_API + "/static/components/" + profile?.file}
                                                     download="trimtex-bd"
                                                 >
                                                     <button className="button">
@@ -64,20 +63,13 @@ const About = ({ location }) => {
                     </div>
                 </div>
 
-                {/* fun fact */}
-                <FunFactOne
-                    spaceTopClass="pt-100"
-                    spaceBottomClass="pb-70"
-                    bgClass="bg-gray-3"
-                />
-
             </LayoutOne>
         </Fragment>
     );
 };
 
-About.propTypes = {
+Profile.propTypes = {
     location: PropTypes.object
 };
 
-export default About;
+export default Profile;

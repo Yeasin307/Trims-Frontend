@@ -1,3 +1,4 @@
+// container
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import Logo from "../../components/header/Logo";
@@ -79,7 +80,8 @@ HeaderOne.propTypes = {
   headerPaddingClass: PropTypes.string,
   headerPositionClass: PropTypes.string,
   layout: PropTypes.string,
-  top: PropTypes.string
+  top: PropTypes.string,
+  headerBgClass: PropTypes.string
 };
 
 export default HeaderOne;

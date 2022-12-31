@@ -13,7 +13,7 @@ export const FETCH_MANAGEMENT_SUCCESS = "FETCH_MANAGEMENT_SUCCESS";
 
 export const getComponent = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_API}/components/active`);
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/active`);
         const banner = res?.data.filter(data => data.type === "HOME_SLIDER");
         const about = res?.data.filter(data => data.type === "ABOUT_US");
         const vision = res?.data.filter(data => data.type === "VISION");

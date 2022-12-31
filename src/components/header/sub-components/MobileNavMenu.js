@@ -1,3 +1,4 @@
+// container
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +18,9 @@ const MobileNavMenu = ({ strings }) => {
     <nav className="offcanvas-navigation" id="offcanvas-navigation">
       <ul>
         <li className="menu-item-has-children">
-          <Link to={process.env.PUBLIC_URL + "/home"}>{strings["home"]}</Link>
+          <Link to={process.env.PUBLIC_URL + "/home"}>
+            {strings["home"]}
+          </Link>
         </li>
 
         <li className="menu-item-has-children">
@@ -31,10 +34,10 @@ const MobileNavMenu = ({ strings }) => {
                   {data.name}
                 </Link>
                 <ul className="sub-menu">
-                  {data?.child?.map(data => (
+                  {data?.Products?.map(data => (
                     <li key={data.id}>
-                      <Link to={process.env.PUBLIC_URL + `/accessories/${data?.id}`}>
-                        {data.name}
+                      <Link to={process.env.PUBLIC_URL + `/product/${data?.id}`}>
+                        {data.productName}
                       </Link>
                     </li>
                   ))}

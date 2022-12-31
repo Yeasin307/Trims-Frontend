@@ -1,8 +1,7 @@
+// container
 import PropTypes from "prop-types";
 import React from "react";
 import { multilanguage, changeLanguage } from "redux-multilanguage";
-import { connect } from "react-redux";
-import { setCurrency } from "../../../redux/actions/currencyActions";
 
 const MobileLangCurrChange = ({
   currentLanguageCode,
@@ -41,27 +40,8 @@ const MobileLangCurrChange = ({
 };
 
 MobileLangCurrChange.propTypes = {
-  setCurrency: PropTypes.func,
-  currency: PropTypes.object,
   currentLanguageCode: PropTypes.string,
   dispatch: PropTypes.func
 };
 
-const mapStateToProps = state => {
-  return {
-    currency: state.currencyData
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    setCurrency: currencyName => {
-      dispatch(setCurrency(currencyName));
-    }
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(multilanguage(MobileLangCurrChange));
+export default multilanguage(MobileLangCurrChange);

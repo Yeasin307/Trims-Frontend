@@ -1,49 +1,27 @@
+// container
 import PropTypes from "prop-types";
 import React from "react";
-import { connect } from "react-redux";
-import { addToCart } from "../../redux/actions/cartActions";
-import { addToWishlist } from "../../redux/actions/wishlistActions";
-import { addToCompare } from "../../redux/actions/compareActions";
 
 const ProductDescriptionInfo = ({
   product
 }) => {
   return (
     <div className="product-details-content ml-70">
-      <h2>{product.productName}</h2>
-      <div className="product-details-price">
-      </div>
+      <h2 style={{ fontWeight: 500 }}>{product?.productName}</h2>
       <div className="pro-details-list">
-        <p>{product.title}</p>
+        <h4>{product?.title}</h4>
       </div>
-      {product.categoryName ? (
-        <div className="pro-details-meta">
-          <span>Categories :</span>
-          <ul>
-            <li>
-              {product.categoryName.name}
-            </li>
-          </ul>
-        </div>
-      ) : (
-        ""
-      )}
+      <div dangerouslySetInnerHTML={{ __html: product.description }} />
+
+      <div className="pro-details-meta pt-20">
+        <h4>Categories : <span style={{ color: 'black' }}>{product?.categoryName?.name}</span></h4>
+      </div>
+
       {product?.tags ? (
         <div className="pro-details-meta">
-          <span>Tags :</span>
-          <ul>
-            {product?.tags?.split(",")?.map((single, key) => {
-              return (
-                <li key={key}>
-                  {single}
-                </li>
-              );
-            })}
-          </ul>
+          <h4>Tags : <span style={{ color: 'black' }}>{product?.tags?.replaceAll(',', ' , ')}</span></h4>
         </div>
-      ) : (
-        ""
-      )}
+      ) : ("")}
 
       <div className="pro-details-social">
         <ul>
@@ -74,51 +52,12 @@ const ProductDescriptionInfo = ({
           </li>
         </ul>
       </div>
-    </div>
+    </div >
   );
 };
 
 ProductDescriptionInfo.propTypes = {
-  addToCart: PropTypes.func,
-  addToCompare: PropTypes.func,
-  addToWishlist: PropTypes.func,
-  addToast: PropTypes.func,
-  cartItems: PropTypes.array,
-  compareItem: PropTypes.array,
-  currency: PropTypes.object,
-  discountedPrice: PropTypes.number,
-  finalDiscountedPrice: PropTypes.number,
-  finalProductPrice: PropTypes.number,
   product: PropTypes.object,
-  wishlistItem: PropTypes.object
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addToCart: (
-      item,
-      addToast,
-      quantityCount,
-      selectedProductColor,
-      selectedProductSize
-    ) => {
-      dispatch(
-        addToCart(
-          item,
-          addToast,
-          quantityCount,
-          selectedProductColor,
-          selectedProductSize
-        )
-      );
-    },
-    addToWishlist: (item, addToast) => {
-      dispatch(addToWishlist(item, addToast));
-    },
-    addToCompare: (item, addToast) => {
-      dispatch(addToCompare(item, addToast));
-    }
-  };
-};
-
-export default connect(null, mapDispatchToProps)(ProductDescriptionInfo);
+export default ProductDescriptionInfo;

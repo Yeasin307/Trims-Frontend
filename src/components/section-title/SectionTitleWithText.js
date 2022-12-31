@@ -1,3 +1,4 @@
+// container
 import PropTypes from "prop-types";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -18,7 +19,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
             <div className="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
               <img
                 className="img-fluid"
-                src={process.env.REACT_APP_API + "/static/components/" + about.image}
+                src={process.env.REACT_APP_SERVER_API + "/static/components/" + about?.image}
                 alt=""
               />
             </div>

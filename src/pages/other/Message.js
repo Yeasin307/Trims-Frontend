@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+import { useDispatch, useSelector } from "react-redux";
+import { getComponent } from "../../redux/actions/componentActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import { useEffect } from "react";
-import { getComponent } from "../../redux/actions/componentActions";
-import { useDispatch, useSelector } from "react-redux";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 
 const Message = ({ location }) => {
@@ -24,7 +23,7 @@ const Message = ({ location }) => {
                 <title>Trims | About us</title>
                 <meta
                     name="description"
-                    content="About page of trim tex bd."
+                    content="about page of trim tex bd"
                 />
             </MetaTags>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -49,7 +48,7 @@ const Message = ({ location }) => {
                         <div className="col-sm-12 col-md-6 d-flex align-items-center justify-content-center">
                             <img
                                 className="img-fluid"
-                                src={process.env.REACT_APP_API + "/static/components/" + message.image}
+                                src={process.env.REACT_APP_SERVER_API + "/static/components/" + message?.image}
                                 alt=""
                             />
                         </div>

@@ -1,14 +1,13 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+import { useDispatch, useSelector } from "react-redux";
+import { getComponent } from "../../redux/actions/componentActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import { useEffect } from "react";
-import { getComponent } from "../../redux/actions/componentActions";
-import { useDispatch, useSelector } from "react-redux";
-import logo from "../../data/mission-1.png";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
+import logo from "../../data/mission-1.png";
 
 const Mission = ({ location }) => {
     const { mission } = useSelector((state) => state.componentData);
@@ -25,7 +24,7 @@ const Mission = ({ location }) => {
                 <title>Trims | About us</title>
                 <meta
                     name="description"
-                    content="About page of trim tex bd."
+                    content="about page of trim tex bd"
                 />
             </MetaTags>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
@@ -56,7 +55,7 @@ const Mission = ({ location }) => {
                         </div>
                         <div
                             className="col-sm-12 col-md-6 text-justify"
-                            dangerouslySetInnerHTML={{ __html: `${mission?.description}` }}
+                            dangerouslySetInnerHTML={{ __html: `${mission?.description ? mission?.description : ''}` }}
                         />
                     </div>
                 </div>

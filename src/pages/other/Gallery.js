@@ -1,14 +1,13 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
 import MetaTags from "react-meta-tags";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
+import React, { Fragment, useEffect } from "react";
+import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+import { useDispatch, useSelector } from "react-redux";
+import { getComponent } from "../../redux/actions/componentActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import { useEffect } from "react";
-import { getComponent } from "../../redux/actions/componentActions";
-import { useDispatch, useSelector } from "react-redux";
 import ListImageItem from "../../components/gallery/ListImageItem";
 
 const Gallery = ({ location }) => {
@@ -26,7 +25,7 @@ const Gallery = ({ location }) => {
                 <title>Trims | Gallery</title>
                 <meta
                     name="description"
-                    content="Gallery page of trim tex bd."
+                    content="gallery page of trim tex bd"
                 />
             </MetaTags>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>

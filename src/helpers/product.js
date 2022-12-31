@@ -57,7 +57,7 @@ export const getProductCartQuantity = (cartItems, product, color, size) => {
   }
 };
 
-//get products based on category
+// get products based on category
 export const getSortedProducts = (products, sortType, categorySortValues, tagSortValues) => {
   if (products && sortType && categorySortValues && tagSortValues) {
     if (sortType === "category") {

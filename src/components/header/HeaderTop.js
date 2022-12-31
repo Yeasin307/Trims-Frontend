@@ -1,16 +1,13 @@
+// container
 import PropTypes from "prop-types";
 import React from "react";
 import { multilanguage } from "redux-multilanguage";
-import { connect } from "react-redux";
-import { setCurrency } from "../../redux/actions/currencyActions";
-import LanguageCurrencyChanger from "./sub-components/LanguageCurrencyChanger";
 import CallIcon from '@mui/icons-material/Call';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import LanguageCurrencyChanger from "./sub-components/LanguageCurrencyChanger";
 
 const HeaderTop = ({
-  currency,
-  setCurrency,
   currentLanguageCode,
   dispatch,
   borderStyle
@@ -24,8 +21,6 @@ const HeaderTop = ({
             }`}
         >
           <LanguageCurrencyChanger
-            currency={currency}
-            setCurrency={setCurrency}
             currentLanguageCode={currentLanguageCode}
             dispatch={dispatch}
           />
@@ -66,27 +61,8 @@ const HeaderTop = ({
 
 HeaderTop.propTypes = {
   borderStyle: PropTypes.string,
-  setCurrency: PropTypes.func,
-  currency: PropTypes.object,
   currentLanguageCode: PropTypes.string,
   dispatch: PropTypes.func
 };
 
-const mapStateToProps = state => {
-  return {
-    currency: state.currencyData
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    setCurrency: currencyName => {
-      dispatch(setCurrency(currencyName));
-    }
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(multilanguage(HeaderTop));
+export default multilanguage(HeaderTop);

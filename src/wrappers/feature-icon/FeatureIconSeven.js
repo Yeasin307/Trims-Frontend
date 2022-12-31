@@ -1,6 +1,7 @@
+// container
 import PropTypes from "prop-types";
 import React from "react";
-import featureIconData from "../../data/feature-icons/feature-icon-seven.json";
+import featureIconData from "../../data/feature-icon.json";
 import FeatureIconSevenSingle from "../../components/feature-icon/FeatureIconSevenSingle.js";
 
 const FeatureIconSeven = ({ spaceTopClass, spaceBottomClass }) => {

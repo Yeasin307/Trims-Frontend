@@ -1,3 +1,4 @@
+// container
 import PropTypes from "prop-types";
 import React, { Fragment, useEffect, useState } from "react";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
@@ -57,27 +58,15 @@ const ProductImageGallery = ({ product }) => {
   return (
     <Fragment>
       <div className="product-large-image-wrapper">
-        {/* {product.discount || product.new ? (
-          <div className="product-img-badges">
-            {product.discount ? (
-              <span className="pink">-{product.discount}%</span>
-            ) : (
-              ""
-            )}
-            {product.new ? <span className="purple">New</span> : ""}
-          </div>
-        ) : (
-          ""
-        )} */}
         <LightgalleryProvider>
           <Swiper {...gallerySwiperParams}>
-            {product.productDetails &&
-              product.productDetails.map((single, key) => {
+            {product?.productDetails &&
+              product?.productDetails?.map((single, key) => {
                 return (
                   <div key={key}>
                     <LightgalleryItem
                       group="any"
-                      src={process.env.REACT_APP_API + "/static/productimages/" + single.image}
+                      src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
                     >
                       <button>
                         <i className="pe-7s-expand1"></i>
@@ -85,7 +74,7 @@ const ProductImageGallery = ({ product }) => {
                     </LightgalleryItem>
                     <div className="single-image">
                       <img
-                        src={process.env.REACT_APP_API + "/static/productimages/" + single.image}
+                        src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
                         className="img-fluid"
                         alt=""
                       />
@@ -98,13 +87,13 @@ const ProductImageGallery = ({ product }) => {
       </div>
       <div className="product-small-image-wrapper mt-15">
         <Swiper {...thumbnailSwiperParams}>
-          {product.productDetails &&
-            product.productDetails.map((single, key) => {
+          {product?.productDetails &&
+            product?.productDetails?.map((single, key) => {
               return (
                 <div key={key}>
                   <div className="single-image">
                     <img
-                      src={process.env.REACT_APP_API + "/static/productimages/" + single.image}
+                      src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
                       className="img-fluid"
                       alt=""
                     />

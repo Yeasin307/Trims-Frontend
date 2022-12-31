@@ -1,3 +1,4 @@
+// container
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,10 +50,10 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
                         {data.name}
                       </Link>
                     </li>
-                    {data?.child?.map(data => (
+                    {data?.Products?.map(data => (
                       <li key={data.id}>
-                        <Link to={process.env.PUBLIC_URL + `/accessories/${data?.id}`}>
-                          {data.name}
+                        <Link to={process.env.PUBLIC_URL + `/product/${data?.id}`}>
+                          {data.productName}
                         </Link>
                       </li>
                     ))}

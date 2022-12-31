@@ -1,16 +1,34 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
-import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
-import ProductDescriptionTab from "../../wrappers/product/ProductDescriptionTab";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
+import { getProduct } from "../../redux/actions/productActions";
+import { getProductsByCategory } from "../../redux/actions/productsActions";
 
-const Product = ({ location, product }) => {
+const Product = ({ location }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const { pathname } = location;
+  const { id } = useParams();
+  const { product } = useSelector((state) => state.productData);
+  const { products } = useSelector((state) => state.productsData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setIsLoading(true);
+    dispatch(getProduct(id))
+      .then(() => {
+        dispatch(getProductsByCategory(product.categoryId))
+          .then(() => {
+            setIsLoading(false);
+          });
+      });
+  }, [dispatch, id, product.categoryId])
 
   return (
     <Fragment>
@@ -18,7 +36,7 @@ const Product = ({ location, product }) => {
         <title>Trims | Product</title>
         <meta
           name="description"
-          content="Product page of trim tex bd."
+          content="product page of trim tex bd"
         />
       </MetaTags>
 
@@ -31,24 +49,25 @@ const Product = ({ location, product }) => {
         {/* breadcrumb */}
         <Breadcrumb />
 
+        {isLoading &&
+          <div className="flone-preloader">
+            <span></span>
+            <span></span>
+          </div>
+        }
+
         {/* product description with image */}
-        <ProductImageDescription
+        {!isLoading && <ProductImageDescription
           spaceTopClass="pt-100"
           spaceBottomClass="pb-100"
           product={product}
-        />
-
-        {/* product description tab */}
-        <ProductDescriptionTab
-          spaceBottomClass="pb-90"
-          productFullDesc={product.description}
-        />
+        />}
 
         {/* related product slider */}
-        <RelatedProductSlider
+        {!isLoading && <RelatedProductSlider
           spaceBottomClass="pb-95"
-          category={product?.categoryName?.name}
-        />
+          products={products}
+        />}
       </LayoutOne>
     </Fragment>
   );
@@ -59,13 +78,4 @@ Product.propTypes = {
   product: PropTypes.object
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const itemId = ownProps.match.params.id;
-  return {
-    product: state.productData.products.filter(
-      single => single.id === itemId
-    )[0]
-  };
-};
-
-export default connect(mapStateToProps)(Product);
+export default Product;

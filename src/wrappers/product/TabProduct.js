@@ -1,22 +1,23 @@
+// container
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-import SectionTitle from "../../components/section-title/SectionTitle";
+import { useDispatch, useSelector } from "react-redux";
 import ProductGrid from "./ProductGrid";
-import { useDispatch } from "react-redux";
-import { getProductByCategory } from "../../redux/actions/productActions";
+import SectionTitle from "../../components/section-title/SectionTitle";
+import { getProductsByCategory } from "../../redux/actions/productsActions";
 
 const TabProduct = ({
   spaceTopClass,
   spaceBottomClass,
-  bgColorClass,
-  category
+  bgColorClass
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { products } = useSelector((state) => state.productsData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setIsLoading(true);
-    dispatch(getProductByCategory())
+    dispatch(getProductsByCategory())
       .then(() => {
         setIsLoading(false);
       })
@@ -37,9 +38,7 @@ const TabProduct = ({
             </div>
           }
           {!isLoading && <ProductGrid
-            category={category}
-            type=""
-            limit={8}
+            products={products}
             spaceBottomClass="mb-100"
           />}
         </div>
@@ -50,7 +49,6 @@ const TabProduct = ({
 
 TabProduct.propTypes = {
   bgColorClass: PropTypes.string,
-  category: PropTypes.string,
   spaceBottomClass: PropTypes.string,
   spaceTopClass: PropTypes.string
 };

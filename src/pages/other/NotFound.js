@@ -15,7 +15,7 @@ const NotFound = ({ location }) => {
         <title>Trims | Not Found</title>
         <meta
           name="description"
-          content="404 page of trim tex bd."
+          content="404 page of trim tex bd"
         />
       </MetaTags>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>

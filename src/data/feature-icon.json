@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "image": "/assets/img/icon-img/diamond.png",
+        "title": "Quality Control",
+        "subtitle": "Our primary concern is to achieve the maximum satisfaction of the buyers by ensuring world class quality. We have trained workers, imported machineries and suitable environment that ensure the best quality of products."
+    },
+    {
+        "id": 2,
+        "image": "/assets/img/icon-img/briefcase.png",
+        "title": "Strong Business Ethics",
+        "subtitle": "These thing define our business ethics Honesty, Integrity, Promise keeping & Trustworthiness, Loyalty, Respect for others, Reputation, Moral and Accountability."
+    },
+    {
+        "id": 3,
+        "image": "/assets/img/icon-img/check.png",
+        "title": "Transparency In Deals",
+        "subtitle": "We build Open and Honest Relationships With client to ensure Transparency."
+    },
+    {
+        "id": 4,
+        "image": "/assets/img/icon-img/clock.png",
+        "title": "Deliver On Time",
+        "subtitle": "We know the value of time. Time is money. So we give top priority on the time to time delivery on your premises. With the proper co-operation of our devoted employees we try our best to deliver the product in time."
+    },
+    {
+        "id": 5,
+        "image": "/assets/img/icon-img/man.png",
+        "title": "No Supply Issues, Wastage or Pilferage",
+        "subtitle": "We are free from supply shortage, wastage & pilferage. With our well organized people, high quality machineries and hard work we ensure the maximum uses of products. So you can get relief from this kind of problem that often occur in case of imported accessories."
+    },
+    {
+        "id": 6,
+        "image": "/assets/img/icon-img/money.png",
+        "title": "Competitive Prices",
+        "subtitle": "Being one of the largest accessories limited Trim Solution gives you the most competitive price. Comparing to the others we are very much concerned about the price level. So you are getting best quality in a very competitive price."
+    }
+]

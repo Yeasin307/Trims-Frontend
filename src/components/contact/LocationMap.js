@@ -1,4 +1,3 @@
-// container
 import React from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import { PropTypes } from "prop-types";
@@ -21,7 +20,7 @@ const FooterMap = props => {
         icon={{
           url: `${process.env.PUBLIC_URL + "/assets/img/icon-img/2.png"}`
         }}
-        animation={props.google.maps.Animation.BOUNCE}
+        animation={props?.google?.maps?.Animation?.BOUNCE}
       />
     </Map>
   );

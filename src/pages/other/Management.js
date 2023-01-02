@@ -12,7 +12,7 @@ const Management = ({ location }) => {
     return (
         <Fragment>
             <MetaTags>
-                <title>Trims | About us</title>
+                <title>Trim | About us</title>
                 <meta
                     name="description"
                     content="about page of trim tex bd"

@@ -1,4 +1,3 @@
-// container
 import PropTypes from "prop-types";
 import React from "react";
 import ProductImageGallery from "../../components/product/ProductImageGallery";

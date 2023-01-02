@@ -12,7 +12,7 @@ const NotFound = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Trims | Not Found</title>
+        <title>Trim | Not Found</title>
         <meta
           name="description"
           content="404 page of trim tex bd"

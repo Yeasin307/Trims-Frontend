@@ -1,4 +1,3 @@
-// container
 import React from "react";
 
 const MobileWidgets = () => {

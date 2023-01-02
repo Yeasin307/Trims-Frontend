@@ -1,4 +1,3 @@
-// container
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import ProductGridSingle from "../../components/product/ProductGridSingle";

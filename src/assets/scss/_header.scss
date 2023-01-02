@@ -200,7 +200,7 @@
           transform: rotateX(90deg);
           transform-origin: center top 0;
 
-          background: $theme-color none repeat scroll 0 0;
+          background: rgba(15, 8, 8, 0.977) none repeat scroll 0 0;
 
           box-shadow: 0 0 7px 0.5px rgba(0, 0, 0, 0.15);
 
@@ -270,7 +270,7 @@
               transform: rotateY(90deg);
               transform-origin: center bottom 0;
 
-              background: $theme-color none repeat scroll 0 0;
+              background: rgba(15, 8, 8, 0.977) none repeat scroll 0 0;
               box-shadow: 0 0 7px 0.5px rgba(0, 0, 0, 0.15);
 
               @media #{$lg-layout} {

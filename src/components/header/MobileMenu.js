@@ -1,4 +1,3 @@
-// container
 import React, { useEffect } from "react";
 import MobileNavMenu from "./sub-components/MobileNavMenu";
 import MobileLangCurChange from "./sub-components/MobileLangCurrChange";

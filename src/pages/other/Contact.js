@@ -44,7 +44,7 @@ const Contact = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Trims | Contact</title>
+        <title>Trim | Contact</title>
         <meta
           name="description"
           content="contact page of trim tex bd"

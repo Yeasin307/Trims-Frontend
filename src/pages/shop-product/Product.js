@@ -33,7 +33,7 @@ const Product = ({ location }) => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Trims | Product</title>
+        <title>Trim | Product</title>
         <meta
           name="description"
           content="product page of trim tex bd"

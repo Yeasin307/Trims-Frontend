@@ -42,8 +42,11 @@ const ShopGridStandard = ({ location }) => {
     return (
         <Fragment>
             <MetaTags>
-                <title>Trims | Accessories</title>
-                <meta name="description" content="accessories page of trim tex bd" />
+                <title>Trim | Accessories</title>
+                <meta
+                    name="description"
+                    content="accessories page of trim tex bd"
+                />
             </MetaTags>
 
             <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>

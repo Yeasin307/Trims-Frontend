@@ -22,7 +22,7 @@ const Gallery = ({ location }) => {
     return (
         <Fragment>
             <MetaTags>
-                <title>Trims | Gallery</title>
+                <title>Trim | Gallery</title>
                 <meta
                     name="description"
                     content="gallery page of trim tex bd"

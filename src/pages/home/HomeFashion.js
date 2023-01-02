@@ -22,7 +22,7 @@ const HomeFashion = () => {
   return (
     <Fragment>
       <MetaTags>
-        <title>Trims | Home</title>
+        <title>Trim | Home</title>
         <meta
           name="description"
           content="home page of trim tex bd"

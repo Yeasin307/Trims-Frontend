@@ -11,8 +11,7 @@ const FooterOne = ({
   spaceLeftClass,
   spaceRightClass,
   containerClass,
-  extraFooterClass,
-  sideMenu
+  extraFooterClass
 }) => {
   const [scroll, setScroll] = useState(0);
   const [top, setTop] = useState(0);
@@ -43,8 +42,7 @@ const FooterOne = ({
       <div className={`${containerClass ? containerClass : "container"}`}>
         <div className="row">
           <div
-            className={`${sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
-              }`}
+            className="col-lg-2 col-sm-4"
           >
             {/* footer copyright */}
             <FooterCopyright
@@ -53,8 +51,7 @@ const FooterOne = ({
             />
           </div>
           <div
-            className={`${sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
-              }`}
+            className="col-lg-2 col-sm-4"
           >
             <div className="footer-widget mb-30 ml-30">
               <div className="footer-title">
@@ -75,14 +72,10 @@ const FooterOne = ({
             </div>
           </div>
           <div
-            className={`${sideMenu ? "col-xl-3 col-sm-4" : "col-lg-2 col-sm-6"
-              }`}
+            className="col-lg-2 col-sm-4"
           >
             <div
-              className={`${sideMenu
-                ? "footer-widget mb-30 ml-145"
-                : "footer-widget mb-30 ml-75"
-                }`}
+              className="footer-widget mb-30 ml-75"
             >
               <div className="footer-title">
                 <h3>FOLLOW US</h3>
@@ -100,24 +93,6 @@ const FooterOne = ({
                   </li>
                   <li>
                     <a
-                      href="//www.twitter.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="//www.instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                  <li>
-                    <a
                       href="//www.youtube.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -125,15 +100,56 @@ const FooterOne = ({
                       Youtube
                     </a>
                   </li>
+                  <li>
+                    <a
+                      href="//www.linkedin.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
           <div
-            className={`${sideMenu ? "col-xl-3 col-sm-8" : "col-lg-4 col-sm-6"
-              }`}
+            className="col-lg-3 col-sm-6"
           >
-            {/* footer address */}
+            <div className="footer-widget ml-75 mb-30">
+              <div className="footer-title">
+                <h3>Head Office</h3>
+              </div>
+              <div className="footer-description">
+                <p>
+                  House-15, Road-05
+                  <br />
+                  Block-Dha, Section-12
+                  <br />
+                  Mirpur, Pallabi, Dhaka
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-lg-3 col-sm-6"
+          >
+            <div className="footer-widget ml-75">
+              <div className="footer-title">
+                <h3>Marketing Office</h3>
+              </div>
+              <div className="footer-description">
+                <p>
+                  House-680(E1), Road-09
+                  <br />
+                  DOHS, Mirpur-12, Dhaka
+                  <br />
+                  <i className="fa fa-envelope" /> info@trimtex-bd.com
+                  <br />
+                  <i className="fa fa-phone" /> +880-1822996565
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -151,7 +167,6 @@ FooterOne.propTypes = {
   backgroundColorClass: PropTypes.string,
   containerClass: PropTypes.string,
   extraFooterClass: PropTypes.string,
-  sideMenu: PropTypes.bool,
   spaceBottomClass: PropTypes.string,
   spaceTopClass: PropTypes.string,
   spaceLeftClass: PropTypes.string,

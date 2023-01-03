@@ -15,13 +15,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       </div>
       <p>
         &copy; {new Date().getFullYear()}{" "}
-        <a
-          href={process.env.PUBLIC_URL + "/"}
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Trim Tex
-        </a>
+        Trim Tex
         <br />
         All Rights Reserved
       </p>

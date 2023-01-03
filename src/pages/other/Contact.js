@@ -67,8 +67,11 @@ const Contact = ({ location }) => {
                       <i className="fa fa-phone" />
                     </div>
                     <div className="contact-info-dec">
-                      <p>+012 345 678 102</p>
-                      <p>+012 345 678 102</p>
+                      <p>
+                        <a href="tel:+880-1822996565">
+                          +880-1822996565
+                        </a>
+                      </p>
                     </div>
                   </div>
                   <div className="single-contact-info">
@@ -81,11 +84,6 @@ const Contact = ({ location }) => {
                           info@trimtex-bd.com
                         </a>
                       </p>
-                      <p>
-                        <a href="mailto:info@trimtex-bd.com">
-                          info@trimtex-bd.com
-                        </a>
-                      </p>
                     </div>
                   </div>
                   <div className="single-contact-info">
@@ -93,9 +91,21 @@ const Contact = ({ location }) => {
                       <i className="fa fa-map-marker" />
                     </div>
                     <div className="contact-info-dec">
+                      <p style={{ fontWeight: 600 }}>Head Office</p>
                       <p>House-15, Road-05</p>
                       <p>Block-Dha, Section-12</p>
                       <p>Mirpur, Pallabi, Dhaka</p>
+                    </div>
+                  </div>
+                  <div className="single-contact-info">
+                    <div className="contact-icon">
+                      <i className="fa fa-map-marker" />
+                    </div>
+                    <div className="contact-info-dec">
+                      <p style={{ fontWeight: 600 }}>Marketing Office</p>
+                      <p>House-680(E1)</p>
+                      <p>Road-09, DOHS</p>
+                      <p>Mirpur-12, Dhaka</p>
                     </div>
                   </div>
                   <div className="contact-social text-center">
@@ -193,7 +203,7 @@ const Contact = ({ location }) => {
               </div>
             </div>
             <div className="contact-map mt-10">
-              <LocationMap latitude="23.7625" longitude="90.3785" />
+              <LocationMap latitude="23.822794125876225" longitude="90.36857682915823" />
             </div>
           </div>
         </div>

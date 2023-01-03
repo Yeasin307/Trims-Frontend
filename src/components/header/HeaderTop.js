@@ -32,7 +32,7 @@ const HeaderTop = ({
           <CallIcon fontSize="large" sx={{ color: 'blueViolet' }} />
           <div style={{ marginLeft: '10px' }}>
             <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Call Us</h5>
-            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>+880-1911112222</h5>
+            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>+880-1822996565</h5>
           </div>
         </div>
 
@@ -40,7 +40,7 @@ const HeaderTop = ({
           <MailOutlineIcon fontSize="large" sx={{ color: 'blueViolet' }} />
           <div style={{ marginLeft: '10px' }}>
             <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Email Us</h5>
-            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Info@trimtex-bd.com</h5>
+            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>info@trimtex-bd.com</h5>
           </div>
         </div>
 

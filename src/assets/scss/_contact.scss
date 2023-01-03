@@ -11,16 +11,16 @@
 }
 
 .contact-info-wrap {
-  padding: 120px 70px 192px 90px;
+  padding: 50px 70px 95px 90px;
 
   background-color: #f3f3f3;
 
   @media #{$lg-layout} {
-    padding: 120px 20px 192px 40px;
+    padding: 50px 20px 95px 40px;
   }
 
   @media #{$md-layout} {
-    padding: 120px 20px 332px 30px;
+    padding: 120px 20px 165px 30px;
   }
 
   @media #{$xs-layout} {

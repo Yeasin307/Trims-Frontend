@@ -9,26 +9,21 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
 import { getProduct } from "../../redux/actions/productActions";
-import { getProductsByCategory } from "../../redux/actions/productsActions";
 
 const Product = ({ location }) => {
   const [isLoading, setIsLoading] = useState(true);
   const { pathname } = location;
   const { id } = useParams();
   const { product } = useSelector((state) => state.productData);
-  const { products } = useSelector((state) => state.productsData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setIsLoading(true);
     dispatch(getProduct(id))
       .then(() => {
-        dispatch(getProductsByCategory(product.categoryId))
-          .then(() => {
-            setIsLoading(false);
-          });
+        setIsLoading(false);
       });
-  }, [dispatch, id, product.categoryId])
+  }, [dispatch, id])
 
   return (
     <Fragment>
@@ -50,9 +45,11 @@ const Product = ({ location }) => {
         <Breadcrumb />
 
         {isLoading &&
-          <div className="flone-preloader">
-            <span></span>
-            <span></span>
+          <div className="container pt-95 pb-100">
+            <div className="flone-preloader">
+              <span></span>
+              <span></span>
+            </div>
           </div>
         }
 
@@ -64,9 +61,9 @@ const Product = ({ location }) => {
         />}
 
         {/* related product slider */}
-        {!isLoading && <RelatedProductSlider
+        {(!isLoading && product) && <RelatedProductSlider
           spaceBottomClass="pb-95"
-          products={products}
+          categoryId={product?.categoryId}
         />}
       </LayoutOne>
     </Fragment>

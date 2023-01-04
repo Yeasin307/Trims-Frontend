@@ -1,10 +1,24 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Swiper from "react-id-swiper";
+import { useDispatch, useSelector } from "react-redux";
 import SectionTitle from "../../components/section-title/SectionTitle";
 import ProductGrid from "./ProductGrid";
+import { getProductsByCategory } from "../../redux/actions/productsActions";
 
-const RelatedProductSlider = ({ spaceBottomClass, products }) => {
+const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { products } = useSelector((state) => state.productsData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setIsLoading(true);
+    dispatch(getProductsByCategory(categoryId))
+      .then(() => {
+        setIsLoading(false);
+      });
+  }, [dispatch, categoryId])
+
   // {...settings}
   // const settings = {
   //   loop: false,
@@ -32,19 +46,31 @@ const RelatedProductSlider = ({ spaceBottomClass, products }) => {
         }`}
     >
       <div className="container">
+
         <SectionTitle
           titleText="Related Products"
           positionClass="text-center"
           spaceClass="mb-50"
         />
-        <div className="row">
-          <Swiper>
-            <ProductGrid
-              products={products}
-              sliderClassName="swiper-slide"
-            />
-          </Swiper>
-        </div>
+
+        {isLoading &&
+          <div className="flone-preloader">
+            <span></span>
+            <span></span>
+          </div>
+        }
+
+        {!isLoading &&
+          <div className="row">
+            <Swiper>
+              <ProductGrid
+                products={products}
+                sliderClassName="swiper-slide"
+              />
+            </Swiper>
+          </div>
+        }
+
       </div>
     </div>
   );

@@ -7,12 +7,12 @@ import SectionTitleWithText from "../../components/section-title/SectionTitleWit
 import SectionTitleSeven from "../../components/section-title/SectionTitleSeven";
 import FeatureIconSeven from "../../wrappers/feature-icon/FeatureIconSeven";
 import TabProduct from "../../wrappers/product/TabProduct";
-import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
+// import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 import { getComponent } from "../../redux/actions/componentActions";
 
 const HomeFashion = () => {
-  const { client } = useSelector((state) => state.componentData);
+  const { banner } = useSelector((state) => state.componentData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,7 +34,9 @@ const HomeFashion = () => {
         headerPaddingClass="header-padding-1"
       >
         {/* hero slider */}
-        <HeroSliderSeventeen />
+        <HeroSliderSeventeen
+          banner={banner}
+        />
 
         {/* section title with text */}
         <SectionTitleWithText spaceTopClass="pt-100" spaceBottomClass="pb-50" />
@@ -54,7 +56,7 @@ const HomeFashion = () => {
         </div>
 
         {/* client section */}
-        <div className={`team-area pb-70`}>
+        {/* <div className={`team-area pb-70`}>
           <div className="container">
             {client && <SectionTitleTwo
               titleText={client?.title ? client?.title : ''}
@@ -63,7 +65,7 @@ const HomeFashion = () => {
               spaceClass="mb-60"
             />}
           </div>
-        </div>
+        </div> */}
 
         {/* brand logo slider */}
         <BrandLogoSliderOne spaceBottomClass="pb-70" />

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import useProgressiveImage from '../../hooks/useProgressiveImage';
+import { useInView } from 'react-intersection-observer';
 import loader from '../../data/loader-1.gif';
 
 const ProductGridSingle = ({
@@ -9,31 +9,41 @@ const ProductGridSingle = ({
   sliderClassName,
   spaceBottomClass
 }) => {
-  const loaded_1 = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image);
-  const loaded_2 = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: "100px 0px",
+    triggerOnce: true
+  });
 
   return (
     <Fragment>
       <div
-        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 ${sliderClassName ? sliderClassName : ""
-          }`}
+        className={`col-xl-3 col-md-6 col-lg-4 col-sm-6 ${sliderClassName ? sliderClassName : ""}`}
+        ref={ref}
       >
         <div
           className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
         >
           <div className="product-img">
             <Link to={process.env.PUBLIC_URL + "/product/" + product?.id}>
-              <img
+
+              {(inView && isLoading) && <img
                 alt=""
-                loading="lazy"
-                src={loaded_1 || loader}
-                className="default-img"
-              />
-              {product?.productDetails?.length > 1 ? (
+                src={loader}
+              />}
+
+              {inView && <img
+                alt=""
+                src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
+                onLoad={() => { setIsLoading(false) }}
+                style={{ visibility: isLoading ? 'hidden' : 'visible' }}
+              />}
+
+              {(inView && !isLoading && product?.productDetails?.length > 1) ? (
                 <img
                   alt=""
-                  loading="lazy"
-                  src={loaded_2 || loader}
+                  src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image}
                   className="hover-img"
                 />
               ) : (

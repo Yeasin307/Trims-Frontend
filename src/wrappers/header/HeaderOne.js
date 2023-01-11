@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Logo from "../../components/header/Logo";
 import NavMenu from "../../components/header/NavMenu";
 import IconGroup from "../../components/header/IconGroup";
 import MobileMenu from "../../components/header/MobileMenu";
 import HeaderTop from "../../components/header/HeaderTop";
+import { getAllAccessories } from "../../redux/actions/accessoriesActions";
 
 const HeaderOne = ({
   layout,
@@ -16,6 +18,12 @@ const HeaderOne = ({
 }) => {
   const [scroll, setScroll] = useState(0);
   const [headerTop, setHeaderTop] = useState(0);
+  const { accessories } = useSelector((state) => state.accessoriesData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllAccessories());
+  }, [dispatch])
 
   useEffect(() => {
     const header = document.querySelector(".sticky-bar");
@@ -59,7 +67,9 @@ const HeaderOne = ({
             </div>
             <div className="col-xl-10 col-lg-10 d-none d-lg-block">
               {/* Nav menu */}
-              <NavMenu />
+              <NavMenu
+                accessories={accessories}
+              />
             </div>
             <div className="col-md-6 col-8 d-lg-none">
               {/* Icon group */}
@@ -68,7 +78,9 @@ const HeaderOne = ({
           </div>
         </div>
         {/* mobile menu */}
-        <MobileMenu />
+        <MobileMenu
+          accessories={accessories}
+        />
       </div>
     </header>
   );

@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useInView } from 'react-intersection-observer';
 import ProductGrid from "./ProductGrid";
 import SectionTitle from "../../components/section-title/SectionTitle";
-import { getProductsByCategory } from "../../redux/actions/productsActions";
 
 const TabProduct = ({
   spaceTopClass,
@@ -11,21 +10,16 @@ const TabProduct = ({
   bgColorClass
 }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const { products } = useSelector((state) => state.productsData);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    setIsLoading(true);
-    dispatch(getProductsByCategory())
-      .then(() => {
-        setIsLoading(false);
-      })
-  }, [dispatch])
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: "200px 0px",
+    triggerOnce: true
+  });
 
   return (
     <div
-      className={`product-area ${spaceTopClass ? spaceTopClass : ""} ${spaceBottomClass ? spaceBottomClass : ""
-        } ${bgColorClass ? bgColorClass : ""}`}
+      className={`product-area ${spaceTopClass ? spaceTopClass : ""} ${spaceBottomClass ? spaceBottomClass : ""} ${bgColorClass ? bgColorClass : ""}`}
+      ref={ref}
     >
       <div className="container">
         <SectionTitle titleText="FEATURED PRODUCTS" positionClass="text-center" />
@@ -36,8 +30,9 @@ const TabProduct = ({
               <span></span>
             </div>
           }
-          {!isLoading && <ProductGrid
-            products={products}
+          {inView && <ProductGrid
+            isLoading={isLoading}
+            setIsLoading={setIsLoading}
             spaceBottomClass="mb-100"
           />}
         </div>

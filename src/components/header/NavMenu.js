@@ -1,17 +1,9 @@
 import PropTypes from "prop-types";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
 import { multilanguage } from "redux-multilanguage";
-import { getAllAccessories } from "../../redux/actions/accessoriesActions";
 
-const NavMenu = ({ strings, menuWhiteClass, sidebarMenu }) => {
-  const { accessories } = useSelector((state) => state.accessoriesData);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllAccessories());
-  }, [dispatch])
+const NavMenu = ({ strings, menuWhiteClass, sidebarMenu, accessories }) => {
 
   return (
     <div

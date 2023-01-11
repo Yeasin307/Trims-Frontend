@@ -26,6 +26,7 @@
     "react-fullpage": "^0.1.19",
     "react-hooks-paginator": "^0.4.0",
     "react-id-swiper": "2.4.0",
+    "react-intersection-observer": "^9.4.1",
     "react-lightgallery": "0.6.3",
     "react-mailchimp-subscribe": "^2.1.0",
     "react-meta-tags": "^0.7.4",

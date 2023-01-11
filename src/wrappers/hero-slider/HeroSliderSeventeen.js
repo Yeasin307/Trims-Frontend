@@ -1,10 +1,8 @@
 import React from "react";
 import Swiper from "react-id-swiper";
 import HeroSliderSeventeenSingle from "../../components/hero-slider/HeroSliderSeventeenSingle.js";
-import { useSelector } from "react-redux";
 
-const HeroSliderSeventeen = () => {
-  const { banner } = useSelector((state) => state.componentData);
+const HeroSliderSeventeen = ({ banner }) => {
 
   const params = {
     effect: "fade",

@@ -8,7 +8,7 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
-import { getComponent } from "../../redux/actions/componentActions";
+import { getClient } from "../../redux/actions/componentActions";
 
 const About = ({ location }) => {
   const { client } = useSelector((state) => state.componentData);
@@ -16,7 +16,7 @@ const About = ({ location }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getComponent());
+    dispatch(getClient());
   }, [dispatch])
 
   return (
@@ -37,26 +37,26 @@ const About = ({ location }) => {
         <Breadcrumb />
 
         {/* section title with text */}
-        <SectionTitleWithText spaceTopClass="pt-100" spaceBottomClass="pb-95" />
+        <SectionTitleWithText spaceTopClass="pt-50" spaceBottomClass="pb-50" />
 
-        <div
-          className={`team-area pt-95 pb-70`}
-        >
+        {/* client section */}
+        {client && <div className="team-area pt-50">
           <div className="container">
-            {/* section title */}
-            {client && <SectionTitleTwo
+            <SectionTitleTwo
               titleText={client?.title ? client?.title : ''}
               subTitleText={client?.description ? client?.description : ''}
               positionClass="text-center"
               spaceClass="mb-60"
-            />}
+            />
+            <BrandLogoSliderOne
+              images={client?.image}
+              spaceBottomClass="pb-70"
+            />
           </div>
-        </div>
+        </div>}
 
-        {/* brand logo slider */}
-        <BrandLogoSliderOne spaceBottomClass="pb-70" />
       </LayoutOne>
-    </Fragment>
+    </Fragment >
   );
 };
 

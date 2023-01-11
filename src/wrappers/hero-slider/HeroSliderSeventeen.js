@@ -2,7 +2,7 @@ import React from "react";
 import Swiper from "react-id-swiper";
 import HeroSliderSeventeenSingle from "../../components/hero-slider/HeroSliderSeventeenSingle.js";
 
-const HeroSliderSeventeen = ({ banner }) => {
+const HeroSliderSeventeen = ({ slider }) => {
 
   const params = {
     effect: "fade",
@@ -38,8 +38,8 @@ const HeroSliderSeventeen = ({ banner }) => {
     <div className="slider-area">
       <div className="slider-active nav-style-1">
         <Swiper {...params}>
-          {banner &&
-            banner.map((single, key) => {
+          {slider &&
+            slider.map((single, key) => {
               return (
                 <HeroSliderSeventeenSingle
                   key={key}

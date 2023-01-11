@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import Swiper from "react-id-swiper";
 import { useDispatch, useSelector } from "react-redux";
+import { useInView } from 'react-intersection-observer';
 import SectionTitle from "../../components/section-title/SectionTitle";
 import ProductGrid from "./ProductGrid";
 import { getProductsByCategory } from "../../redux/actions/productsActions";
@@ -10,14 +11,19 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
   const [isLoading, setIsLoading] = useState(true);
   const { products } = useSelector((state) => state.productsData);
   const dispatch = useDispatch();
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: "200px 0px",
+    triggerOnce: true
+  });
 
   useEffect(() => {
     setIsLoading(true);
-    dispatch(getProductsByCategory(categoryId))
+    inView && dispatch(getProductsByCategory(categoryId))
       .then(() => {
         setIsLoading(false);
       });
-  }, [dispatch, categoryId])
+  }, [dispatch, categoryId, inView])
 
   // {...settings}
   // const settings = {
@@ -42,8 +48,8 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
 
   return (
     <div
-      className={`related-product-area ${spaceBottomClass ? spaceBottomClass : ""
-        }`}
+      className={`related-product-area ${spaceBottomClass ? spaceBottomClass : ""}`}
+      ref={ref}
     >
       <div className="container">
 
@@ -60,7 +66,7 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
           </div>
         }
 
-        {!isLoading &&
+        {(!isLoading && inView) &&
           <div className="row">
             <Swiper>
               <ProductGrid

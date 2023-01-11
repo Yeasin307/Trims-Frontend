@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getComponent } from "../../redux/actions/componentActions";
+import { getManagement } from "../../redux/actions/componentActions";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 import TeamMemberOneSingle from "../../components/team-member/TeamMemberOneSingle";
 import TeamMemberTwoSingle from "../../components/team-member/TeamMemberTwoSingle";
@@ -11,7 +11,7 @@ const TeamMemberOne = ({ spaceTopClass, spaceBottomClass }) => {
   const { management } = useSelector((state) => state.componentData);
 
   useEffect(() => {
-    dispatch(getComponent());
+    dispatch(getManagement());
   }, [dispatch])
 
   return (

@@ -3,7 +3,7 @@ import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useDispatch, useSelector } from "react-redux";
-import { getComponent } from "../../redux/actions/componentActions";
+import { getProfile } from "../../redux/actions/componentActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
@@ -14,7 +14,7 @@ const Profile = ({ location }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getComponent());
+        dispatch(getProfile());
     }, [dispatch])
 
     return (

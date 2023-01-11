@@ -1,23 +1,34 @@
 import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
 import { useDispatch, useSelector } from "react-redux";
+import { useInView } from 'react-intersection-observer';
 import LayoutOne from "../../layouts/LayoutOne";
 import HeroSliderSeventeen from "../../wrappers/hero-slider/HeroSliderSeventeen";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
 import SectionTitleSeven from "../../components/section-title/SectionTitleSeven";
 import FeatureIconSeven from "../../wrappers/feature-icon/FeatureIconSeven";
 import TabProduct from "../../wrappers/product/TabProduct";
-// import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
+import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
-import { getComponent } from "../../redux/actions/componentActions";
+import { getSlider, getClient } from "../../redux/actions/componentActions";
 
 const HomeFashion = () => {
-  const { banner } = useSelector((state) => state.componentData);
+  const { slider } = useSelector((state) => state.componentData);
+  const { client } = useSelector((state) => state.componentData);
   const dispatch = useDispatch();
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: "200px 0px",
+    triggerOnce: true
+  });
 
   useEffect(() => {
-    dispatch(getComponent());
+    dispatch(getSlider());
   }, [dispatch])
+
+  useEffect(() => {
+    inView && dispatch(getClient());
+  }, [dispatch, inView])
 
   return (
     <Fragment>
@@ -35,7 +46,7 @@ const HomeFashion = () => {
       >
         {/* hero slider */}
         <HeroSliderSeventeen
-          banner={banner}
+          slider={slider}
         />
 
         {/* section title with text */}
@@ -45,7 +56,7 @@ const HomeFashion = () => {
         <TabProduct spaceBottomClass="pb-20" />
 
         {/* featured icon */}
-        <div className="container pb-50 pt-20">
+        <div ref={ref} className="container pb-50 pt-20">
           <SectionTitleSeven
             titleText="Our Key Strengths"
             positionClass="text-center"
@@ -56,19 +67,20 @@ const HomeFashion = () => {
         </div>
 
         {/* client section */}
-        {/* <div className={`team-area pb-70`}>
+        {client && <div className="team-area">
           <div className="container">
-            {client && <SectionTitleTwo
+            <SectionTitleTwo
               titleText={client?.title ? client?.title : ''}
               subTitleText={client?.description ? client?.description : ''}
               positionClass="text-center"
               spaceClass="mb-60"
-            />}
+            />
+            <BrandLogoSliderOne
+              images={client?.image}
+              spaceBottomClass="pb-70"
+            />
           </div>
-        </div> */}
-
-        {/* brand logo slider */}
-        <BrandLogoSliderOne spaceBottomClass="pb-70" />
+        </div>}
 
       </LayoutOne>
     </Fragment>

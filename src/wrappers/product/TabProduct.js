@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
+import { useDispatch, useSelector } from "react-redux";
 import ProductGrid from "./ProductGrid";
 import SectionTitle from "../../components/section-title/SectionTitle";
+import { getInitialProducts } from "../../redux/actions/productsActions";
 
 const TabProduct = ({
   spaceTopClass,
@@ -10,11 +12,21 @@ const TabProduct = ({
   bgColorClass
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { initialProducts } = useSelector((state) => state?.productsData);
+  const dispatch = useDispatch();
   const { ref, inView } = useInView({
     threshold: 0,
     rootMargin: "200px 0px",
     triggerOnce: true
   });
+
+  useEffect(() => {
+    setIsLoading(true);
+    inView && dispatch(getInitialProducts())
+      .then(() => {
+        setIsLoading(false);
+      })
+  }, [dispatch, inView])
 
   return (
     <div
@@ -31,8 +43,7 @@ const TabProduct = ({
             </div>
           }
           {inView && <ProductGrid
-            isLoading={isLoading}
-            setIsLoading={setIsLoading}
+            products={initialProducts}
             spaceBottomClass="mb-100"
           />}
         </div>

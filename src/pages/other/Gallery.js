@@ -5,7 +5,7 @@ import ImageList from '@mui/material/ImageList';
 import React, { Fragment, useEffect } from "react";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useDispatch, useSelector } from "react-redux";
-import { getComponent } from "../../redux/actions/componentActions";
+import { getGallery } from "../../redux/actions/componentActions";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import ListImageItem from "../../components/gallery/ListImageItem";
@@ -16,7 +16,7 @@ const Gallery = ({ location }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getComponent());
+        dispatch(getGallery());
     }, [dispatch])
 
     return (

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import ProductGridListSingle from "../../components/product/ProductGridListSingle";
 
-const ProductGrid = ({
+const ProductGridList = ({
     products,
     sliderClassName,
     spaceBottomClass
@@ -23,10 +23,10 @@ const ProductGrid = ({
     );
 };
 
-ProductGrid.propTypes = {
+ProductGridList.propTypes = {
     products: PropTypes.array,
     sliderClassName: PropTypes.string,
     spaceBottomClass: PropTypes.string,
 };
 
-export default ProductGrid;
+export default ProductGridList;

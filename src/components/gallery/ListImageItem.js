@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from 'react';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -20,6 +21,10 @@ const ListImageItem = ({ item }) => {
             />
         </ImageListItem>
     );
+};
+
+ListImageItem.propTypes = {
+    item: PropTypes.object
 };
 
 export default ListImageItem;

@@ -109,7 +109,8 @@ const MobileNavMenu = ({ strings, accessories }) => {
 };
 
 MobileNavMenu.propTypes = {
-  strings: PropTypes.object
+  strings: PropTypes.object,
+  accessories: PropTypes.array
 };
 
 export default multilanguage(MobileNavMenu);

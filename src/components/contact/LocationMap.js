@@ -2,7 +2,7 @@ import React from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import { PropTypes } from "prop-types";
 
-const FooterMap = props => {
+const LocationMap = props => {
   const mapStyles = {
     width: "100%",
     height: "100%"
@@ -26,7 +26,7 @@ const FooterMap = props => {
   );
 };
 
-FooterMap.propTypes = {
+LocationMap.propTypes = {
   google: PropTypes.object,
   latitude: PropTypes.string,
   longitude: PropTypes.string
@@ -42,4 +42,4 @@ const LoadingContainer = () => (
 export default GoogleApiWrapper({
   apiKey: "AIzaSyBDqzysVw3ix_7FepCo9f1Zxcr9VI-bKpI",
   LoadingContainer: LoadingContainer
-})(FooterMap);
+})(LocationMap);

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Swiper from "react-id-swiper";
 import { useDispatch, useSelector } from "react-redux";
 import { useInView } from 'react-intersection-observer';
-import SectionTitle from "../../components/section-title/SectionTitle";
+import SectionTitleOne from "../../components/section-title/SectionTitleOne";
 import ProductGrid from "./ProductGrid";
 import { getProductsByCategory } from "../../redux/actions/productsActions";
 
@@ -53,7 +53,7 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
     >
       <div className="container">
 
-        <SectionTitle
+        <SectionTitleOne
           titleText="Related Products"
           positionClass="text-center"
           spaceClass="mb-50"
@@ -83,7 +83,7 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
 };
 
 RelatedProductSlider.propTypes = {
-  category: PropTypes.string,
+  categoryId: PropTypes.string,
   spaceBottomClass: PropTypes.string
 };
 

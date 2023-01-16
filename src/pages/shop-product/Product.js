@@ -4,7 +4,7 @@ import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import LayoutOne from "../../layouts/LayoutOne";
+import Layout from "../../layout/Layout";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
@@ -40,7 +40,7 @@ const Product = ({ location }) => {
         Product
       </BreadcrumbsItem>
 
-      <LayoutOne headerTop="visible">
+      <Layout headerTop="visible">
         {/* breadcrumb */}
         <Breadcrumb />
 
@@ -65,14 +65,13 @@ const Product = ({ location }) => {
           spaceBottomClass="pb-95"
           categoryId={product?.categoryId}
         />}
-      </LayoutOne>
+      </Layout>
     </Fragment>
   );
 };
 
 Product.propTypes = {
-  location: PropTypes.object,
-  product: PropTypes.object
+  location: PropTypes.object
 };
 
 export default Product;

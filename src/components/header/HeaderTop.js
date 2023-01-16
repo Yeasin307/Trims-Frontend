@@ -4,7 +4,7 @@ import { multilanguage } from "redux-multilanguage";
 import CallIcon from '@mui/icons-material/Call';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import LanguageCurrencyChanger from "./sub-components/LanguageCurrencyChanger";
+import LanguageCurrencyChange from "./sub-components/LanguageCurrencyChange";
 
 const HeaderTop = ({
   currentLanguageCode,
@@ -19,7 +19,7 @@ const HeaderTop = ({
           className={`header-top-wap ${borderStyle === "fluid-border" ? "border-bottom" : ""
             }`}
         >
-          <LanguageCurrencyChanger
+          <LanguageCurrencyChange
             currentLanguageCode={currentLanguageCode}
             dispatch={dispatch}
           />

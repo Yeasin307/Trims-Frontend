@@ -141,7 +141,8 @@ const NavMenu = ({ strings, menuWhiteClass, sidebarMenu, accessories }) => {
 NavMenu.propTypes = {
   menuWhiteClass: PropTypes.string,
   sidebarMenu: PropTypes.bool,
-  strings: PropTypes.object
+  strings: PropTypes.object,
+  accessories: PropTypes.array
 };
 
 export default multilanguage(NavMenu);

@@ -1,32 +1,31 @@
 import PropTypes from "prop-types";
 import React, { useEffect, Suspense, lazy } from "react";
-import ScrollToTop from "./helpers/scroll-top";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ToastProvider } from "react-toast-notifications";
 import { multilanguage, loadLanguages } from "redux-multilanguage";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
+import ScrollToTop from "./helpers/scroll-top";
 
-// home pages
-const HomeFashion = lazy(() => import("./pages/home/HomeFashion"));
+// home page
+const HomeFashion = lazy(() => import("./pages/home/Home"));
 
-// shop pages
-const ShopGridStandard = lazy(() => import("./pages/shop/ShopGridStandard"));
+// shop page
+const ShopGrid = lazy(() => import("./pages/shop/ShopGrid"));
 
-// product pages
+// product page
 const Product = lazy(() => import("./pages/shop-product/Product"));
 
 // other pages
-const About = lazy(() => import("./pages/other/About"));
-const Profile = lazy(() => import("./pages/other/Profile"));
-const Management = lazy(() => import("./pages/other/Management"));
-const Message = lazy(() => import("./pages/other/Message"));
-const Mission = lazy(() => import("./pages/other/Mission"));
-const Vision = lazy(() => import("./pages/other/Vision"));
-const Goal = lazy(() => import("./pages/other/Goal"));
-const Gallery = lazy(() => import("./pages/other/Gallery"));
-const Contact = lazy(() => import("./pages/other/Contact"));
-
-const NotFound = lazy(() => import("./pages/other/NotFound"));
+const About = lazy(() => import("./pages/others/About"));
+const Profile = lazy(() => import("./pages/others/Profile"));
+const Management = lazy(() => import("./pages/others/Management"));
+const Message = lazy(() => import("./pages/others/Message"));
+const Mission = lazy(() => import("./pages/others/Mission"));
+const Vision = lazy(() => import("./pages/others/Vision"));
+const Goal = lazy(() => import("./pages/others/Goal"));
+const Gallery = lazy(() => import("./pages/others/Gallery"));
+const Contact = lazy(() => import("./pages/others/Contact"));
+const NotFound = lazy(() => import("./pages/others/NotFound"));
 
 const App = (props) => {
   useEffect(() => {
@@ -72,7 +71,7 @@ const App = (props) => {
                 {/* Shop pages */}
                 <Route
                   path={process.env.PUBLIC_URL + "/accessories/:id"}
-                  component={ShopGridStandard}
+                  component={ShopGrid}
                 />
 
                 {/* Shop product pages */}

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from "react-redux";
 import ProductGrid from "./ProductGrid";
-import SectionTitle from "../../components/section-title/SectionTitle";
+import SectionTitleOne from "../../components/section-title/SectionTitleOne";
 import { getInitialProducts } from "../../redux/actions/productsActions";
 
 const TabProduct = ({
@@ -34,18 +34,28 @@ const TabProduct = ({
       ref={ref}
     >
       <div className="container">
-        <SectionTitle titleText="FEATURED PRODUCTS" positionClass="text-center" />
+
+        <SectionTitleOne
+          titleText="FEATURED PRODUCTS"
+          positionClass="text-center"
+        />
+
         <div className="row">
+
           {isLoading &&
             <div className="flone-preloader">
               <span></span>
               <span></span>
             </div>
           }
-          {inView && <ProductGrid
-            products={initialProducts}
-            spaceBottomClass="mb-100"
-          />}
+
+          {inView &&
+            <ProductGrid
+              products={initialProducts}
+              spaceBottomClass="mb-100"
+            />
+          }
+
         </div>
       </div>
     </div>

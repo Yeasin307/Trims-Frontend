@@ -25,9 +25,9 @@ const Contact = ({ location }) => {
     const address = addressRef.current.value;
     const subject = subjectRef.current.value;
     const message = messageRef.current.value;
-    const product = { fullName, email, phone, address, subject, message }
+    const form = { fullName, email, phone, address, subject, message }
 
-    axios.post(`${process.env.REACT_APP_SERVER_API}/leads/create`, product)
+    axios.post(`${process.env.REACT_APP_SERVER_API}/leads/create`, form)
       .then(data => {
         if (data?.data === "Created lead successfully!") {
           addToast("Thanks for contact with us!", {

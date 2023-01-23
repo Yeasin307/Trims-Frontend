@@ -28,8 +28,8 @@ const Contact = ({ location }) => {
     const form = { fullName, email, phone, address, subject, message }
 
     axios.post(`${process.env.REACT_APP_SERVER_API}/leads/create`, form)
-      .then(data => {
-        if (data?.data === "Created lead successfully!") {
+      .then(res => {
+        if (res?.data === "Created lead successfully!") {
           addToast("Thanks for contact with us!", {
             appearance: 'success',
             autoDismiss: true,

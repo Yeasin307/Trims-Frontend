@@ -1,10 +1,14 @@
 @import "~bootstrap/scss/bootstrap.scss";
-@import "~swiper/css/swiper.css";
 @import "~animate.css/animate.min.css";
 @import "~lightgallery.js/dist/css/lightgallery.css";
-@import "~react-modal-video/scss/modal-video.scss";
 @import "../css/icons.min.css";
 @import "/node_modules/flag-icons/css/flag-icons.min.css";
+@import 'swiper/swiper.scss';
+@import 'swiper/modules/navigation/navigation.scss';
+@import 'swiper/modules/pagination/pagination.scss';
+@import "swiper/modules/controller/controller.scss";
+@import "swiper/modules/thumbs/thumbs.scss";
+@import "swiper/modules/free-mode/free-mode.scss";
 
 @import "variables";
 @import "helper";

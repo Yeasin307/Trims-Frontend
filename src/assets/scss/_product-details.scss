@@ -653,6 +653,19 @@
 .product-large-image-wrapper {
   position: relative;
 
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+
+  &:hover {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: flex;
+    }
+  }
+
   .product-img-badges {
     position: absolute;
     z-index: 3;
@@ -686,6 +699,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 5;
 
     button {
       font-size: 30px;
@@ -737,16 +751,17 @@
 }
 
 .product-small-image-wrapper {
-  .ht-swiper-button-nav {
-    visibility: hidden;
 
-    opacity: 0;
-    color: #333;
-    border: none;
-    background: none;
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
 
-    i {
-      font-size: 40px;
+  &:hover {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: flex;
     }
   }
 
@@ -755,14 +770,6 @@
 
     img {
       width: 100%;
-    }
-  }
-
-  &:hover {
-    .ht-swiper-button-nav {
-      visibility: visible;
-
-      opacity: 1;
     }
   }
 

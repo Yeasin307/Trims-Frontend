@@ -1,36 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Swiper from "react-id-swiper";
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Autoplay } from "swiper";
 import BrandLogoSingle from "../../components/brand-logo/BrandLogoSingle";
 
 const BrandLogoSlider = ({ spaceBottomClass, spaceTopClass, images }) => {
-
-  const params = {
-    loop: true,
-    shouldSwiperUpdate: true,
-    slidesPerView: 3,
-    spaceBetween: 30,
-    rebuildOnUpdate: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false
-    },
-    grabCursor: true,
-    breakpoints: {
-      1024: {
-        slidesPerView: 5
-      },
-      768: {
-        slidesPerView: 4
-      },
-      640: {
-        slidesPerView: 3
-      },
-      320: {
-        slidesPerView: 2
-      }
-    }
-  };
 
   return (
     <div
@@ -39,16 +13,38 @@ const BrandLogoSlider = ({ spaceBottomClass, spaceTopClass, images }) => {
     >
       <div className="container">
         <div className="brand-logo-active">
-          <Swiper {...params}>
+          <Swiper
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false
+            }}
+            grabCursor={true}
+            slidesPerView={5}
+            breakpoints={{
+              1024: {
+                slidesPerView: 5
+              },
+              768: {
+                slidesPerView: 4
+              },
+              640: {
+                slidesPerView: 3
+              },
+              320: {
+                slidesPerView: 2
+              }
+            }}
+            modules={[Autoplay]}>
             {images &&
-              images?.map((single, key) => {
+              images.map((data, index) => {
                 return (
-                  <BrandLogoSingle
-                    data={single}
-                    key={key}
-                    sliderClassName="swiper-slide"
-                    spaceBottomClass="mb-30"
-                  />
+                  <SwiperSlide key={index}>
+                    <BrandLogoSingle
+                      data={data}
+                      spaceBottomClass="mb-30"
+                    />
+                  </SwiperSlide>
                 );
               })}
           </Swiper>

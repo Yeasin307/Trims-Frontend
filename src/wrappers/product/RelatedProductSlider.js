@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-import Swiper from "react-id-swiper";
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Autoplay, Navigation } from "swiper";
 import { useDispatch, useSelector } from "react-redux";
 import { useInView } from 'react-intersection-observer';
 import SectionTitleOne from "../../components/section-title/SectionTitleOne";
-import ProductGrid from "./ProductGrid";
+import RelatedProductGridSingle from "../../components/product/RelatedProductGridSingle";
 import { getProductsByCategory } from "../../redux/actions/productsActions";
 
 const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
@@ -24,27 +25,6 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
         setIsLoading(false);
       });
   }, [dispatch, categoryId, inView])
-
-  // {...settings}
-  // const settings = {
-  //   loop: false,
-  //   slidesPerView: 4,
-  //   grabCursor: true,
-  //   breakpoints: {
-  //     1024: {
-  //       slidesPerView: 4
-  //     },
-  //     768: {
-  //       slidesPerView: 3
-  //     },
-  //     640: {
-  //       slidesPerView: 2
-  //     },
-  //     320: {
-  //       slidesPerView: 1
-  //     }
-  //   }
-  // };
 
   return (
     <div
@@ -67,14 +47,46 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
         }
 
         {(!isLoading && inView) &&
-          <div className="row">
-            <Swiper>
-              <ProductGrid
-                products={products}
-                sliderClassName="swiper-slide"
-              />
-            </Swiper>
-          </div>
+
+          <Swiper
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false
+            }}
+            grabCursor={true}
+            slidesPerView={4}
+            spaceBetween={30}
+            breakpoints={{
+              1024: {
+                slidesPerView: 4
+              },
+              768: {
+                slidesPerView: 3
+              },
+              640: {
+                slidesPerView: 2
+              },
+              320: {
+                slidesPerView: 1
+              }
+            }}
+            navigation={true}
+            modules={[Autoplay, Navigation]}
+          >
+            {
+              products &&
+              products?.map(product => {
+                return (
+                  <SwiperSlide key={product.id}>
+                    <RelatedProductGridSingle
+                      product={product}
+                    />
+                  </SwiperSlide>
+                );
+              })
+            }
+          </Swiper>
         }
 
       </div>

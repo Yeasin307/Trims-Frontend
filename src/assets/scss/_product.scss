@@ -279,6 +279,25 @@
 }
 }
 
+.related-product-area {
+  .container {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+
+    &:hover {
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: flex;
+      }
+    }
+
+  }
+}
+
 .product-wrap,
 .product-list-image-wrap {
   position: relative;

@@ -1,95 +1,45 @@
 import PropTypes from "prop-types";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
-import Swiper from "react-id-swiper";
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Controller, Navigation, FreeMode } from "swiper";
 
 const ProductImageGallery = ({ product }) => {
   const [gallerySwiper, getGallerySwiper] = useState(null);
   const [thumbnailSwiper, getThumbnailSwiper] = useState(null);
 
-  // effect for swiper slider synchronize
-  useEffect(() => {
-    if (
-      gallerySwiper !== null &&
-      gallerySwiper.controller &&
-      thumbnailSwiper !== null &&
-      thumbnailSwiper.controller
-    ) {
-      gallerySwiper.controller.control = thumbnailSwiper;
-      thumbnailSwiper.controller.control = gallerySwiper;
-    }
-  }, [gallerySwiper, thumbnailSwiper]);
-
-  // swiper slider settings
-  const gallerySwiperParams = {
-    getSwiper: getGallerySwiper,
-    spaceBetween: 10,
-    loopedSlides: 4,
-    loop: true,
-    effect: "fade"
-  };
-
-  const thumbnailSwiperParams = {
-    getSwiper: getThumbnailSwiper,
-    spaceBetween: 10,
-    slidesPerView: 4,
-    loopedSlides: 4,
-    touchRatio: 0.2,
-    freeMode: true,
-    loop: true,
-    slideToClickedSlide: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    renderPrevButton: () => (
-      <button className="swiper-button-prev ht-swiper-button-nav">
-        <i className="pe-7s-angle-left" />
-      </button>
-    ),
-    renderNextButton: () => (
-      <button className="swiper-button-next ht-swiper-button-nav">
-        <i className="pe-7s-angle-right" />
-      </button>
-    )
-  };
-
   return (
     <Fragment>
       <div className="product-large-image-wrapper">
         <LightgalleryProvider>
-          <Swiper {...gallerySwiperParams}>
-            {product?.productDetails &&
-              product?.productDetails?.map((single, key) => {
-                return (
-                  <div key={key}>
-                    <LightgalleryItem
-                      group="any"
-                      src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
-                    >
-                      <button>
-                        <i className="pe-7s-expand1"></i>
-                      </button>
-                    </LightgalleryItem>
-                    <div className="single-image">
-                      <img
-                        src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
-                        className="img-fluid"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-          </Swiper>
-        </LightgalleryProvider>
-      </div>
-      <div className="product-small-image-wrapper mt-15">
-        <Swiper {...thumbnailSwiperParams}>
           {product?.productDetails &&
             product?.productDetails?.map((single, key) => {
               return (
-                <div key={key}>
+                <LightgalleryItem
+                  key={key}
+                  group="any"
+                  src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
+                >
+                  <button >
+                    <i className="pe-7s-expand1"></i>
+                  </button>
+                </LightgalleryItem>
+              );
+            })}
+        </LightgalleryProvider>
+        <Swiper
+          loop={true}
+          loopedSlides={4}
+          spaceBetween={10}
+          navigation={true}
+          onSwiper={getGallerySwiper}
+          controller={{ control: thumbnailSwiper }}
+          modules={[Controller, Navigation]}
+        >
+          {product?.productDetails &&
+            product?.productDetails?.map((single, key) => {
+              return (
+                <SwiperSlide key={key}>
                   <div className="single-image">
                     <img
                       src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
@@ -97,7 +47,37 @@ const ProductImageGallery = ({ product }) => {
                       alt=""
                     />
                   </div>
-                </div>
+                </SwiperSlide>
+              );
+            })}
+        </Swiper>
+      </div>
+      <div className="product-small-image-wrapper mt-15">
+        <Swiper
+          loop={true}
+          freeMode={true}
+          slidesPerView={4}
+          spaceBetween={10}
+          loopedSlides={4}
+          touchRatio={0.2}
+          slideToClickedSlide={true}
+          navigation={true}
+          onSwiper={getThumbnailSwiper}
+          controller={{ control: gallerySwiper }}
+          modules={[Controller, Navigation, FreeMode]}
+        >
+          {product?.productDetails &&
+            product?.productDetails?.map((single, key) => {
+              return (
+                <SwiperSlide key={key}>
+                  <div className="single-image">
+                    <img
+                      src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + single?.image}
+                      className="img-fluid"
+                      alt=""
+                    />
+                  </div>
+                </SwiperSlide>
               );
             })}
         </Swiper>

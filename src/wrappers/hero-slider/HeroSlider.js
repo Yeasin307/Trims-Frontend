@@ -1,52 +1,36 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Swiper from "react-id-swiper";
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import { Autoplay, Navigation, Pagination } from "swiper";
 import HeroSliderSingle from "../../components/hero-slider/HeroSliderSingle";
 
 const HeroSlider = ({ slider }) => {
 
-  const params = {
-    effect: "fade",
-    shouldSwiperUpdate: true,
-    speed: 1000,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    watchSlidesVisibility: true,
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    renderPrevButton: () => (
-      <button className="swiper-button-prev ht-swiper-button-nav">
-        <i className="pe-7s-angle-left" />
-      </button>
-    ),
-    renderNextButton: () => (
-      <button className="swiper-button-next ht-swiper-button-nav">
-        <i className="pe-7s-angle-right" />
-      </button>
-    )
-  };
-
   return (
     <div className="slider-area">
       <div className="slider-active nav-style-1">
-        <Swiper {...params}>
+
+        <Swiper
+          slidesPerView={1}
+          spaceBetween={30}
+          loop={true}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true
+          }}
+          navigation={true}
+          modules={[Autoplay, Navigation, Pagination]}>
           {slider &&
-            slider.map((single, key) => {
+            slider.map(data => {
               return (
-                <HeroSliderSingle
-                  key={key}
-                  data={single}
-                  sliderClass="swiper-slide"
-                />
+                <SwiperSlide key={data.id}>
+                  <HeroSliderSingle
+                    data={data}
+                  />
+                </SwiperSlide>
               );
             })}
         </Swiper>

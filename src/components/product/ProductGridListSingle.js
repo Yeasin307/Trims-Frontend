@@ -10,7 +10,7 @@ const ProductGridListSingle = ({
   spaceBottomClass
 }) => {
   const loaded_1 = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image);
-  const loaded_2 = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/productimages/" + product.productDetails[1].image);
+  const loaded_2 = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image);
 
   return (
     <Fragment>
@@ -29,7 +29,7 @@ const ProductGridListSingle = ({
                 src={loaded_1 || loader}
                 className="default-img"
               />
-              {product.productDetails.length > 1 ? (
+              {product?.productDetails?.length > 1 ? (
                 <img
                   alt=""
                   loading="lazy"
@@ -69,13 +69,13 @@ const ProductGridListSingle = ({
                   <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
                     <img
                       className="default-img img-fluid"
-                      src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product.productDetails[0].image}
+                      src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
                       alt=""
                     />
-                    {product.productDetails.length > 1 ? (
+                    {product?.productDetails?.length > 1 ? (
                       <img
                         className="hover-img img-fluid"
-                        src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product.productDetails[1].image}
+                        src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image}
                         alt=""
                       />
                     ) : (

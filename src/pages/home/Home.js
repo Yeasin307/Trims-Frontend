@@ -67,19 +67,17 @@ const Home = () => {
         </div>
 
         {/* client section */}
-        {client && <div className="team-area">
-          <div className="container">
-            <SectionTitleTwo
-              titleText={client?.title ? client?.title : ''}
-              subTitleText={client?.description ? client?.description : ''}
-              positionClass="text-center"
-              spaceClass="mb-60"
-            />
-            <BrandLogoSlider
-              images={client?.image}
-              spaceBottomClass="pb-70"
-            />
-          </div>
+        {client && <div className="container">
+          <SectionTitleTwo
+            titleText={client?.title ? client?.title : ''}
+            subTitleText={client?.description ? client?.description : ''}
+            positionClass="text-center"
+            spaceClass="mb-60"
+          />
+          <BrandLogoSlider
+            images={client?.image}
+            spaceBottomClass="pb-70"
+          />
         </div>}
 
       </Layout>

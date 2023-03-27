@@ -49,7 +49,7 @@ const TabProduct = ({
             </div>
           }
 
-          {inView &&
+          {(inView && !isLoading) &&
             <ProductGrid
               products={initialProducts}
               spaceBottomClass="mb-100"

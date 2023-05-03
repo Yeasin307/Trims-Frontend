@@ -16,13 +16,10 @@ const ShopGrid = lazy(() => import("./pages/shop/ShopGrid"));
 const Product = lazy(() => import("./pages/shop-product/Product"));
 
 // other pages
-const About = lazy(() => import("./pages/others/About"));
 const Profile = lazy(() => import("./pages/others/Profile"));
 const Management = lazy(() => import("./pages/others/Management"));
 const Message = lazy(() => import("./pages/others/Message"));
 const Mission = lazy(() => import("./pages/others/Mission"));
-const Vision = lazy(() => import("./pages/others/Vision"));
-const Goal = lazy(() => import("./pages/others/Goal"));
 const Gallery = lazy(() => import("./pages/others/Gallery"));
 const Contact = lazy(() => import("./pages/others/Contact"));
 const NotFound = lazy(() => import("./pages/others/NotFound"));
@@ -84,10 +81,6 @@ const App = (props) => {
 
                 {/* Other pages */}
                 <Route
-                  path={process.env.PUBLIC_URL + "/about"}
-                  component={About}
-                />
-                <Route
                   path={process.env.PUBLIC_URL + "/profile"}
                   component={Profile}
                 />
@@ -100,16 +93,8 @@ const App = (props) => {
                   component={Message}
                 />
                 <Route
-                  path={process.env.PUBLIC_URL + "/mission"}
+                  path={process.env.PUBLIC_URL + "/mission&vision"}
                   component={Mission}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/vision"}
-                  component={Vision}
-                />
-                <Route
-                  path={process.env.PUBLIC_URL + "/goal"}
-                  component={Goal}
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/gallery"}

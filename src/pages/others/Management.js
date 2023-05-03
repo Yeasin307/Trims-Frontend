@@ -15,12 +15,12 @@ const Management = ({ location }) => {
                 <title>Trim | About us</title>
                 <meta
                     name="description"
-                    content="about page of trim tex bd"
+                    content="management page of trim tex bd"
                 />
             </MetaTags>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-                About us
+                Management
             </BreadcrumbsItem>
             <Layout headerTop="visible">
                 {/* breadcrumb */}

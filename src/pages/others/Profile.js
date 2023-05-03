@@ -3,18 +3,21 @@ import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "../../redux/actions/componentActions";
+import { getProfile, getClient } from "../../redux/actions/componentActions";
 import Layout from "../../layout/Layout";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
+import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
+import BrandLogoSlider from "../../wrappers/brand-logo/BrandLogoSlider";
 
 const Profile = ({ location }) => {
-    const { profile } = useSelector((state) => state.componentData);
+    const { profile, client } = useSelector((state) => state.componentData);
     const { pathname } = location;
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getProfile());
+        dispatch(getClient());
     }, [dispatch])
 
     return (
@@ -23,12 +26,12 @@ const Profile = ({ location }) => {
                 <title>Trim | About us</title>
                 <meta
                     name="description"
-                    content="about page of trim tex bd"
+                    content="profile page of trim tex bd"
                 />
             </MetaTags>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
-                About us
+                Profile
             </BreadcrumbsItem>
             <Layout headerTop="visible">
 
@@ -62,6 +65,22 @@ const Profile = ({ location }) => {
                         </div>
                     </div>
                 </div>
+
+                {/* client section */}
+                {client && <div className="team-area pt-50">
+                    <div className="container">
+                        <SectionTitleTwo
+                            titleText={client?.title ? client?.title : ''}
+                            subTitleText={client?.description ? client?.description : ''}
+                            positionClass="text-center"
+                            spaceClass="mb-60"
+                        />
+                        <BrandLogoSlider
+                            images={client?.image}
+                            spaceBottomClass="pb-70"
+                        />
+                    </div>
+                </div>}
 
             </Layout>
         </Fragment>

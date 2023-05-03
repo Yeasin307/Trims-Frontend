@@ -42,53 +42,24 @@ const MobileNavMenu = ({ strings, accessories }) => {
             {strings["about_us"]}
           </Link>
           <ul className="sub-menu">
-            <li className="menu-item-has-children">
-              <Link to={process.env.PUBLIC_URL} style={{ pointerEvents: "none" }}>
-                {strings["profile"]}
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/message"}>
+                {strings["ceo_message"]}
               </Link>
-              <ul className="sub-menu">
-                <li>
-                  <Link to={process.env.PUBLIC_URL + "/profile"}>
-                    {strings["company_profile"]}
-                  </Link>
-                </li>
-                <li>
-                  <Link to={process.env.PUBLIC_URL + "/management"}>
-                    {strings["board_&_management"]}
-                  </Link>
-                </li>
-              </ul>
             </li>
-            <li className="menu-item-has-children">
-              <Link to={process.env.PUBLIC_URL} style={{ pointerEvents: "none" }}>
-                {strings["message"]}
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/profile"}>
+                {strings["company_profile"]}
               </Link>
-              <ul className="sub-menu">
-                <li>
-                  <Link to={process.env.PUBLIC_URL + "/message"}>
-                    {strings["ceo_message"]}
-                  </Link>
-                </li>
-                <li>
-                  <Link to={process.env.PUBLIC_URL + "/mission"}>
-                    {strings["mission"]}
-                  </Link>
-                </li>
-                <li>
-                  <Link to={process.env.PUBLIC_URL + "/vision"}>
-                    {strings["vision"]}
-                  </Link>
-                </li>
-                <li>
-                  <Link to={process.env.PUBLIC_URL + "/goal"}>
-                    {strings["goal"]}
-                  </Link>
-                </li>
-              </ul>
             </li>
-            <li >
-              <Link to={process.env.PUBLIC_URL + "/about"}>
-                {strings["why_with_us"]}
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/management"}>
+                {strings["board_&_management"]}
+              </Link>
+            </li>
+            <li>
+              <Link to={process.env.PUBLIC_URL + "/mission&vision"}>
+                {strings["mission"]}
               </Link>
             </li>
           </ul>

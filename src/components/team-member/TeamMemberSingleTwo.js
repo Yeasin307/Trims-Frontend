@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import useProgressiveImage from '../../hooks/useProgressiveImage';
-import loader from '../../data/loader-3.gif';
+import loader from '../../data/loader-2.gif';
 
 const TeamMemberSingleTwo = ({ data, spaceBottomClass }) => {
     const loaded = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/components/" + data.image);

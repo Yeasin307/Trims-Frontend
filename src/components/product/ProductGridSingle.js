@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { Skeleton } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
-import loader from '../../data/loader-1.gif';
+import loader from '../../data/loader-3.png';
 
 const ProductGridSingle = ({
   product,
@@ -28,30 +29,38 @@ const ProductGridSingle = ({
           <div className="product-img">
             <Link to={process.env.PUBLIC_URL + "/product/" + product?.id}>
 
-              {(inView && isLoading) && <img
-                alt=""
-                src={loader}
-              />}
+              {(inView && isLoading) &&
+                <Skeleton
+                  variant="rectangular"
+                  animation="wave"
+                >
+                  <img
+                    alt=""
+                    src={loader}
+                    style={{ visibility: 'hidden' }}
+                  />
+                </Skeleton>}
 
-              {inView && <img
-                alt=""
-                src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
-                onLoad={() => { setIsLoading(false) }}
-                style={{ visibility: isLoading ? 'hidden' : 'visible' }}
-              />}
+              {inView &&
+                <img
+                  alt=""
+                  src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
+                  onLoad={() => { setIsLoading(false) }}
+                  style={{ display: isLoading ? 'none' : null }}
+                />}
 
-              {(inView && !isLoading && product?.productDetails?.length > 1) ? (
+              {(inView && !isLoading && product?.productDetails?.length > 1) &&
                 <img
                   alt=""
                   src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image}
                   className="hover-img"
-                />
-              ) : (
-                ""
-              )}
+                />}
             </Link>
 
-            <div className="product-action">
+            <div
+              className="product-action"
+              style={{ display: isLoading ? 'none' : null }}
+            >
               <div className="pro-same-action pro-wishlist">
               </div>
               <div className="pro-same-action pro-cart">

@@ -11,7 +11,9 @@ const ProductImageGallery = ({ product }) => {
   return (
     <Fragment>
       <div className="product-large-image-wrapper">
-        <LightgalleryProvider>
+        <LightgalleryProvider
+          lightgallerySettings={{ showThumbByDefault: false }}
+        >
           {product?.productDetails &&
             product?.productDetails?.map((single, key) => {
               return (
@@ -30,6 +32,7 @@ const ProductImageGallery = ({ product }) => {
         <Swiper
           loop={true}
           loopedSlides={4}
+          loopedSlidesLimit={false}
           spaceBetween={10}
           navigation={true}
           onSwiper={getGallerySwiper}
@@ -59,7 +62,8 @@ const ProductImageGallery = ({ product }) => {
           slidesPerView={4}
           spaceBetween={10}
           loopedSlides={4}
-          touchRatio={0.2}
+          loopedSlidesLimit={false}
+          touchRatio={0.25}
           slideToClickedSlide={true}
           navigation={true}
           onSwiper={getThumbnailSwiper}

@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import MobileNavMenu from "./sub-components/MobileNavMenu";
-import MobileLangCurChange from "./sub-components/MobileLangCurrChange";
 import MobileWidgets from "./sub-components/MobileWidgets";
 
 const MobileMenu = ({ accessories }) => {
@@ -61,9 +60,6 @@ const MobileMenu = ({ accessories }) => {
           <MobileNavMenu
             accessories={accessories}
           />
-
-          {/* mobile language and currency */}
-          <MobileLangCurChange />
 
           {/* mobile widgets */}
           <MobileWidgets />

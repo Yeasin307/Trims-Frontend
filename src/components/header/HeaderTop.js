@@ -1,56 +1,31 @@
-import PropTypes from "prop-types";
 import React from "react";
-import { multilanguage } from "redux-multilanguage";
 import CallIcon from '@mui/icons-material/Call';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-import LanguageCurrencyChange from "./sub-components/LanguageCurrencyChange";
+import HeaderContact from "./sub-components/HeaderContact";
 
-const HeaderTop = ({
-  currentLanguageCode,
-  dispatch,
-  borderStyle
-}) => {
+const HeaderTop = () => {
   return (
     <div className="row">
+      <div className="col-lg-12 py-2 d-flex justify-content-center align-items-center">
 
-      <div className="col-lg-2">
-        <div
-          className={`header-top-wap ${borderStyle === "fluid-border" ? "border-bottom" : ""
-            }`}
-        >
-          <LanguageCurrencyChange
-            currentLanguageCode={currentLanguageCode}
-            dispatch={dispatch}
-          />
-        </div>
-      </div>
+        <HeaderContact
+          Icon={CallIcon}
+          title="Call Us"
+          titleValue="+880-1822996565"
+        />
 
-      <div className="col-lg-10" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <HeaderContact
+          Icon={MailOutlineIcon}
+          title="Email Us"
+          titleValue="info@trimtex-bd.com"
+        />
 
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }} className="same-language-currency">
-          <CallIcon fontSize="large" sx={{ color: 'blueViolet' }} />
-          <div style={{ marginLeft: '10px' }}>
-            <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Call Us</h5>
-            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>+880-1822996565</h5>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '72px', paddingRight: '72px' }} className="same-language-currency">
-          <MailOutlineIcon fontSize="large" sx={{ color: 'blueViolet' }} />
-          <div style={{ marginLeft: '10px' }}>
-            <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Email Us</h5>
-            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>info@trimtex-bd.com</h5>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="same-language-currency">
-          <LocationOnOutlinedIcon fontSize="large" sx={{ color: 'blueViolet' }} />
-          <div style={{ marginLeft: '10px' }}>
-            <h5 style={{ marginBottom: '0px', fontWeight: 'bold', color: 'blueViolet' }}>Our Location</h5>
-            <h5 style={{ marginBottom: '0px', fontFamily: 'Arial' }}>Mirpur-12, Dhaka</h5>
-          </div>
-        </div>
+        <HeaderContact
+          Icon={LocationOnOutlinedIcon}
+          title="Our Location"
+          titleValue="Mirpur-12, Dhaka"
+        />
 
       </div>
 
@@ -58,10 +33,4 @@ const HeaderTop = ({
   );
 };
 
-HeaderTop.propTypes = {
-  borderStyle: PropTypes.string,
-  currentLanguageCode: PropTypes.string,
-  dispatch: PropTypes.func
-};
-
-export default multilanguage(HeaderTop);
+export default HeaderTop;

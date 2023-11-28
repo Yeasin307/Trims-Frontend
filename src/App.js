@@ -1,8 +1,6 @@
-import PropTypes from "prop-types";
-import React, { useEffect, Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ToastProvider } from "react-toast-notifications";
-import { multilanguage, loadLanguages } from "redux-multilanguage";
 import { BreadcrumbsProvider } from "react-breadcrumbs-dynamic";
 import ScrollToTop from "./helpers/scroll-top";
 
@@ -24,18 +22,7 @@ const Gallery = lazy(() => import("./pages/others/Gallery"));
 const Contact = lazy(() => import("./pages/others/Contact"));
 const NotFound = lazy(() => import("./pages/others/NotFound"));
 
-const App = (props) => {
-  useEffect(() => {
-    props.dispatch(
-      loadLanguages({
-        languages: {
-          en: require("./translations/english.json"),
-          fn: require("./translations/french.json"),
-          de: require("./translations/germany.json")
-        }
-      })
-    );
-  });
+const App = () => {
 
   return (
     <ToastProvider placement="bottom-left">
@@ -115,8 +102,4 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  dispatch: PropTypes.func
-};
-
-export default multilanguage(App);
+export default App;

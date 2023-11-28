@@ -1,22 +1,21 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
-import { multilanguage } from "redux-multilanguage";
 
-const MobileNavMenu = ({ strings, accessories }) => {
+const MobileNavMenu = ({ accessories }) => {
 
   return (
     <nav className="offcanvas-navigation" id="offcanvas-navigation">
       <ul>
         <li className="menu-item-has-children">
           <Link to={process.env.PUBLIC_URL + "/home"}>
-            {strings["home"]}
+            Home
           </Link>
         </li>
 
         <li className="menu-item-has-children">
           <Link to={process.env.PUBLIC_URL} style={{ pointerEvents: "none" }}>
-            {strings["shop"]}
+            Accessories
           </Link>
           <ul className="sub-menu">
             {accessories?.map(data => (
@@ -39,39 +38,39 @@ const MobileNavMenu = ({ strings, accessories }) => {
         </li>
         <li className="menu-item-has-children">
           <Link to={process.env.PUBLIC_URL} style={{ pointerEvents: "none" }}>
-            {strings["about_us"]}
+            About Us
           </Link>
           <ul className="sub-menu">
             <li>
               <Link to={process.env.PUBLIC_URL + "/message"}>
-                {strings["ceo_message"]}
+                CEO Speech
               </Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/profile"}>
-                {strings["company_profile"]}
+                Profile
               </Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/management"}>
-                {strings["board_&_management"]}
+                Management
               </Link>
             </li>
             <li>
               <Link to={process.env.PUBLIC_URL + "/mission&vision"}>
-                {strings["mission"]}
+                Mission & Vision
               </Link>
             </li>
           </ul>
         </li>
         <li>
           <Link to={process.env.PUBLIC_URL + "/gallery"}>
-            {strings["gallery"]}
+            Gallery
           </Link>
         </li>
         <li>
           <Link to={process.env.PUBLIC_URL + "/contact"}>
-            {strings["contact_us"]}
+            Contact Us
           </Link>
         </li>
       </ul>
@@ -80,8 +79,7 @@ const MobileNavMenu = ({ strings, accessories }) => {
 };
 
 MobileNavMenu.propTypes = {
-  strings: PropTypes.object,
   accessories: PropTypes.array
 };
 
-export default multilanguage(MobileNavMenu);
+export default MobileNavMenu;

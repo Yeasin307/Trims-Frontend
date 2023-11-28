@@ -50,7 +50,7 @@ const Header = ({
       >
         <div className={layout === "container-fluid" ? layout : "container"}>
           {/* header top */}
-          <HeaderTop borderStyle={borderStyle} />
+          <HeaderTop />
         </div>
       </div>
 

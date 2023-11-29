@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import logo from '../../data/logo1.png';
 import Logo from "../../components/header/Logo";
 import NavMenu from "../../components/header/NavMenu";
 import IconGroup from "../../components/header/IconGroup";
@@ -63,7 +64,7 @@ const Header = ({
           <div className="row">
             <div className="col-xl-2 col-lg-2 col-md-6 col-4">
               {/* header logo */}
-              <Logo imageUrl="/assets/img/logo/logo.png" logoClass="logo" />
+              <Logo imageUrl={logo} logoClass="logo" />
             </div>
             <div className="col-xl-10 col-lg-10 d-none d-lg-block">
               {/* Nav menu */}

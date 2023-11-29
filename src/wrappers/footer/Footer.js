@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { animateScroll } from "react-scroll";
+import logo from '../../data/logo1.png';
 import FooterCopyright from "../../components/footer/FooterCopyright";
 
 const Footer = ({
@@ -46,7 +47,7 @@ const Footer = ({
           >
             {/* footer copyright */}
             <FooterCopyright
-              footerLogo="/assets/img/logo/logo.png"
+              footerLogo={logo}
               spaceBottomClass="mb-30"
             />
           </div>

@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useRef } from "react";
 import MetaTags from "react-meta-tags";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+// import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import axios from "axios";
 import { useToasts } from "react-toast-notifications";
 import Layout from "../../layout/Layout";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+// import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import LocationMap from "../../components/contact/LocationMap";
 
 const Contact = ({ location }) => {
-  const { pathname } = location;
+  // const { pathname } = location;
   const { addToast } = useToasts()
   const nameRef = useRef();
   const emailRef = useRef();
@@ -50,13 +50,13 @@ const Contact = ({ location }) => {
           content="contact page of trim tex bd"
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Contact
-      </BreadcrumbsItem>
+      </BreadcrumbsItem> */}
       <Layout headerTop="visible">
         {/* breadcrumb */}
-        <Breadcrumb />
+        {/* <Breadcrumb /> */}
         <div className="contact-area pt-100 pb-100">
           <div className="container">
             <div className="custom-row-2">

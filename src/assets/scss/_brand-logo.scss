@@ -10,21 +10,25 @@
       }
     }
   }
+
   .single-brand-logo,
   .single-brand-logo2 {
     text-align: center;
+
     img {
-      filter: grayscale(100%);
+      // filter: grayscale(100%);
       transition: all 0.5s ease 0s;
     }
-    &:hover img {
-      filter: grayscale(0%);
-    }
+
+    // &:hover img {
+    //   filter: grayscale(0%);
+    // }
   }
 }
 
 .brand-logo-wrap {
   padding: 100px 90px;
+
   @media #{$xs-layout} {
     padding: 50px 20px;
   }

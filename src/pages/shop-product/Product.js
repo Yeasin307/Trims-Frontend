@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useEffect, useState } from "react";
 import MetaTags from "react-meta-tags";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+// import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../layout/Layout";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+// import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
 import { getProduct } from "../../redux/actions/productActions";
 
 const Product = ({ location }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const { pathname } = location;
+  // const { pathname } = location;
   const { id } = useParams();
   const { product } = useSelector((state) => state.productData);
   const dispatch = useDispatch();
@@ -35,14 +35,14 @@ const Product = ({ location }) => {
         />
       </MetaTags>
 
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         Product
-      </BreadcrumbsItem>
+      </BreadcrumbsItem> */}
 
       <Layout headerTop="visible">
         {/* breadcrumb */}
-        <Breadcrumb />
+        {/* <Breadcrumb /> */}
 
         {isLoading &&
           <div className="container pt-95 pb-100">

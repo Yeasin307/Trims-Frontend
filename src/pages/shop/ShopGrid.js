@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import React, { Fragment, useState, useEffect } from 'react';
 import MetaTags from 'react-meta-tags';
 import Paginator from 'react-hooks-paginator';
-import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
+// import { BreadcrumbsItem } from 'react-breadcrumbs-dynamic';
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../layout/Layout';
-import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
+// import Breadcrumb from '../../wrappers/breadcrumb/Breadcrumb';
 import ShopTopbar from '../../wrappers/product/ShopTopbar';
 import ShopProduct from '../../wrappers/product/ShopProduct';
 import { getProductsByCategory } from "../../redux/actions/productsActions";
@@ -20,7 +20,7 @@ const ShopGrid = ({ location }) => {
     const { products } = useSelector((state) => state.productsData);
     const { id } = useParams();
     const dispatch = useDispatch();
-    const { pathname } = location;
+    // const { pathname } = location;
     const pageLimit = 6;
 
     useEffect(() => {
@@ -49,12 +49,12 @@ const ShopGrid = ({ location }) => {
                 />
             </MetaTags>
 
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Accessories</BreadcrumbsItem>
+            {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + '/'}>Home</BreadcrumbsItem>
+            <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>Accessories</BreadcrumbsItem> */}
 
             <Layout headerTop="visible">
                 {/* breadcrumb */}
-                <Breadcrumb />
+                {/* <Breadcrumb /> */}
 
                 <div className="shop-area pt-95 pb-100">
                     <div className="container">

@@ -3,16 +3,16 @@ import MetaTags from "react-meta-tags";
 import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import React, { Fragment, useEffect } from "react";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+// import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useDispatch, useSelector } from "react-redux";
 import { getGallery } from "../../redux/actions/componentActions";
 import Layout from "../../layout/Layout";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+// import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import ListImageItem from "../../components/gallery/ListImageItem";
 
 const Gallery = ({ location }) => {
     const { gallery } = useSelector((state) => state.componentData);
-    const { pathname } = location;
+    // const { pathname } = location;
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -28,13 +28,13 @@ const Gallery = ({ location }) => {
                     content="gallery page of trim tex bd"
                 />
             </MetaTags>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+            {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
                 Gallery
-            </BreadcrumbsItem>
+            </BreadcrumbsItem> */}
             <Layout headerTop="visible">
                 {/* breadcrumb */}
-                <Breadcrumb />
+                {/* <Breadcrumb /> */}
 
                 <Box
                     className="container pt-50 pb-50"

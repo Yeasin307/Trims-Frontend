@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import MetaTags from "react-meta-tags";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+// import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import Layout from "../../layout/Layout";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+// import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 
 const NotFound = ({ location }) => {
-  const { pathname } = location;
+  // const { pathname } = location;
 
   return (
     <Fragment>
@@ -18,13 +18,13 @@ const NotFound = ({ location }) => {
           content="404 page of trim tex bd"
         />
       </MetaTags>
-      <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+      {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
       <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
         404 page
-      </BreadcrumbsItem>
+      </BreadcrumbsItem> */}
       <Layout headerTop="visible">
         {/* breadcrumb */}
-        <Breadcrumb />
+        {/* <Breadcrumb /> */}
         <div className="error-area pt-40 pb-100">
           <div className="container">
             <div className="row justify-content-center">

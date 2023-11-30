@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useEffect } from "react";
 import MetaTags from "react-meta-tags";
-import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
+// import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
 import { useDispatch, useSelector } from "react-redux";
 import { getVision } from "../../redux/actions/componentActions";
 import Layout from "../../layout/Layout";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+// import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 import logo from "../../data/vision-1.png";
 
 const Vision = ({ location }) => {
     const { vision } = useSelector((state) => state.componentData);
-    const { pathname } = location;
+    // const { pathname } = location;
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -27,13 +27,13 @@ const Vision = ({ location }) => {
                     content="about page of trim tex bd"
                 />
             </MetaTags>
-            <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
+            {/* <BreadcrumbsItem to={process.env.PUBLIC_URL + "/"}>Home</BreadcrumbsItem>
             <BreadcrumbsItem to={process.env.PUBLIC_URL + pathname}>
                 About us
-            </BreadcrumbsItem>
+            </BreadcrumbsItem> */}
             <Layout headerTop="visible">
                 {/* breadcrumb */}
-                <Breadcrumb />
+                {/* <Breadcrumb /> */}
 
                 <div className="container pt-100 pb-100">
 

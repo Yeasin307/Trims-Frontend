@@ -64,35 +64,36 @@ const ShopGrid = ({ location }) => {
                                 <span></span>
                             </div>
                         }
-                        {!isLoading && <div className="row">
+                        {!isLoading &&
+                            <div className="row">
 
-                            <div className="col-lg-12">
-                                {/* shop topbar default */}
-                                <ShopTopbar
-                                    getLayout={getLayout}
-                                    productCount={products.length}
-                                    sortedProductCount={currentData.length}
-                                />
-
-                                {/* shop page content default */}
-                                <ShopProduct layout={layout} products={currentData} />
-
-                                {/* shop product pagination */}
-                                <div className="pro-pagination-style text-center mt-30">
-                                    <Paginator
-                                        totalRecords={products.length}
-                                        pageLimit={pageLimit}
-                                        pageNeighbours={2}
-                                        setOffset={setOffset}
-                                        currentPage={currentPage}
-                                        setCurrentPage={setCurrentPage}
-                                        pageContainerClass="mb-0 mt-0"
-                                        pagePrevText="«"
-                                        pageNextText="»"
+                                <div className="col-lg-12">
+                                    {/* shop topbar default */}
+                                    <ShopTopbar
+                                        getLayout={getLayout}
+                                        productCount={products.length}
+                                        sortedProductCount={currentData.length}
                                     />
+
+                                    {/* shop page content default */}
+                                    <ShopProduct layout={layout} products={currentData} />
+
+                                    {/* shop product pagination */}
+                                    <div className="pro-pagination-style text-center mt-30">
+                                        <Paginator
+                                            totalRecords={products.length}
+                                            pageLimit={pageLimit}
+                                            pageNeighbours={2}
+                                            setOffset={setOffset}
+                                            currentPage={currentPage}
+                                            setCurrentPage={setCurrentPage}
+                                            pageContainerClass="mb-0 mt-0"
+                                            pagePrevText="«"
+                                            pageNextText="»"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                        </div>}
+                            </div>}
                     </div>
                 </div>
             </Layout>

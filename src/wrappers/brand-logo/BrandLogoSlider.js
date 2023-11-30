@@ -37,11 +37,11 @@ const BrandLogoSlider = ({ spaceBottomClass, spaceTopClass, images }) => {
             }}
             modules={[Autoplay]}>
             {images &&
-              images.map((data, index) => {
+              images.map((image, index) => {
                 return (
                   <SwiperSlide key={index}>
                     <BrandLogoSingle
-                      data={data}
+                      image={image}
                       spaceBottomClass="mb-30"
                     />
                   </SwiperSlide>

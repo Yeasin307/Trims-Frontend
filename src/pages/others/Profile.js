@@ -39,7 +39,11 @@ const Profile = ({ location }) => {
                 <Breadcrumb />
 
                 {/* section title with text */}
-                <SectionTitleWithText spaceTopClass="pt-100" spaceBottomClass="pb-95" />
+                <SectionTitleWithText
+                    readMore={true}
+                    spaceTopClass="pt-100"
+                    spaceBottomClass="pb-95"
+                />
 
                 <div className="subscribe-area-3 pb-50">
                     <div className="container-fluid">

@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
+import { Skeleton } from '@mui/material';
 import { Link } from "react-router-dom";
 import { useInView } from 'react-intersection-observer';
-import loader from '../../data/loader-1.gif';
+import loader from '../../data/loader-3.png';
 
 const RelatedProductGridSingle = ({
     product,
@@ -28,21 +29,31 @@ const RelatedProductGridSingle = ({
                     <div className="product-img">
                         <Link to={process.env.PUBLIC_URL + "/product/" + product?.id}>
 
-                            {(inView && isLoading) && <img
-                                alt=""
-                                src={loader}
-                            />}
+                            {(inView && isLoading) &&
+                                <Skeleton
+                                    variant="rectangular"
+                                    animation="wave"
+                                >
+                                    <img
+                                        alt=""
+                                        src={loader}
+                                        style={{ visibility: 'hidden' }}
+                                    />
+                                </Skeleton>}
 
                             {inView && <img
                                 alt=""
                                 src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
                                 onLoad={() => { setIsLoading(false) }}
-                                style={{ visibility: isLoading ? 'hidden' : 'visible' }}
+                                style={{ display: isLoading ? 'none' : null }}
                             />}
 
                         </Link>
 
-                        <div className="product-action">
+                        <div
+                            className="product-action"
+                            style={{ display: isLoading ? 'none' : null }}
+                        >
                             <div className="pro-same-action pro-wishlist">
                             </div>
                             <div className="pro-same-action pro-cart">

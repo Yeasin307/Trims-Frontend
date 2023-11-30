@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from "react-redux";
 import { useInView } from 'react-intersection-observer';
 import { getAbout } from "../../redux/actions/componentActions";
 import { useIsOverflow } from "../../hooks/useIsOverflow.js";
 
-const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
-  const [readMore, setReadMore] = useState(false);
+const SectionTitleWithText = ({ readMore, spaceTopClass, spaceBottomClass }) => {
   const { about } = useSelector((state) => state.componentData);
   const reference = useRef();
   let isOverflow = useIsOverflow(reference, (isOverflowFromCallback) => {
@@ -34,7 +34,7 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
           {about?.subtitle && <div dangerouslySetInnerHTML={{ __html: `${about?.subtitle}` }} />}
           {about?.title && <div dangerouslySetInnerHTML={{ __html: `${about?.title}` }} />}
           <div className="row">
-            <div className="col-sm-12 col-md-6">
+            <div className={`col-sm-12 col-md-6 ${readMore && "d-flex justify-content-center align-items-center"}`}>
               <img
                 className="img-fluid"
                 src={process.env.REACT_APP_SERVER_API + "/static/components/" + about?.image}
@@ -46,18 +46,19 @@ const SectionTitleWithText = ({ spaceTopClass, spaceBottomClass }) => {
                 <div
                   ref={reference}
                   className="overflow-read-more"
-                  style={{ textAlign: 'justify', height: readMore ? '100%' : null }}
+                  style={{ textAlign: 'justify', height: readMore && '100%' }}
                   dangerouslySetInnerHTML={{ __html: `${about?.description}` }}
                 />
               }
-              {(isOverflow || readMore) &&
-                <Button
-                  variant="text"
-                  sx={{ color: 'gray', position: 'absolute', right: 15 }}
-                  onClick={() => setReadMore(!readMore)}
-                >
-                  {readMore ? "Read Less..." : "Read More..."}
-                </Button>
+              {isOverflow &&
+                <Link to="/profile">
+                  <Button
+                    variant="outlined"
+                    sx={{ color: 'gray', borderColor: 'gray', position: 'absolute', right: 15 }}
+                  >
+                    Read More...
+                  </Button>
+                </Link>
               }
             </div>
           </div>

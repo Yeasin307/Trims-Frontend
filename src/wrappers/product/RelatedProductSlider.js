@@ -47,7 +47,6 @@ const RelatedProductSlider = ({ spaceBottomClass, categoryId }) => {
         }
 
         {(!isLoading && inView) &&
-
           <Swiper
             loop={true}
             autoplay={{

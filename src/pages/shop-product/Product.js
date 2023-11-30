@@ -54,17 +54,19 @@ const Product = ({ location }) => {
         }
 
         {/* product description with image */}
-        {!isLoading && <ProductImageDescription
-          spaceTopClass="pt-100"
-          spaceBottomClass="pb-100"
-          product={product}
-        />}
+        {!isLoading &&
+          <ProductImageDescription
+            spaceTopClass="pt-100"
+            spaceBottomClass="pb-100"
+            product={product}
+          />}
 
         {/* related product slider */}
-        {(!isLoading && product) && <RelatedProductSlider
-          spaceBottomClass="pb-95"
-          categoryId={product?.categoryId}
-        />}
+        {(!isLoading && product) &&
+          <RelatedProductSlider
+            spaceBottomClass="pb-95"
+            categoryId={product?.categoryId}
+          />}
       </Layout>
     </Fragment>
   );

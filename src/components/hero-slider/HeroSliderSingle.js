@@ -7,7 +7,7 @@ const HeroSliderSingle = ({ data, sliderClass }) => {
     <div
       className={`single-slider-2 slider-height-2 d-flex align-items-center bg-img ${sliderClass ? sliderClass : ""
         }`}
-      style={{ backgroundImage: `url(${process.env.REACT_APP_SERVER_API + "/static/components/" + data.image})`, backgroundColor: '#e8e8e8' }}
+      style={{ backgroundImage: `url("${process.env.REACT_APP_SERVER_API + "/static/components/" + data.image}")`, backgroundColor: '#e8e8e8' }}
     >
       <div className="container">
         <div className="row">

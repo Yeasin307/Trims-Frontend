@@ -5,7 +5,7 @@ export const FETCH_PRODUCTS_BY_CATEGORY_SUCCESS = "FETCH_PRODUCTS_BY_CATEGORY_SU
 
 export const getInitialProducts = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/products/active`);
+    const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/products/featured`);
     dispatch({ type: FETCH_INITIAL_PRODUCTS_SUCCESS, payload: res?.data });
   }
   catch (error) {

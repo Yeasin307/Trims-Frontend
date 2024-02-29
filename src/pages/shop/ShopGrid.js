@@ -18,18 +18,18 @@ const ShopGrid = ({ location }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentData, setCurrentData] = useState([]);
     const { products } = useSelector((state) => state.productsData);
-    const { id } = useParams();
+    const { slug } = useParams();
     const dispatch = useDispatch();
     // const { pathname } = location;
     const pageLimit = 6;
 
     useEffect(() => {
         setIsLoading(true);
-        dispatch(getProductsByCategory(id))
+        dispatch(getProductsByCategory(slug))
             .then(() => {
                 setIsLoading(false);
             })
-    }, [dispatch, id])
+    }, [dispatch, slug])
 
     useEffect(() => {
         setCurrentData(products.slice(offset, offset + pageLimit));

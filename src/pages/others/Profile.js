@@ -54,7 +54,7 @@ const Profile = ({ location }) => {
                                         <div className="mc-form">
                                             <div className="clear-3">
                                                 <a
-                                                    href={process.env.REACT_APP_SERVER_API + "/static/components/" + profile?.file}
+                                                    href={"/static/components/" + profile?.file}
                                                     download="trimtex-bd"
                                                 >
                                                     <button className="button">

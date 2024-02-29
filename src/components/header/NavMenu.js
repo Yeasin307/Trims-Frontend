@@ -36,13 +36,13 @@ const NavMenu = ({ menuWhiteClass, sidebarMenu, accessories }) => {
                 <li key={data.id} >
                   <ul>
                     <li className="mega-menu-title">
-                      <Link to={process.env.PUBLIC_URL + `/accessories/${data?.id}`}>
+                      <Link to={process.env.PUBLIC_URL + `/accessories/${data?.slug}`}>
                         {data.name}
                       </Link>
                     </li>
                     {data?.Products?.map(data => (
                       <li key={data.id}>
-                        <Link to={process.env.PUBLIC_URL + `/product/${data?.id}`}>
+                        <Link to={process.env.PUBLIC_URL + `/product/${data?.slug}`}>
                           {data.productName}
                         </Link>
                       </li>

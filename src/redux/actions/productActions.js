@@ -2,10 +2,10 @@ import axios from "axios";
 
 export const FETCH_PRODUCT_SUCCESS = "FETCH_PRODUCT_SUCCESS";
 
-export const getProduct = (id) => async (dispatch) => {
+export const getProduct = (slug) => async (dispatch) => {
     try {
-        if (id) {
-            const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/products/${id}`);
+        if (slug) {
+            const res = await axios.get(`/products/${slug}`);
             dispatch({ type: FETCH_PRODUCT_SUCCESS, payload: res?.data });
         }
     }

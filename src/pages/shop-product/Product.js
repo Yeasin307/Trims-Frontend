@@ -13,17 +13,17 @@ import { getProduct } from "../../redux/actions/productActions";
 const Product = ({ location }) => {
   const [isLoading, setIsLoading] = useState(true);
   // const { pathname } = location;
-  const { id } = useParams();
+  const { slug } = useParams();
   const { product } = useSelector((state) => state.productData);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setIsLoading(true);
-    dispatch(getProduct(id))
+    dispatch(getProduct(slug))
       .then(() => {
         setIsLoading(false);
       });
-  }, [dispatch, id])
+  }, [dispatch, slug])
 
   return (
     <Fragment>

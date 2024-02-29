@@ -37,7 +37,7 @@ const BrandLogoSingle = ({
       {inView &&
         <img
           alt=""
-          src={process.env.REACT_APP_SERVER_API + "/static/components/" + image}
+          src={"/static/components/" + image}
           onLoad={() => { setIsLoading(false) }}
           style={{ display: isLoading ? 'none' : null }}
         />}

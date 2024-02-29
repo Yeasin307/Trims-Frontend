@@ -18,8 +18,8 @@ const ProductGridListSingle = ({
     rootMargin: "100px 0px",
     triggerOnce: true
   });
-  // const loaded_1 = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image);
-  // const loaded_2 = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image);
+  // const loaded_1 = useProgressiveImage("/static/productimages/" + product?.productDetails[0]?.image);
+  // const loaded_2 = useProgressiveImage("/static/productimages/" + product?.productDetails[1]?.image);
 
   return (
     <Fragment>
@@ -32,7 +32,7 @@ const ProductGridListSingle = ({
           className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
         >
           <div className="product-img">
-            <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+            <Link to={process.env.PUBLIC_URL + "/product/" + product.slug}>
               {(inView && isLoading) &&
                 <Skeleton
                   variant="rectangular"
@@ -47,7 +47,7 @@ const ProductGridListSingle = ({
               {inView &&
                 <img
                   alt=""
-                  src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
+                  src={"/static/productimages/" + product?.productDetails[0]?.image}
                   onLoad={() => { setIsLoading(false) }}
                   className="default-img"
                   style={{ display: isLoading ? 'none' : null }}
@@ -56,7 +56,7 @@ const ProductGridListSingle = ({
               {(inView && !isLoading && product?.productDetails?.length > 1) &&
                 <img
                   alt=""
-                  src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image}
+                  src={"/static/productimages/" + product?.productDetails[1]?.image}
                   className="hover-img"
                 />}
               {/* <img
@@ -84,7 +84,7 @@ const ProductGridListSingle = ({
               <div className="pro-same-action pro-wishlist">
               </div>
               <div className="pro-same-action pro-cart">
-                <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
+                <Link to={`${process.env.PUBLIC_URL}/product/${product.slug}`}>
                   Details
                 </Link>
               </div>
@@ -94,7 +94,7 @@ const ProductGridListSingle = ({
           </div>
           <div className="product-content text-center">
             <h3>
-              <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+              <Link to={process.env.PUBLIC_URL + "/product/" + product.slug}>
                 {product.productName}
               </Link>
             </h3>
@@ -105,7 +105,7 @@ const ProductGridListSingle = ({
             <div className="col-xl-4 col-md-5 col-sm-6">
               <div className="product-list-image-wrap">
                 <div className="product-img">
-                  <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+                  <Link to={process.env.PUBLIC_URL + "/product/" + product.slug}>
                     {(inView && isLoading) &&
                       <Skeleton
                         variant="rectangular"
@@ -120,7 +120,7 @@ const ProductGridListSingle = ({
                     {inView &&
                       <img
                         alt=""
-                        src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
+                        src={"/static/productimages/" + product?.productDetails[0]?.image}
                         onLoad={() => { setIsLoading(false) }}
                         className="default-img img-fluid"
                         style={{ display: isLoading ? 'none' : null }}
@@ -129,18 +129,18 @@ const ProductGridListSingle = ({
                     {(inView && !isLoading && product?.productDetails?.length > 1) &&
                       <img
                         alt=""
-                        src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image}
+                        src={"/static/productimages/" + product?.productDetails[1]?.image}
                         className="hover-img img-fluid"
                       />}
                     {/* <img
                       className="default-img img-fluid"
-                      src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
+                      src={"/static/productimages/" + product?.productDetails[0]?.image}
                       alt=""
                     />
                     {product?.productDetails?.length > 1 ? (
                       <img
                         className="hover-img img-fluid"
-                        src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[1]?.image}
+                        src={"/static/productimages/" + product?.productDetails[1]?.image}
                         alt=""
                       />
                     ) : (
@@ -153,12 +153,12 @@ const ProductGridListSingle = ({
             <div className="col-xl-8 col-md-7 col-sm-6">
               <div className="shop-list-content">
                 <h3>
-                  <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+                  <Link to={process.env.PUBLIC_URL + "/product/" + product.slug}>
                     {product.productName}
                   </Link>
                 </h3>
                 <h4>
-                  <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+                  <Link to={process.env.PUBLIC_URL + "/product/" + product.slug}>
                     {product.title}
                   </Link>
                 </h4>
@@ -170,7 +170,7 @@ const ProductGridListSingle = ({
 
                 <div className="shop-list-actions d-flex align-items-center">
                   <div className="shop-list-btn btn-hover">
-                    <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
+                    <Link to={`${process.env.PUBLIC_URL}/product/${product.slug}`}>
                       Details
                     </Link>
                   </div>

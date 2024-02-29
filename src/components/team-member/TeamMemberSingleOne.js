@@ -4,7 +4,7 @@ import useProgressiveImage from '../../hooks/useProgressiveImage';
 import loader from '../../data/loader-2.gif';
 
 const TeamMemberSingleOne = ({ data, spaceBottomClass }) => {
-  const loaded = useProgressiveImage(process.env.REACT_APP_SERVER_API + "/static/components/" + data.image);
+  const loaded = useProgressiveImage("/static/components/" + data.image);
 
   return (
     <div className="col-lg-3 col-md-6 col-sm-6">

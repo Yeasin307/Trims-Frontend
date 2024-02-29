@@ -5,7 +5,7 @@ export const GET_ACCESSORIES_SUCCESS = "GET_ACCESSORIES_SUCCESS";
 export const getAllAccessories = () => async (dispatch) => {
 
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/categories/active`);
+        const res = await axios.get(`/categories/active`);
 
         dispatch({ type: GET_ACCESSORIES_SUCCESS, payload: res.data });
     }

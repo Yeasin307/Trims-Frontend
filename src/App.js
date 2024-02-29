@@ -54,15 +54,15 @@ const App = () => {
 
                 {/* Shop pages */}
                 <Route
-                  path={process.env.PUBLIC_URL + "/accessories/:id"}
+                  path={process.env.PUBLIC_URL + "/accessories/:slug"}
                   component={ShopGrid}
                 />
 
                 {/* Shop product pages */}
                 <Route
-                  path={process.env.PUBLIC_URL + "/product/:id"}
+                  path={process.env.PUBLIC_URL + "/product/:slug"}
                   render={(routeProps) => (
-                    <Product {...routeProps} key={routeProps.match.params.id} />
+                    <Product {...routeProps} key={routeProps.match.params.slug} />
                   )}
                 />
 

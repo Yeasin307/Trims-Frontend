@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import axios from 'axios';
 import { save, load } from "redux-localstorage-simple";
 import { Provider } from "react-redux";
 import rootReducer from "./redux/reducers/rootReducer";
@@ -12,6 +13,8 @@ import "./assets/scss/style.scss";
 import * as serviceWorker from "./serviceWorker";
 
 import { composeWithDevTools } from "redux-devtools-extension";
+
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_API;
 
 const store = createStore(
   rootReducer,

@@ -13,7 +13,7 @@ export const FETCH_PROFILE_SUCCESS = "FETCH_PROFILE_SUCCESS";
 
 export const getSlider = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/slider`);
+        const res = await axios.get(`/components/slider`);
 
         dispatch({ type: FETCH_SLIDER_SUCCESS, payload: res.data });
     }
@@ -24,7 +24,7 @@ export const getSlider = () => async (dispatch) => {
 
 export const getAbout = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/about`);
+        const res = await axios.get(`/components/about`);
 
         dispatch({ type: FETCH_ABOUT_SUCCESS, payload: res.data });
     }
@@ -35,7 +35,7 @@ export const getAbout = () => async (dispatch) => {
 
 export const getVision = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/vision`);
+        const res = await axios.get(`/components/vision`);
 
         dispatch({ type: FETCH_VISION_SUCCESS, payload: res.data });
     }
@@ -46,7 +46,7 @@ export const getVision = () => async (dispatch) => {
 
 export const getMission = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/mission`);
+        const res = await axios.get(`/components/mission`);
 
         dispatch({ type: FETCH_MISSION_SUCCESS, payload: res.data });
     }
@@ -57,7 +57,7 @@ export const getMission = () => async (dispatch) => {
 
 export const getGoal = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/goal`);
+        const res = await axios.get(`/components/goal`);
 
         dispatch({ type: FETCH_GOAL_SUCCESS, payload: res.data });
     }
@@ -68,7 +68,7 @@ export const getGoal = () => async (dispatch) => {
 
 export const getClient = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/client`);
+        const res = await axios.get(`/components/client`);
 
         dispatch({ type: FETCH_CLIENT_SUCCESS, payload: res.data });
     }
@@ -79,7 +79,7 @@ export const getClient = () => async (dispatch) => {
 
 export const getGallery = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/gallery`);
+        const res = await axios.get(`/components/gallery`);
 
         dispatch({ type: FETCH_GALLERY_SUCCESS, payload: res.data });
     }
@@ -90,7 +90,7 @@ export const getGallery = () => async (dispatch) => {
 
 export const getManagement = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/management`);
+        const res = await axios.get(`/components/management`);
 
         dispatch({ type: FETCH_MANAGEMENT_SUCCESS, payload: res.data });
     }
@@ -101,7 +101,7 @@ export const getManagement = () => async (dispatch) => {
 
 export const getMessage = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/message`);
+        const res = await axios.get(`/components/message`);
 
         dispatch({ type: FETCH_MESSAGE_SUCCESS, payload: res.data });
     }
@@ -112,7 +112,7 @@ export const getMessage = () => async (dispatch) => {
 
 export const getProfile = () => async (dispatch) => {
     try {
-        const res = await axios.get(`${process.env.REACT_APP_SERVER_API}/components/profile`);
+        const res = await axios.get(`/components/profile`);
 
         dispatch({ type: FETCH_PROFILE_SUCCESS, payload: res.data });
     }

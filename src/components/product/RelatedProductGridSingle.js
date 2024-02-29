@@ -27,7 +27,7 @@ const RelatedProductGridSingle = ({
                     className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
                 >
                     <div className="product-img">
-                        <Link to={process.env.PUBLIC_URL + "/product/" + product?.id}>
+                        <Link to={process.env.PUBLIC_URL + "/product/" + product?.slug}>
 
                             {(inView && isLoading) &&
                                 <Skeleton
@@ -43,7 +43,7 @@ const RelatedProductGridSingle = ({
 
                             {inView && <img
                                 alt=""
-                                src={process.env.REACT_APP_SERVER_API + "/static/productimages/" + product?.productDetails[0]?.image}
+                                src={"/static/productimages/" + product?.productDetails[0]?.image}
                                 onLoad={() => { setIsLoading(false) }}
                                 style={{ display: isLoading ? 'none' : null }}
                             />}
@@ -57,7 +57,7 @@ const RelatedProductGridSingle = ({
                             <div className="pro-same-action pro-wishlist">
                             </div>
                             <div className="pro-same-action pro-cart">
-                                <Link to={`${process.env.PUBLIC_URL}/product/${product?.id}`}>
+                                <Link to={`${process.env.PUBLIC_URL}/product/${product?.slug}`}>
                                     Details
                                 </Link>
                             </div>
@@ -67,7 +67,7 @@ const RelatedProductGridSingle = ({
                     </div>
                     <div className="product-content text-center">
                         <h3>
-                            <Link to={process.env.PUBLIC_URL + "/product/" + product?.id}>
+                            <Link to={process.env.PUBLIC_URL + "/product/" + product?.slug}>
                                 {product?.productName}
                             </Link>
                         </h3>

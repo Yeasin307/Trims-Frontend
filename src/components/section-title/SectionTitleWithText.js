@@ -37,7 +37,7 @@ const SectionTitleWithText = ({ readMore, spaceTopClass, spaceBottomClass }) => 
             <div className={`col-sm-12 col-md-6 ${readMore && "d-flex justify-content-center align-items-center"}`}>
               <img
                 className="img-fluid"
-                src={"/static/components/" + about?.image}
+                src={process.env.REACT_APP_BACKEND_API + "/static/components/" + about?.image}
                 alt=""
               />
             </div>

@@ -20,7 +20,7 @@ const ProductImageGallery = ({ product }) => {
                 <LightgalleryItem
                   key={key}
                   group="any"
-                  src={"/static/productimages/" + single?.image}
+                  src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + single?.image}
                 >
                   <button >
                     <i className="pe-7s-expand1"></i>
@@ -45,7 +45,7 @@ const ProductImageGallery = ({ product }) => {
                 <SwiperSlide key={key}>
                   <div className="single-image">
                     <img
-                      src={"/static/productimages/" + single?.image}
+                      src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + single?.image}
                       className="img-fluid"
                       alt=""
                     />
@@ -76,7 +76,7 @@ const ProductImageGallery = ({ product }) => {
                 <SwiperSlide key={key}>
                   <div className="single-image">
                     <img
-                      src={"/static/productimages/" + single?.image}
+                      src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + single?.image}
                       className="img-fluid"
                       alt=""
                     />

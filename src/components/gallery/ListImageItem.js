@@ -7,7 +7,7 @@ import useProgressiveImage from '../../hooks/useProgressiveImage';
 import loader from '../../data/loader-1.gif';
 
 const ListImageItem = ({ item }) => {
-    const loaded = useProgressiveImage("/static/components/" + item.image);
+    const loaded = useProgressiveImage(process.env.REACT_APP_BACKEND_API + "/static/components/" + item.image);
 
     return (
         <ImageListItem>

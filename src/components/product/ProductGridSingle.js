@@ -44,7 +44,7 @@ const ProductGridSingle = ({
               {inView &&
                 <img
                   alt=""
-                  src={"/static/productimages/" + product?.productDetails[0]?.image}
+                  src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[0]?.image}
                   onLoad={() => { setIsLoading(false) }}
                   style={{ display: isLoading ? 'none' : null }}
                 />}
@@ -52,7 +52,7 @@ const ProductGridSingle = ({
               {(inView && !isLoading && product?.productDetails?.length > 1) &&
                 <img
                   alt=""
-                  src={"/static/productimages/" + product?.productDetails[1]?.image}
+                  src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[1]?.image}
                   className="hover-img"
                 />}
             </Link>

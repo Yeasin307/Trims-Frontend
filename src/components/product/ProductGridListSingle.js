@@ -18,8 +18,8 @@ const ProductGridListSingle = ({
     rootMargin: "100px 0px",
     triggerOnce: true
   });
-  // const loaded_1 = useProgressiveImage("/static/productimages/" + product?.productDetails[0]?.image);
-  // const loaded_2 = useProgressiveImage("/static/productimages/" + product?.productDetails[1]?.image);
+  // const loaded_1 = useProgressiveImage(process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[0]?.image);
+  // const loaded_2 = useProgressiveImage(process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[1]?.image);
 
   return (
     <Fragment>
@@ -47,7 +47,7 @@ const ProductGridListSingle = ({
               {inView &&
                 <img
                   alt=""
-                  src={"/static/productimages/" + product?.productDetails[0]?.image}
+                  src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[0]?.image}
                   onLoad={() => { setIsLoading(false) }}
                   className="default-img"
                   style={{ display: isLoading ? 'none' : null }}
@@ -56,7 +56,7 @@ const ProductGridListSingle = ({
               {(inView && !isLoading && product?.productDetails?.length > 1) &&
                 <img
                   alt=""
-                  src={"/static/productimages/" + product?.productDetails[1]?.image}
+                  src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[1]?.image}
                   className="hover-img"
                 />}
               {/* <img
@@ -120,7 +120,7 @@ const ProductGridListSingle = ({
                     {inView &&
                       <img
                         alt=""
-                        src={"/static/productimages/" + product?.productDetails[0]?.image}
+                        src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[0]?.image}
                         onLoad={() => { setIsLoading(false) }}
                         className="default-img img-fluid"
                         style={{ display: isLoading ? 'none' : null }}
@@ -129,18 +129,18 @@ const ProductGridListSingle = ({
                     {(inView && !isLoading && product?.productDetails?.length > 1) &&
                       <img
                         alt=""
-                        src={"/static/productimages/" + product?.productDetails[1]?.image}
+                        src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[1]?.image}
                         className="hover-img img-fluid"
                       />}
                     {/* <img
                       className="default-img img-fluid"
-                      src={"/static/productimages/" + product?.productDetails[0]?.image}
+                      src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[0]?.image}
                       alt=""
                     />
                     {product?.productDetails?.length > 1 ? (
                       <img
                         className="hover-img img-fluid"
-                        src={"/static/productimages/" + product?.productDetails[1]?.image}
+                        src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[1]?.image}
                         alt=""
                       />
                     ) : (

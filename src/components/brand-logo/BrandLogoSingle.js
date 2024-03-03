@@ -28,7 +28,7 @@ const BrandLogoSingle = ({
           animation="wave"
         >
           <img
-            alt=""
+            alt="Loading..."
             src={loader}
             style={{ visibility: 'hidden' }}
           />
@@ -36,7 +36,7 @@ const BrandLogoSingle = ({
 
       {inView &&
         <img
-          alt=""
+          alt="Brand Logo"
           src={process.env.REACT_APP_BACKEND_API + "/static/components/" + image}
           onLoad={() => { setIsLoading(false) }}
           style={{ display: isLoading ? 'none' : null }}

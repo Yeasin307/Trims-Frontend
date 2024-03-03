@@ -49,7 +49,7 @@ const Message = ({ location }) => {
                             <img
                                 className="img-fluid"
                                 src={process.env.REACT_APP_BACKEND_API + "/static/components/" + message?.image}
-                                alt=""
+                                alt="Message"
                             />
                         </div>
                         <div

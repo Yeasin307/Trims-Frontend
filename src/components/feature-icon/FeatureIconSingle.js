@@ -9,7 +9,7 @@ const FeatureIconSingle = ({ data, spaceBottomClass, textAlignClass }) => {
           } ${textAlignClass ? textAlignClass : ""}`}
       >
         <div className="support-content-6">
-          <img src={process.env.PUBLIC_URL + data.image} alt="" />
+          <img src={process.env.PUBLIC_URL + data.image} alt="Feature Icon" />
           <h5>{data.title}</h5>
           <p style={{ textAlign: 'justify' }}>{data.subtitle}</p>
         </div>

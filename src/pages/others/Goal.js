@@ -50,7 +50,7 @@ const Goal = ({ location }) => {
                             <img
                                 className="img-fluid"
                                 src={logo}
-                                alt=""
+                                alt="Goal"
                             />
                         </div>
                         <div

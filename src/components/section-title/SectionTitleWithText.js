@@ -38,7 +38,7 @@ const SectionTitleWithText = ({ readMore, spaceTopClass, spaceBottomClass }) => 
               <img
                 className="img-fluid"
                 src={process.env.REACT_APP_BACKEND_API + "/static/components/" + about?.image}
-                alt=""
+                alt="About Us"
               />
             </div>
             <div className="col-sm-12 col-md-6">

@@ -39,14 +39,14 @@ const ProductGridListSingle = ({
                   animation="wave"
                 >
                   <img
-                    alt=""
+                    alt="Loading..."
                     src={loader}
                     style={{ visibility: 'hidden' }}
                   />
                 </Skeleton>}
               {inView &&
                 <img
-                  alt=""
+                  alt="Product Img"
                   src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[0]?.image}
                   onLoad={() => { setIsLoading(false) }}
                   className="default-img"
@@ -55,7 +55,7 @@ const ProductGridListSingle = ({
 
               {(inView && !isLoading && product?.productDetails?.length > 1) &&
                 <img
-                  alt=""
+                  alt="Product Img"
                   src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[1]?.image}
                   className="hover-img"
                 />}
@@ -112,14 +112,14 @@ const ProductGridListSingle = ({
                         animation="wave"
                       >
                         <img
-                          alt=""
+                          alt="Loading..."
                           src={loader}
                           style={{ visibility: 'hidden' }}
                         />
                       </Skeleton>}
                     {inView &&
                       <img
-                        alt=""
+                        alt="Product Img"
                         src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[0]?.image}
                         onLoad={() => { setIsLoading(false) }}
                         className="default-img img-fluid"
@@ -128,7 +128,7 @@ const ProductGridListSingle = ({
 
                     {(inView && !isLoading && product?.productDetails?.length > 1) &&
                       <img
-                        alt=""
+                        alt="Product Img"
                         src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + product?.productDetails[1]?.image}
                         className="hover-img img-fluid"
                       />}

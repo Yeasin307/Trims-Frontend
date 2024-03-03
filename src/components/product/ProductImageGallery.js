@@ -47,7 +47,7 @@ const ProductImageGallery = ({ product }) => {
                     <img
                       src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + single?.image}
                       className="img-fluid"
-                      alt=""
+                      alt="Product Img"
                     />
                   </div>
                 </SwiperSlide>
@@ -78,7 +78,7 @@ const ProductImageGallery = ({ product }) => {
                     <img
                       src={process.env.REACT_APP_BACKEND_API + "/static/productimages/" + single?.image}
                       className="img-fluid"
-                      alt=""
+                      alt="Product Img"
                     />
                   </div>
                 </SwiperSlide>

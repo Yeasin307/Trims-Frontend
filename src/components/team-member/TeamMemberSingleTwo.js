@@ -14,7 +14,7 @@ const TeamMemberSingleTwo = ({ data, spaceBottomClass }) => {
                 <div className="team-img">
                     <img
                         src={loaded || loader}
-                        alt=""
+                        alt="Team Member"
                         loading="lazy"
                         className="img-fluid"
                     />

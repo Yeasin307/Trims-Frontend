@@ -50,7 +50,7 @@ const Vision = ({ location }) => {
                             <img
                                 className="img-fluid"
                                 src={logo}
-                                alt=""
+                                alt="Vision"
                             />
                         </div>
                         <div

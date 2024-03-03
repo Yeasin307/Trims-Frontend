@@ -53,7 +53,7 @@ const TabProduct = ({
                       animation="wave"
                     >
                       <img
-                        alt=""
+                        alt="Loading..."
                         src={loader}
                         style={{ visibility: 'hidden' }}
                       />
